@@ -1,32 +1,327 @@
 aid: scryfall
 name: Scryfall
-description: "Magic: The Gathering database"
-url: https://scryfall.com/docs/api
+description: Scryfall is the most comprehensive free Magic - The Gathering card database. The Scryfall
+  API exposes Cards (search, autocomplete, named, random, collection, by various IDs), Sets, Rulings,
+  Symbology, Catalogs, Bulk Data downloads, and card-object Migrations. The service is community-funded
+  (Patreon / Ko-fi) and offered free of charge under the Wizards of the Coast Fan Content Policy for
+  community software, research, and content. The API is HTTPS-only, requires a descriptive User-Agent
+  and Accept header on every request, and asks that clients keep sustained traffic under 10 requests
+  per second.
+type: Index
+url: https://raw.githubusercontent.com/api-evangelist/scryfall/main/apis.yml
+humanURL: https://scryfall.com/docs/api
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 specificationVersion: '0.20'
 created: '2026-05-28'
-modified: '2026-05-28'
-x-source: public-apis/public-apis
-x-category: "Games & Comics"
+modified: '2026-05-29'
+x-type: opensource
 x-tier: 3
-x-tier-reason: bulk-registered-from-public-apis
+x-tier-reason: enriched-via-full-pipeline
+x-source: public-apis/public-apis
+x-category: Games & Comics
 tags:
   - Games And Comics
+  - Magic The Gathering
+  - Card Data
+  - Open Data
+  - Free
+  - Community Funded
   - Public APIs
 apis:
-  - name: Scryfall
-    description: "Magic: The Gathering database"
+  - aid: scryfall:scryfall-api
+    name: Scryfall API
+    description: The Scryfall REST API exposes Magic - The Gathering card data, set metadata, Oracle
+      rulings, symbology, catalogs of in-game data points, daily bulk-data exports, and card-object
+      migration records. The Cards surface alone supports lookup by Scryfall ID, set+number,
+      Multiverse ID, MTGO ID, Arena ID, TCGplayer ID, Cardmarket ID, exact/fuzzy name, autocomplete,
+      random draw, and batch collection. All responses use a discriminated object model keyed by the
+      'object' field.
     humanURL: https://scryfall.com/docs/api
-    baseURL: https://scryfall.com/docs/api
+    baseURL: https://api.scryfall.com
     tags:
-      - Games And Comics
+      - Cards
+      - Sets
+      - Rulings
+      - Symbology
+      - Catalogs
+      - Bulk Data
+      - Magic The Gathering
     properties:
       - type: Documentation
         url: https://scryfall.com/docs/api
+      - type: APIReference
+        url: https://scryfall.com/docs/api/cards
+      - type: OpenAPI
+        url: openapi/scryfall-openapi.yml
+      - type: JSONSchema
+        url: json-schema/scryfall-card-schema.json
+      - type: JSONSchema
+        url: json-schema/scryfall-card-face-schema.json
+      - type: JSONSchema
+        url: json-schema/scryfall-related-card-schema.json
+      - type: JSONSchema
+        url: json-schema/scryfall-image-uris-schema.json
+      - type: JSONSchema
+        url: json-schema/scryfall-legalities-schema.json
+      - type: JSONSchema
+        url: json-schema/scryfall-prices-schema.json
+      - type: JSONSchema
+        url: json-schema/scryfall-set-schema.json
+      - type: JSONSchema
+        url: json-schema/scryfall-ruling-schema.json
+      - type: JSONSchema
+        url: json-schema/scryfall-card-symbol-schema.json
+      - type: JSONSchema
+        url: json-schema/scryfall-catalog-schema.json
+      - type: JSONSchema
+        url: json-schema/scryfall-bulk-data-schema.json
+      - type: JSONSchema
+        url: json-schema/scryfall-migration-schema.json
+      - type: JSONSchema
+        url: json-schema/scryfall-list-schema.json
+      - type: JSONSchema
+        url: json-schema/scryfall-error-schema.json
+      - type: JSONStructure
+        url: json-structure/scryfall-card-structure.json
+      - type: JSONStructure
+        url: json-structure/scryfall-set-structure.json
+      - type: JSONStructure
+        url: json-structure/scryfall-ruling-structure.json
+      - type: JSONStructure
+        url: json-structure/scryfall-card-symbol-structure.json
+      - type: JSONStructure
+        url: json-structure/scryfall-catalog-structure.json
+      - type: JSONStructure
+        url: json-structure/scryfall-bulk-data-structure.json
+      - type: JSONStructure
+        url: json-structure/scryfall-migration-structure.json
+      - type: JSONLD
+        url: json-ld/scryfall-context.jsonld
+      - type: Example
+        url: examples/scryfall-card-example.json
+      - type: Example
+        url: examples/scryfall-card-list-example.json
+      - type: Example
+        url: examples/scryfall-set-example.json
+      - type: Example
+        url: examples/scryfall-ruling-example.json
+      - type: Example
+        url: examples/scryfall-card-symbol-example.json
+      - type: Example
+        url: examples/scryfall-catalog-example.json
+      - type: Example
+        url: examples/scryfall-bulk-data-example.json
+      - type: Example
+        url: examples/scryfall-migration-example.json
+      - type: Example
+        url: examples/scryfall-error-example.json
+      - type: NaftikoCapability
+        url: capabilities/scryfall-cards.yaml
+      - type: NaftikoCapability
+        url: capabilities/scryfall-sets.yaml
+      - type: NaftikoCapability
+        url: capabilities/scryfall-rulings.yaml
+      - type: NaftikoCapability
+        url: capabilities/scryfall-symbology.yaml
+      - type: NaftikoCapability
+        url: capabilities/scryfall-catalogs.yaml
+      - type: NaftikoCapability
+        url: capabilities/scryfall-bulk-data.yaml
+      - type: NaftikoCapability
+        url: capabilities/scryfall-migrations.yaml
+      - type: RateLimits
+        url: rate-limits/scryfall-rate-limits.yml
+      - type: Authentication
+        url: https://scryfall.com/docs/api
+      - type: Errors
+        url: https://scryfall.com/docs/api/errors
 common:
   - type: Website
+    url: https://scryfall.com
+  - type: Documentation
     url: https://scryfall.com/docs/api
-  - type: PublicAPIsListing
-    url: https://github.com/public-apis/public-apis
+  - type: APIReference
+    url: https://scryfall.com/docs/api/cards
+  - type: GettingStarted
+    url: https://scryfall.com/docs/api
+  - type: Blog
+    url: https://scryfall.com/blog/category/api
+  - type: ChangeLog
+    url: https://scryfall.com/blog/category/api
+  - type: Support
+    url: https://scryfall.com/contact
+  - type: Contact
+    url: https://scryfall.com/contact
+  - type: Plans
+    url: plans/scryfall-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/scryfall-rate-limits.yml
+  - type: SpectralRules
+    url: rules/scryfall-rules.yml
+  - type: Vocabulary
+    url: vocabulary/scryfall-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/scryfall-context.jsonld
+  - type: GitHubOrganization
+    url: https://github.com/scryfall
+  - type: GitHubRepository
+    name: scryfall/api-types
+    url: https://github.com/scryfall/api-types
+    description: A library describing the Scryfall API as a system of TypeScript types.
+  - type: GitHubRepository
+    name: scryfall/google-sheets
+    url: https://github.com/scryfall/google-sheets
+    description: Custom =SCRYFALL() function for Google Sheets.
+  - type: GitHubRepository
+    name: scryfall/manamoji-slack
+    url: https://github.com/scryfall/manamoji-slack
+    description: Slack emojis for Magic card symbols.
+  - type: GitHubRepository
+    name: scryfall/manamoji-discord
+    url: https://github.com/scryfall/manamoji-discord
+    description: Discord emojis for Magic card symbols.
+  - type: GitHubRepository
+    name: scryfall/thopter
+    url: https://github.com/scryfall/thopter
+    description: A Slack bot returning Magic card information, pictures, and prices.
+  - type: GitHubRepository
+    name: scryfall/servo
+    url: https://github.com/scryfall/servo
+    description: A Discord bot that returns Magic card information and pictures.
+  - type: GitHubRepository
+    name: scryfall/scion
+    url: https://github.com/scryfall/scion
+    description: An Alfred workflow to quickly search for Magic cards.
+  - type: GitHubRepository
+    name: scryfall/gatherer-bugs
+    url: https://github.com/scryfall/gatherer-bugs
+    description: A public repository tracking bugs on gatherer.wizards.com.
+  - type: GitHubRepository
+    name: scryfall/art-game
+    url: https://github.com/scryfall/art-game
+    description: The MTG art-guessing game on Scryfall.
+  - type: SDK
+    name: scryfall-client (JavaScript)
+    url: https://github.com/crookedneighbor/scryfall-client
+    description: Community-maintained JavaScript client for the Scryfall API.
+  - type: SDK
+    name: scryfall-sdk (TypeScript)
+    url: https://www.npmjs.com/package/scryfall-sdk
+    description: Community-maintained TypeScript SDK for the Scryfall API.
+  - type: SDK
+    name: scrython (Python)
+    url: https://github.com/NandaScott/Scrython
+    description: Community-maintained Python wrapper for the Scryfall API.
+  - type: SDK
+    name: scryfall (Rust)
+    url: https://docs.rs/scryfall
+    description: Community-maintained Rust client for the Scryfall API.
+  - type: Tools
+    name: cryppadotta/scryfall-mcp
+    url: https://github.com/cryppadotta/scryfall-mcp
+    description: MCP server providing card details, rulings, and price lookups via the Scryfall API.
+  - type: Tools
+    name: bmurdock/scryfall-mcp
+    url: https://github.com/bmurdock/scryfall-mcp
+    description: MCP server for Scryfall-backed Magic search, rules lookup, pricing, set discovery,
+      and deckbuilding workflows.
+  - type: Tools
+    name: andershaig/mcp-scryfall
+    url: https://github.com/andershaig/mcp-scryfall
+    description: MCP server for Scryfall's Magic card search inside Claude.
+  - type: Tools
+    name: JoeMoCode/Scryfall-MCP
+    url: https://github.com/joemocode/scryfall-mcp
+    description: MCP server bringing Magic card data into Claude Desktop.
+  - type: Tools
+    name: artillect/mtg-mcp-servers
+    url: https://github.com/artillect/mtg-mcp-servers
+    description: MCP servers for Scryfall card search plus LLM decklist and hand management.
+  - type: Pricing
+    url: https://scryfall.com/donate
+  - type: TermsOfService
+    url: https://scryfall.com/docs/api
+  - type: PrivacyPolicy
+    url: https://scryfall.com/privacy
+  - type: Features
+    data:
+      - name: Comprehensive card database
+        description: Every Magic - The Gathering printing across paper, MTGO, and Arena with localized
+          translations.
+      - name: Fulltext search query language
+        description: Powerful Scryfall search syntax supporting color, type, format legality, set,
+          price, oracle text, and more.
+      - name: Daily bulk-data exports
+        description: Five daily JSON exports - oracle_cards, unique_artwork, default_cards, all_cards,
+          and rulings - for offline ingestion.
+      - name: Multi-resolution card imagery
+        description: Six image renderings per card - small, normal, large, png, art_crop, border_crop.
+      - name: Up-to-date market prices
+        description: USD / EUR / MTGO Tix pricing across normal, foil, and etched finishes.
+      - name: Oracle rulings
+        description: Wizards of the Coast Oracle rulings plus Scryfall editorial notes per card.
+      - name: Symbology with SVG renderings
+        description: All Magic mana and text symbols with parser endpoint and downloadable SVG art.
+      - name: Catalogs of in-game data points
+        description: Canonical lists of card names, creature types, supertypes, keyword abilities,
+          and more for autocomplete and validation.
+      - name: Free with attribution
+        description: No API key, no paid tier - usage is governed by attribution and a documented
+          rate-limit policy.
+  - type: UseCases
+    data:
+      - name: Deck building applications
+        description: Powering search, autocomplete, and legality checks in deck-builder web and
+          mobile apps.
+      - name: Price tracking and portfolio tools
+        description: Aggregating USD / EUR / Tix prices across reprints for collection valuation.
+      - name: Discord and Slack card-lookup bots
+        description: Inline card images, prices, and rulings inside team chat channels.
+      - name: LLM and AI agent integrations
+        description: MCP servers exposing card data, rulings, and search to Claude and other agents.
+      - name: Research and dataset publishing
+        description: Bulk-data exports feed academic and journalistic research on Magic's design
+          history and card economy.
+      - name: Spoiler and set-release coverage
+        description: Tracking newly-spoiled cards into and through release day via the Sets and Cards
+          endpoints.
+      - name: Custom card-rendering and proxy printing
+        description: High-resolution PNG and SVG art for personal-use proxies and educational content.
+      - name: Tournament-legality verification
+        description: Format-legality checks for Standard, Pioneer, Modern, Legacy, Vintage, Pauper,
+          Commander, Brawl, Alchemy, and historic formats.
+  - type: Integrations
+    data:
+      - name: TCGplayer
+        description: Cross-referenced card identifiers and purchase links via tcgplayer_id.
+      - name: Cardmarket
+        description: Cross-referenced card identifiers and purchase links via cardmarket_id.
+      - name: Cardhoarder
+        description: MTGO price feed integration and purchase links.
+      - name: Wizards of the Coast Gatherer
+        description: Cross-referenced via multiverse_ids for canonical Oracle text.
+      - name: Magic Online (MTGO)
+        description: Identifier mapping via mtgo_id and mtgo_foil_id.
+      - name: Magic Arena
+        description: Identifier mapping via arena_id.
+      - name: EDHREC
+        description: Commander-format recommendation data linked from card.related_uris.
+      - name: Anthropic Claude (MCP)
+        description: Multiple community MCP servers expose Scryfall to Claude Desktop and other MCP
+          clients.
+      - name: Google Sheets
+        description: Official Scryfall =SCRYFALL() custom function for spreadsheet card lookups.
+      - name: Alfred (macOS)
+        description: Official Scryfall Scion workflow for fast card search from Alfred.
+  - type: Solutions
+    data:
+      - name: Community software
+        description: Powering thousands of fan-built deck builders, collection trackers, and tools.
+      - name: Magic content creators
+        description: Source of authoritative card data and imagery for podcasts, articles, and video
+          content.
+      - name: Researchers
+        description: Bulk-data exports enabling longitudinal analysis of Magic's design and economy.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

@@ -1,0 +1,78 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Scryfall Bulk Data
+  description: 'Scryfall Bulk Data capability — list and retrieve metadata for daily exports of the entire Scryfall card database (oracle_cards, unique_artwork, default_cards, all_cards, rulings). 3 operations. Lead operation: List Bulk Data Files.'
+  tags:
+    - Scryfall
+    - Bulk Data
+    - Magic The Gathering
+  created: '2026-05-29'
+  modified: '2026-05-29'
+binds:
+  - namespace: env
+    keys:
+      SCRYFALL_USER_AGENT: SCRYFALL_USER_AGENT
+capability:
+  consumes:
+    - type: http
+      namespace: scryfall-bulk-data
+      baseUri: https://api.scryfall.com
+      description: Scryfall Bulk Data business capability for downloadable card-data exports.
+      resources:
+        - name: bulk-data
+          path: /bulk-data
+          operations:
+            - name: listbulkdata
+              method: GET
+              description: List Bulk Data Files
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: $. }
+        - name: bulk-data-id
+          path: /bulk-data/{id}
+          operations:
+            - name: getbulkdatabyid
+              method: GET
+              description: Get a Bulk Data File by ID
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: $. }
+        - name: bulk-data-type
+          path: /bulk-data/{type}
+          operations:
+            - name: getbulkdatabytype
+              method: GET
+              description: Get a Bulk Data File by Type
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: $. }
+      authentication:
+        type: header
+        key: User-Agent
+        value: '{{env.SCRYFALL_USER_AGENT}}'
+        placement: header
+  exposes:
+    - type: mcp
+      namespace: scryfall-bulk-data-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Scryfall Bulk Data.
+      tools:
+        - name: list-bulk-data
+          description: List all bulk-data exports currently available from Scryfall.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: scryfall-bulk-data.listbulkdata
+          outputParameters:
+            - { type: object, mapping: $. }
+        - name: get-bulk-data-by-type
+          description: Get metadata (including download_uri) for a specific bulk-data export by type.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: scryfall-bulk-data.getbulkdatabytype
+          outputParameters:
+            - { type: object, mapping: $. }
+        - name: get-bulk-data-by-id
+          description: Get metadata for a bulk-data export by Scryfall ID.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: scryfall-bulk-data.getbulkdatabyid
+          outputParameters:
+            - { type: object, mapping: $. }

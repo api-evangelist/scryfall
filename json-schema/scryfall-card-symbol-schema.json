@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/scryfall/main/json-schema/scryfall-card-symbol-schema.json",
+  "title": "Scryfall Card Symbol",
+  "description": "A single Magic mana or text symbol with its English description and rendering info.",
+  "type": "object",
+  "required": ["object", "symbol", "english"],
+  "properties": {
+    "object": { "type": "string", "const": "card_symbol" },
+    "symbol": { "type": "string" },
+    "loose_variant": { "type": "string" },
+    "english": { "type": "string" },
+    "transposable": { "type": "boolean" },
+    "represents_mana": { "type": "boolean" },
+    "appears_in_mana_costs": { "type": "boolean" },
+    "mana_value": { "type": "number" },
+    "cmc": { "type": "number" },
+    "colors": { "type": "array", "items": { "type": "string" } },
+    "funny": { "type": "boolean" },
+    "hybrid": { "type": "boolean" },
+    "phyrexian": { "type": "boolean" },
+    "gatherer_alternates": { "type": "array", "items": { "type": "string" } },
+    "svg_uri": { "type": "string", "format": "uri" }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "object": "card_symbol",
+  "symbol": "{R}",
+  "loose_variant": "R",
+  "english": "one red mana",
+  "transposable": false,
+  "represents_mana": true,
+  "appears_in_mana_costs": true,
+  "mana_value": 1.0,
+  "cmc": 1.0,
+  "colors": ["R"],
+  "funny": false,
+  "hybrid": false,
+  "phyrexian": false,
+  "gatherer_alternates": ["oR", "o-R"],
+  "svg_uri": "https://svgs.scryfall.io/card-symbols/R.svg"
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/scryfall/main/json-schema/scryfall-legalities-schema.json",
+  "title": "Scryfall Legalities",
+  "description": "A map of Magic format names to the card's legality in that format.",
+  "type": "object",
+  "additionalProperties": { "type": "string", "enum": ["legal", "not_legal", "restricted", "banned"] },
+  "properties": {
+    "standard": { "type": "string" },
+    "pioneer": { "type": "string" },
+    "modern": { "type": "string" },
+    "legacy": { "type": "string" },
+    "vintage": { "type": "string" },
+    "pauper": { "type": "string" },
+    "commander": { "type": "string" },
+    "brawl": { "type": "string" },
+    "alchemy": { "type": "string" },
+    "historic": { "type": "string" },
+    "timeless": { "type": "string" },
+    "explorer": { "type": "string" },
+    "future": { "type": "string" },
+    "gladiator": { "type": "string" },
+    "oathbreaker": { "type": "string" },
+    "duel": { "type": "string" },
+    "oldschool": { "type": "string" },
+    "premodern": { "type": "string" },
+    "predh": { "type": "string" },
+    "penny": { "type": "string" }
+  }
+}

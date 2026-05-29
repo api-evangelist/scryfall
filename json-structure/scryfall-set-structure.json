@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "ScryfallSet",
+  "type": "object",
+  "properties": {
+    "object": { "type": "string" },
+    "id": { "type": "string" },
+    "code": { "type": "string" },
+    "mtgo_code": { "type": "string" },
+    "arena_code": { "type": "string" },
+    "tcgplayer_id": { "type": "integer" },
+    "name": { "type": "string" },
+    "set_type": { "type": "string" },
+    "released_at": { "type": "string" },
+    "block_code": { "type": "string" },
+    "block": { "type": "string" },
+    "parent_set_code": { "type": "string" },
+    "card_count": { "type": "integer" },
+    "printed_size": { "type": "integer" },
+    "digital": { "type": "boolean" },
+    "foil_only": { "type": "boolean" },
+    "nonfoil_only": { "type": "boolean" },
+    "scryfall_uri": { "type": "string" },
+    "uri": { "type": "string" },
+    "icon_svg_uri": { "type": "string" },
+    "search_uri": { "type": "string" }
+  }
+}

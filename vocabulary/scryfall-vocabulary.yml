@@ -1,0 +1,99 @@
+name: Scryfall Domain Vocabulary
+provider: Scryfall
+providerId: scryfall
+description: Magic - The Gathering domain vocabulary for the Scryfall API surface; sourced from OpenAPI tags, card fields, set types, formats, and symbology.
+terms:
+  - term: Cards
+    description: Magic - The Gathering card printings keyed by Scryfall ID; the central resource.
+  - term: Sets
+    description: Magic sets, products, and supplemental releases identified by three-to-five-letter codes.
+  - term: Rulings
+    description: Oracle rulings, Wizards of the Coast release notes, and Scryfall notes for a card.
+  - term: Symbology
+    description: All card mana and text symbols (e.g. {R}, {W/U}, {T}) and their semantics.
+  - term: Catalogs
+    description: Convenience lists of Magic data points - card names, creature types, supertypes, etc.
+  - term: Bulk Data
+    description: Daily downloadable exports of the entire Scryfall card and rulings dataset.
+  - term: Migrations
+    description: Records of card-object merges and deletions across the Scryfall database.
+  - term: Oracle Identity
+    description: The oracle_id grouping all printings of the same card across reprints.
+  - term: Oracle Text
+    description: The current rules text for a card per the latest Oracle update.
+  - term: Mana Cost
+    description: The symbolic cost a player pays to cast a card (e.g. {2}{R}{R}).
+  - term: Converted Mana Cost
+    description: Also called mana value; the total mana cost expressed as a number.
+  - term: Color Identity
+    description: The set of colors that appear in a card's mana cost, rules text, color indicator, or characteristic-defining ability.
+  - term: Layout
+    description: How a card is physically printed - normal, split, flip, transform, modal_dfc, meld, leveler, class, saga, adventure, mutate, prototype, case, etc.
+  - term: Format Legalities
+    description: A card's status (legal, not_legal, restricted, banned) in each play format.
+  - term: Standard
+    description: Rotating constructed format containing the most recent sets.
+  - term: Modern
+    description: Non-rotating constructed format including all sets from Eighth Edition onward.
+  - term: Legacy
+    description: Eternal constructed format encompassing nearly all cards ever printed.
+  - term: Vintage
+    description: Eternal format permitting the most cards; uses a restricted list.
+  - term: Commander
+    description: Multiplayer format built around a singleton 100-card deck with a legendary commander.
+  - term: Pauper
+    description: Constructed format limited to cards printed at common rarity.
+  - term: Pioneer
+    description: Non-rotating constructed format including sets from Return to Ravnica onward.
+  - term: Brawl
+    description: Singleton constructed format using Standard-legal cards.
+  - term: Alchemy
+    description: Arena-only constructed format with digital-only rebalanced cards.
+  - term: Bulk Data Type
+    description: One of oracle_cards, unique_artwork, default_cards, all_cards, or rulings.
+  - term: Rarity
+    description: Card rarity - common, uncommon, rare, mythic, special, or bonus.
+  - term: Set Type
+    description: Classification of a Magic product - core, expansion, masters, commander, alchemy, etc.
+  - term: Collector Number
+    description: The printed number identifying a card within its set.
+  - term: Multiverse ID
+    description: A Wizards of the Coast Gatherer identifier for a card.
+  - term: MTGO ID
+    description: A Magic Online catalog identifier for a card.
+  - term: Arena ID
+    description: A Magic Arena identifier for a card.
+  - term: TCGplayer ID
+    description: TCGplayer's product identifier for a card or set.
+  - term: Cardmarket ID
+    description: Cardmarket's idProduct identifier for a card.
+  - term: Image URIs
+    description: URIs for card image renderings at small, normal, large, png, art_crop, and border_crop sizes.
+  - term: Prices
+    description: Current market prices in USD, EUR, and MTGO Tix for normal, foil, and etched finishes.
+  - term: Finish
+    description: A printing finish - foil, nonfoil, or etched.
+  - term: Frame Effect
+    description: A visual treatment applied to a card frame (showcase, extendedart, inverted, etc.).
+  - term: Border Color
+    description: The color of the card border - black, white, borderless, silver, gold.
+  - term: Security Stamp
+    description: A holofoil security marker introduced on modern rare and mythic printings.
+  - term: Promo Type
+    description: A category of promotional treatment applied to a card printing.
+  - term: Keyword Ability
+    description: A named card ability defined in the comprehensive rules (Flying, Trample, etc.).
+  - term: Keyword Action
+    description: A named action verb in Magic rules text (Scry, Surveil, Mill, etc.).
+  - term: Ability Word
+    description: An italicized term that flavors a triggered or activated ability without rules meaning of its own.
+  - term: Watermark
+    description: A faint illustration overlaid on the text box indicating guild, faction, or set affiliation.
+  - term: Search Query Syntax
+    description: Scryfall's fulltext query language used by the /cards/search endpoint.
+  - term: User-Agent Header
+    description: Required descriptive header identifying the API client on every request.
+  - term: Accept Header
+    description: Required header declaring the desired response media type.
+  - term: Rate Limit
+    description: Maximum sustained request rate; Scryfall asks for under 10 requests per second.

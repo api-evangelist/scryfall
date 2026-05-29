@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/scryfall/main/json-schema/scryfall-error-schema.json",
+  "title": "Scryfall Error",
+  "description": "A Scryfall Error response returned for any failed request (non-2xx status).",
+  "type": "object",
+  "required": ["object", "status", "code", "details"],
+  "properties": {
+    "object": { "type": "string", "const": "error" },
+    "status": { "type": "integer" },
+    "code": { "type": "string" },
+    "details": { "type": "string" },
+    "type": { "type": "string" },
+    "warnings": { "type": "array", "items": { "type": "string" } }
+  }
+}

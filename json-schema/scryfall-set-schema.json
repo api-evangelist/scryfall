@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/scryfall/main/json-schema/scryfall-set-schema.json",
+  "title": "Scryfall Set",
+  "description": "A Magic: The Gathering set or product as catalogued by Scryfall.",
+  "type": "object",
+  "required": ["object", "id", "code", "name", "set_type"],
+  "properties": {
+    "object": { "type": "string", "const": "set" },
+    "id": { "type": "string", "format": "uuid" },
+    "code": { "type": "string", "description": "The unique three-to-five-letter set code." },
+    "mtgo_code": { "type": "string" },
+    "arena_code": { "type": "string" },
+    "tcgplayer_id": { "type": "integer" },
+    "name": { "type": "string" },
+    "set_type": { "type": "string", "description": "core, expansion, masters, alchemy, masterpiece, arsenal, from_the_vault, spellbook, premium_deck, duel_deck, draft_innovation, treasure_chest, commander, planechase, archenemy, vanguard, funny, starter, box, promo, token, memorabilia, minigame." },
+    "released_at": { "type": "string", "format": "date" },
+    "block_code": { "type": "string" },
+    "block": { "type": "string" },
+    "parent_set_code": { "type": "string" },
+    "card_count": { "type": "integer" },
+    "printed_size": { "type": "integer" },
+    "digital": { "type": "boolean" },
+    "foil_only": { "type": "boolean" },
+    "nonfoil_only": { "type": "boolean" },
+    "scryfall_uri": { "type": "string", "format": "uri" },
+    "uri": { "type": "string", "format": "uri" },
+    "icon_svg_uri": { "type": "string", "format": "uri" },
+    "search_uri": { "type": "string", "format": "uri" }
+  }
+}

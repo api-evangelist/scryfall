@@ -1,0 +1,247 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Scryfall Cards
+  description: 'Scryfall Cards capability — search, autocomplete, named lookup, random draw, collection batch lookup, and ID-based fetch for Magic: The Gathering card data. 11 operations. Lead operation: Search Cards.'
+  tags:
+    - Scryfall
+    - Cards
+    - Magic The Gathering
+  created: '2026-05-29'
+  modified: '2026-05-29'
+binds:
+  - namespace: env
+    keys:
+      SCRYFALL_USER_AGENT: SCRYFALL_USER_AGENT
+capability:
+  consumes:
+    - type: http
+      namespace: scryfall-cards
+      baseUri: https://api.scryfall.com
+      description: Scryfall Cards business capability covering all card-data access surfaces.
+      resources:
+        - name: cards-search
+          path: /cards/search
+          operations:
+            - name: searchcards
+              method: GET
+              description: Search Cards
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: $. }
+              inputParameters:
+                - { name: q, in: query, type: string, required: true }
+                - { name: unique, in: query, type: string }
+                - { name: order, in: query, type: string }
+                - { name: dir, in: query, type: string }
+                - { name: page, in: query, type: integer }
+        - name: cards-named
+          path: /cards/named
+          operations:
+            - name: getcardbyname
+              method: GET
+              description: Get Card by Name
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: $. }
+              inputParameters:
+                - { name: exact, in: query, type: string }
+                - { name: fuzzy, in: query, type: string }
+                - { name: set, in: query, type: string }
+        - name: cards-autocomplete
+          path: /cards/autocomplete
+          operations:
+            - name: autocompletecardnames
+              method: GET
+              description: Autocomplete Card Names
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: $. }
+              inputParameters:
+                - { name: q, in: query, type: string, required: true }
+        - name: cards-random
+          path: /cards/random
+          operations:
+            - name: getrandomcard
+              method: GET
+              description: Get a Random Card
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: $. }
+              inputParameters:
+                - { name: q, in: query, type: string }
+        - name: cards-collection
+          path: /cards/collection
+          operations:
+            - name: getcardcollection
+              method: POST
+              description: Get a Card Collection
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: $. }
+              inputParameters:
+                - { name: body, in: body, type: object, required: true, description: 'JSON body with identifiers array (max 75).' }
+        - name: cards-id
+          path: /cards/{id}
+          operations:
+            - name: getcardbyid
+              method: GET
+              description: Get a Card by Scryfall ID
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: $. }
+        - name: cards-code-number
+          path: /cards/{code}/{number}
+          operations:
+            - name: getcardbysetandnumber
+              method: GET
+              description: Get a Card by Set Code and Collector Number
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: $. }
+        - name: cards-multiverse-id
+          path: /cards/multiverse/{id}
+          operations:
+            - name: getcardbymultiverseid
+              method: GET
+              description: Get a Card by Multiverse ID
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: $. }
+        - name: cards-mtgo-id
+          path: /cards/mtgo/{id}
+          operations:
+            - name: getcardbymtgoid
+              method: GET
+              description: Get a Card by MTGO ID
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: $. }
+        - name: cards-arena-id
+          path: /cards/arena/{id}
+          operations:
+            - name: getcardbyarenaid
+              method: GET
+              description: Get a Card by Arena ID
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: $. }
+        - name: cards-tcgplayer-id
+          path: /cards/tcgplayer/{id}
+          operations:
+            - name: getcardbytcgplayerid
+              method: GET
+              description: Get a Card by TCGplayer ID
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: $. }
+      authentication:
+        type: header
+        key: User-Agent
+        value: '{{env.SCRYFALL_USER_AGENT}}'
+        placement: header
+  exposes:
+    - type: rest
+      namespace: scryfall-cards-rest
+      port: 8080
+      description: REST adapter for Scryfall Cards. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/cards/search
+          name: cards-search
+          description: REST surface for searching cards.
+          operations:
+            - method: GET
+              name: searchcards
+              description: Search Cards
+              call: scryfall-cards.searchcards
+              outputParameters:
+                - { type: object, mapping: $. }
+        - path: /v1/cards/named
+          name: cards-named
+          operations:
+            - method: GET
+              name: getcardbyname
+              description: Get Card by Name
+              call: scryfall-cards.getcardbyname
+              outputParameters:
+                - { type: object, mapping: $. }
+        - path: /v1/cards/autocomplete
+          name: cards-autocomplete
+          operations:
+            - method: GET
+              name: autocompletecardnames
+              description: Autocomplete Card Names
+              call: scryfall-cards.autocompletecardnames
+              outputParameters:
+                - { type: object, mapping: $. }
+        - path: /v1/cards/random
+          name: cards-random
+          operations:
+            - method: GET
+              name: getrandomcard
+              description: Get a Random Card
+              call: scryfall-cards.getrandomcard
+              outputParameters:
+                - { type: object, mapping: $. }
+        - path: /v1/cards/collection
+          name: cards-collection
+          operations:
+            - method: POST
+              name: getcardcollection
+              description: Get a Card Collection
+              call: scryfall-cards.getcardcollection
+              with:
+                body: rest.body
+              outputParameters:
+                - { type: object, mapping: $. }
+        - path: /v1/cards/{id}
+          name: cards-id
+          operations:
+            - method: GET
+              name: getcardbyid
+              description: Get a Card by Scryfall ID
+              call: scryfall-cards.getcardbyid
+              outputParameters:
+                - { type: object, mapping: $. }
+    - type: mcp
+      namespace: scryfall-cards-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Scryfall Cards. One tool per consumed operation.
+      tools:
+        - name: search-cards
+          description: Search Magic - The Gathering cards using Scryfall's fulltext query language.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: scryfall-cards.searchcards
+          outputParameters:
+            - { type: object, mapping: $. }
+        - name: get-card-by-name
+          description: Look up a card by exact or fuzzy name match.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: scryfall-cards.getcardbyname
+          outputParameters:
+            - { type: object, mapping: $. }
+        - name: autocomplete-card-names
+          description: Get up to 20 card-name autocompletions for a partial input.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: scryfall-cards.autocompletecardnames
+          outputParameters:
+            - { type: object, mapping: $. }
+        - name: get-random-card
+          description: Get a random card, optionally filtered by query.
+          hints: { readOnly: true, destructive: false, idempotent: false }
+          call: scryfall-cards.getrandomcard
+          outputParameters:
+            - { type: object, mapping: $. }
+        - name: get-card-collection
+          description: Batch-fetch up to 75 cards by identifier in one call.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: scryfall-cards.getcardcollection
+          with: { body: tools.body }
+          outputParameters:
+            - { type: object, mapping: $. }
+        - name: get-card-by-id
+          description: Fetch a single card by Scryfall ID.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: scryfall-cards.getcardbyid
+          outputParameters:
+            - { type: object, mapping: $. }

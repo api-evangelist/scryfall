@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/scryfall/main/json-schema/scryfall-bulk-data-schema.json",
+  "title": "Scryfall Bulk Data",
+  "description": "Metadata for one downloadable bulk-data export of Scryfall card or rulings data.",
+  "type": "object",
+  "required": ["object", "id", "type", "updated_at", "download_uri"],
+  "properties": {
+    "object": { "type": "string", "const": "bulk_data" },
+    "id": { "type": "string", "format": "uuid" },
+    "type": { "type": "string", "enum": ["oracle_cards", "unique_artwork", "default_cards", "all_cards", "rulings"] },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "uri": { "type": "string", "format": "uri" },
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "compressed_size": { "type": "integer" },
+    "download_uri": { "type": "string", "format": "uri" },
+    "content_type": { "type": "string" },
+    "content_encoding": { "type": "string" },
+    "size": { "type": "integer" }
+  }
+}

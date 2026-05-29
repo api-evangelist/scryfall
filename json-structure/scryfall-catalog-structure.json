@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "ScryfallCatalog",
+  "type": "object",
+  "properties": {
+    "object": { "type": "string" },
+    "uri": { "type": "string" },
+    "total_values": { "type": "integer" },
+    "data": { "type": "array" }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/scryfall/main/json-schema/scryfall-related-card-schema.json",
+  "title": "Scryfall Related Card",
+  "description": "A reference to a card related to the parent Card (token, meld piece, combo piece, etc.).",
+  "type": "object",
+  "required": ["object", "id", "component", "name", "type_line", "uri"],
+  "properties": {
+    "object": { "type": "string", "const": "related_card" },
+    "id": { "type": "string", "format": "uuid" },
+    "component": { "type": "string", "enum": ["token", "meld_part", "meld_result", "combo_piece"] },
+    "name": { "type": "string" },
+    "type_line": { "type": "string" },
+    "uri": { "type": "string", "format": "uri" }
+  }
+}

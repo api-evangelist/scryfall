@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/scryfall/main/json-schema/scryfall-migration-schema.json",
+  "title": "Scryfall Migration",
+  "description": "A record that an existing Scryfall card object was deleted or merged into another.",
+  "type": "object",
+  "required": ["object", "id", "performed_at", "migration_strategy", "old_scryfall_id"],
+  "properties": {
+    "object": { "type": "string", "const": "migration" },
+    "id": { "type": "string", "format": "uuid" },
+    "uri": { "type": "string", "format": "uri" },
+    "performed_at": { "type": "string", "format": "date" },
+    "migration_strategy": { "type": "string", "enum": ["merge", "delete"] },
+    "old_scryfall_id": { "type": "string", "format": "uuid" },
+    "new_scryfall_id": { "type": "string", "format": "uuid" },
+    "note": { "type": "string" }
+  }
+}

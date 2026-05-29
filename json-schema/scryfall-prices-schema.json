@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/scryfall/main/json-schema/scryfall-prices-schema.json",
+  "title": "Scryfall Prices",
+  "description": "Market prices for a card printing in several currencies and finishes (decimal strings).",
+  "type": "object",
+  "properties": {
+    "usd": { "type": ["string", "null"] },
+    "usd_foil": { "type": ["string", "null"] },
+    "usd_etched": { "type": ["string", "null"] },
+    "eur": { "type": ["string", "null"] },
+    "eur_foil": { "type": ["string", "null"] },
+    "tix": { "type": ["string", "null"] }
+  }
+}

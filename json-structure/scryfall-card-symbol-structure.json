@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "ScryfallCardSymbol",
+  "type": "object",
+  "properties": {
+    "object": { "type": "string" },
+    "symbol": { "type": "string" },
+    "loose_variant": { "type": "string" },
+    "english": { "type": "string" },
+    "transposable": { "type": "boolean" },
+    "represents_mana": { "type": "boolean" },
+    "appears_in_mana_costs": { "type": "boolean" },
+    "mana_value": { "type": "number" },
+    "cmc": { "type": "number" },
+    "colors": { "type": "array" },
+    "funny": { "type": "boolean" },
+    "hybrid": { "type": "boolean" },
+    "phyrexian": { "type": "boolean" },
+    "gatherer_alternates": { "type": "array" },
+    "svg_uri": { "type": "string" }
+  }
+}

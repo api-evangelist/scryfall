@@ -1,0 +1,6 @@
+{
+  "object": "error",
+  "status": 404,
+  "code": "not_found",
+  "details": "No cards found matching \"Banding Hippo\""
+}

@@ -1,0 +1,69 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Scryfall
+providerId: scryfall
+created: '2026-05-29'
+modified: '2026-05-29'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Public API
+  - Free
+description: Scryfall asks that all API consumers keep sustained traffic under 10 requests per second
+  (50-100 ms delay between calls). The /cards/collection endpoint has a tighter 2/second hard cap
+  (500 ms). Large-volume use cases must use the daily bulk-data exports instead of crawling Card
+  endpoints. Every request must include a descriptive User-Agent header and an Accept header; missing
+  or generic headers will cause Scryfall to block or throttle your traffic.
+sources:
+  - https://scryfall.com/docs/api
+  - https://scryfall.com/docs/api/rate-limits
+responseCodes:
+  throttled: 429
+  serviceUnavailable: 503
+limits:
+  - name: Global request rate
+    scope: client
+    metric: requests_per_second
+    limit: 10
+    timeFrame: second
+    notes: Soft cap - sustained traffic above 10 RPS will be throttled or blocked. Insert 50-100 ms
+      between requests.
+  - name: Recommended inter-request delay
+    scope: client
+    metric: delay_ms_between_requests
+    limit: 50
+    notes: Scryfall publicly recommends 50-100 ms delay between calls; clients should default to 100 ms.
+  - name: Cards collection batch endpoint
+    scope: client
+    metric: requests_per_second
+    limit: 2
+    timeFrame: second
+    notes: Hard rate limit on POST /cards/collection (max one call every 500 ms). The endpoint itself
+      accepts up to 75 identifiers per batch.
+  - name: Cards collection batch size
+    scope: request
+    metric: identifiers_per_request
+    limit: 75
+    notes: Maximum identifiers per POST /cards/collection request.
+  - name: Bulk-data preferred for large ingestion
+    scope: client
+    metric: pages_per_minute
+    limit: 'use bulk-data instead'
+    notes: Scryfall asks that anyone performing a large amount of simple lookups or downloading many
+      images use the bulk-data offerings and process the files locally rather than paginating live
+      endpoints.
+policies:
+  - name: Required headers
+    description: Every request must include a descriptive User-Agent header that identifies the
+      application (with contact info preferred) and an Accept header (typically application/json).
+      Generic user agents (curl, python-requests defaults) are routinely blocked.
+  - name: Backoff
+    description: On 429 or 503 responses, retry with exponential backoff and jitter. Do not hammer
+      the endpoint - repeated abuse will trigger longer blocks.
+  - name: Caching
+    description: Card and set data is highly cacheable. Scryfall encourages aggressive local caching
+      to reduce request volume; bulk-data exports are the canonical refresh mechanism.
+  - name: Image rehosting
+    description: Do not embed Scryfall image URIs in production sites - download and rehost images
+      from your own infrastructure to avoid burdening Scryfall's image CDN.

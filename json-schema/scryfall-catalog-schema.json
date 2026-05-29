@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/scryfall/main/json-schema/scryfall-catalog-schema.json",
+  "title": "Scryfall Catalog",
+  "description": "A Scryfall Catalog object containing an array of Magic data points (card names, types, supertypes, etc.).",
+  "type": "object",
+  "required": ["object", "data"],
+  "properties": {
+    "object": { "type": "string", "const": "catalog" },
+    "uri": { "type": "string", "format": "uri" },
+    "total_values": { "type": "integer" },
+    "data": { "type": "array", "items": { "type": "string" } }
+  }
+}

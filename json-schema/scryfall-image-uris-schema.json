@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/scryfall/main/json-schema/scryfall-image-uris-schema.json",
+  "title": "Scryfall Image URIs",
+  "description": "URIs for renderings of the card image at multiple sizes and crops.",
+  "type": "object",
+  "properties": {
+    "small": { "type": "string", "format": "uri", "description": "Small JPG, 146 x 204." },
+    "normal": { "type": "string", "format": "uri", "description": "Normal JPG, 488 x 680." },
+    "large": { "type": "string", "format": "uri", "description": "Large JPG, 672 x 936." },
+    "png": { "type": "string", "format": "uri", "description": "Lossless PNG, 745 x 1040 with transparent corners." },
+    "art_crop": { "type": "string", "format": "uri", "description": "Cropped artwork only." },
+    "border_crop": { "type": "string", "format": "uri", "description": "Card image with the border cropped off." }
+  }
+}

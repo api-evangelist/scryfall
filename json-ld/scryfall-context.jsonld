@@ -1,0 +1,93 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.org/",
+    "scryfall": "https://scryfall.com/docs/api#",
+    "mtg": "https://scryfall.com/docs/api/cards#",
+    "id": "@id",
+    "type": "@type",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Card": {
+      "@id": "scryfall:card",
+      "@context": {
+        "id": { "@id": "scryfall:id", "@type": "xsd:string" },
+        "oracle_id": { "@id": "scryfall:oracle_id", "@type": "xsd:string" },
+        "name": "schema:name",
+        "lang": { "@id": "scryfall:lang", "@type": "xsd:string" },
+        "released_at": { "@id": "scryfall:released_at", "@type": "xsd:date" },
+        "uri": { "@id": "scryfall:uri", "@type": "xsd:anyURI" },
+        "scryfall_uri": { "@id": "scryfall:scryfall_uri", "@type": "xsd:anyURI" },
+        "layout": { "@id": "scryfall:layout", "@type": "xsd:string" },
+        "mana_cost": { "@id": "scryfall:mana_cost", "@type": "xsd:string" },
+        "cmc": { "@id": "scryfall:cmc", "@type": "xsd:decimal" },
+        "type_line": { "@id": "scryfall:type_line", "@type": "xsd:string" },
+        "oracle_text": { "@id": "scryfall:oracle_text", "@type": "xsd:string" },
+        "colors": { "@id": "scryfall:colors", "@container": "@set" },
+        "color_identity": { "@id": "scryfall:color_identity", "@container": "@set" },
+        "keywords": { "@id": "scryfall:keywords", "@container": "@set" },
+        "legalities": { "@id": "scryfall:legalities", "@type": "@json" },
+        "games": { "@id": "scryfall:games", "@container": "@set" },
+        "set": { "@id": "scryfall:set", "@type": "xsd:string" },
+        "set_name": "schema:isPartOf",
+        "collector_number": { "@id": "scryfall:collector_number", "@type": "xsd:string" },
+        "rarity": { "@id": "scryfall:rarity", "@type": "xsd:string" },
+        "artist": "schema:creator",
+        "image_uris": { "@id": "scryfall:image_uris", "@type": "@json" },
+        "prices": { "@id": "scryfall:prices", "@type": "@json" },
+        "power": { "@id": "scryfall:power", "@type": "xsd:string" },
+        "toughness": { "@id": "scryfall:toughness", "@type": "xsd:string" },
+        "loyalty": { "@id": "scryfall:loyalty", "@type": "xsd:string" }
+      }
+    },
+
+    "Set": {
+      "@id": "scryfall:set",
+      "@context": {
+        "id": { "@id": "scryfall:id", "@type": "xsd:string" },
+        "code": { "@id": "scryfall:code", "@type": "xsd:string" },
+        "name": "schema:name",
+        "set_type": { "@id": "scryfall:set_type", "@type": "xsd:string" },
+        "released_at": { "@id": "scryfall:released_at", "@type": "xsd:date" },
+        "card_count": { "@id": "scryfall:card_count", "@type": "xsd:integer" },
+        "digital": { "@id": "scryfall:digital", "@type": "xsd:boolean" },
+        "scryfall_uri": { "@id": "scryfall:scryfall_uri", "@type": "xsd:anyURI" },
+        "icon_svg_uri": "schema:image"
+      }
+    },
+
+    "Ruling": {
+      "@id": "scryfall:ruling",
+      "@context": {
+        "oracle_id": { "@id": "scryfall:oracle_id", "@type": "xsd:string" },
+        "source": { "@id": "scryfall:source", "@type": "xsd:string" },
+        "published_at": { "@id": "scryfall:published_at", "@type": "xsd:date" },
+        "comment": "schema:text"
+      }
+    },
+
+    "CardSymbol": {
+      "@id": "scryfall:card_symbol",
+      "@context": {
+        "symbol": { "@id": "scryfall:symbol", "@type": "xsd:string" },
+        "english": "schema:description",
+        "mana_value": { "@id": "scryfall:mana_value", "@type": "xsd:decimal" },
+        "colors": { "@id": "scryfall:colors", "@container": "@set" },
+        "svg_uri": "schema:image"
+      }
+    },
+
+    "BulkData": {
+      "@id": "scryfall:bulk_data",
+      "@context": {
+        "id": { "@id": "scryfall:id", "@type": "xsd:string" },
+        "type": { "@id": "scryfall:type", "@type": "xsd:string" },
+        "name": "schema:name",
+        "description": "schema:description",
+        "download_uri": "schema:contentUrl",
+        "size": { "@id": "scryfall:size", "@type": "xsd:integer" },
+        "updated_at": { "@id": "scryfall:updated_at", "@type": "xsd:dateTime" }
+      }
+    }
+  }
+}

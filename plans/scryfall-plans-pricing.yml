@@ -1,0 +1,71 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Scryfall
+providerId: scryfall
+created: '2026-05-29'
+modified: '2026-05-29'
+reconciled: true
+tags:
+  - Free
+  - Open Data
+  - Magic The Gathering
+  - Fan Content
+description: Scryfall provides its card data and image database free of charge as part of the Wizards
+  of the Coast Fan Content Policy for the primary purpose of creating additional Magic software,
+  performing research, or creating community content. There is no paid tier and no API key. Usage is
+  governed by a free-with-attribution-and-rate-limit policy and Scryfall accepts community funding via
+  Patreon and Ko-fi rather than charging API consumers.
+sources:
+  - https://scryfall.com/docs/api
+  - https://scryfall.com/donate
+plans:
+  - id: scryfall-free-public-api
+    name: Free Public API
+    type: free
+    description: Unmetered, no-key public access to all Scryfall endpoints. Requires a descriptive
+      User-Agent and Accept header on every request, adherence to documented rate limits, attribution
+      on derived works per the Wizards of the Coast Fan Content Policy, and use of bulk-data downloads
+      for any large-scale ingestion task. No commercial-grade SLAs are offered.
+    entries:
+      - label: API access
+        name: api_access
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: All REST endpoints (Cards, Sets, Rulings, Symbology, Catalogs, Bulk Data, Migrations)
+      - name: All daily bulk-data exports (oracle_cards, unique_artwork, default_cards, all_cards, rulings)
+      - name: All card image renderings (small, normal, large, png, art_crop, border_crop)
+      - name: Search query syntax (Scryfall fulltext)
+      - name: Localized card data in supported languages
+    obligations:
+      - Send a descriptive User-Agent header identifying your application on every request.
+      - Send an Accept header on every request.
+      - Keep sustained traffic under 10 requests per second; insert 50-100 ms delay between calls.
+      - Use bulk-data downloads instead of crawling Card endpoints for large ingestion.
+      - Provide attribution to Scryfall on derived works.
+      - Comply with the Wizards of the Coast Fan Content Policy.
+      - Do not use the API to host card images directly - download and re-host them yourself.
+  - id: scryfall-community-funding
+    name: Community Funding (Patreon / Ko-fi)
+    type: donation
+    description: Scryfall is community-funded through Patreon and Ko-fi. Contributions are voluntary
+      and do not unlock additional API quota or commercial terms - the API stays free for everyone.
+    entries:
+      - label: Donation
+        name: donation
+        type: one_time
+        metric: contribution
+        limit: -1
+        unit: 1
+        price: variable
+        userMultiplied: false
+    elements:
+      - name: Supports continued free operation of api.scryfall.com
+      - name: Patron recognition on scryfall.com

@@ -1,0 +1,23 @@
+{
+  "object": "set",
+  "id": "ad721fa1-1cdb-4d5e-8d10-d5a0e25e0bef",
+  "code": "mom",
+  "mtgo_code": "mom",
+  "arena_code": "mom",
+  "tcgplayer_id": 23207,
+  "name": "March of the Machine",
+  "set_type": "expansion",
+  "released_at": "2023-04-21",
+  "block_code": "mom",
+  "block": "March of the Machine",
+  "parent_set_code": null,
+  "card_count": 291,
+  "printed_size": 271,
+  "digital": false,
+  "foil_only": false,
+  "nonfoil_only": false,
+  "scryfall_uri": "https://scryfall.com/sets/mom",
+  "uri": "https://api.scryfall.com/sets/ad721fa1-1cdb-4d5e-8d10-d5a0e25e0bef",
+  "icon_svg_uri": "https://svgs.scryfall.io/sets/mom.svg",
+  "search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Amom&unique=prints"
+}

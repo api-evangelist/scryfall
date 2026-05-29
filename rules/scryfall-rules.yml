@@ -1,0 +1,71 @@
+rules:
+  info-title-required:
+    description: Info title must be present
+    severity: error
+    given: $.info
+    then: { field: title, function: truthy }
+  info-description-required:
+    description: Info description must be present
+    severity: error
+    given: $.info
+    then: { field: description, function: truthy }
+  info-contact-required:
+    description: Info should include a contact block
+    severity: warn
+    given: $.info
+    then: { field: contact, function: truthy }
+  info-license-required:
+    description: Info must include a license block
+    severity: error
+    given: $.info
+    then: { field: license, function: truthy }
+  operation-operationid-required:
+    description: Every operation must have an operationId
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then: { field: operationId, function: truthy }
+  operation-summary-required:
+    description: Every operation must have a summary
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then: { field: summary, function: truthy }
+  operation-summary-title-case:
+    description: Operation summary should be Title Case (Scryfall convention)
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].summary
+    then: { function: pattern, functionOptions: { match: "^[A-Z][A-Za-z0-9]*(\\s+[A-Z][A-Za-z0-9]*)*$" } }
+  operation-tags-required:
+    description: Every operation must have at least one tag
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then: { field: tags, function: truthy }
+  operation-description-required:
+    description: Every operation should have a description
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete]
+    then: { field: description, function: truthy }
+  scryfall-https-server-only:
+    description: Scryfall API is HTTPS-only (TLS 1.2+)
+    severity: error
+    given: $.servers[*].url
+    then: { function: pattern, functionOptions: { match: "^https://" } }
+  scryfall-base-url-required:
+    description: Server URL must be api.scryfall.com
+    severity: warn
+    given: $.servers[*].url
+    then: { function: pattern, functionOptions: { match: "^https://api\\.scryfall\\.com$" } }
+  scryfall-object-field-required:
+    description: Every Scryfall response schema must include an 'object' discriminator property
+    severity: warn
+    given: $.components.schemas[Card,Set,Ruling,CardSymbol,Catalog,BulkData,Migration,List,Error,CardFace,RelatedCard].properties
+    then: { field: object, function: truthy }
+  scryfall-list-pagination-fields:
+    description: List-typed responses must declare has_more and data pagination fields
+    severity: warn
+    given: $.components.schemas[List,CardList,SetList,RulingList,CardSymbolList,BulkDataList,MigrationList].properties
+    then: { field: data, function: truthy }
+  scryfall-tag-naming:
+    description: Tags should be Title Case singular or plural resource names
+    severity: warn
+    given: $.tags[*].name
+    then: { function: pattern, functionOptions: { match: "^[A-Z][A-Za-z]+(\\s+[A-Z][A-Za-z]+)*$" } }

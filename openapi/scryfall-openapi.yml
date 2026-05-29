@@ -1,0 +1,902 @@
+openapi: 3.0.3
+info:
+  title: Scryfall API
+  description: |
+    The Scryfall API is a REST-like interface to the most comprehensive Magic: The Gathering
+    card database. It exposes Card, Set, Ruling, Symbology, Catalog, and Bulk Data resources
+    used by community tools, deck builders, price trackers, and research projects.
+
+    The API is provided free of charge as part of the Wizards of the Coast Fan Content Policy
+    for the primary purpose of creating additional Magic software, performing research, or
+    creating community content. It is served only over HTTPS (TLS 1.2+) and requires both a
+    descriptive User-Agent and an Accept header on every request. Clients are expected to
+    keep request rates under 10 per second (50–100 ms delay between calls), and to use the
+    bulk-data downloads for any large-scale ingestion task instead of crawling Card endpoints.
+  version: '2026-05-29'
+  contact:
+    name: Scryfall API Support
+    url: https://scryfall.com/contact
+  license:
+    name: Scryfall API License (Free with attribution)
+    url: https://scryfall.com/docs/api
+  termsOfService: https://scryfall.com/docs/api
+servers:
+  - url: https://api.scryfall.com
+    description: Production API
+tags:
+  - name: Cards
+    description: Look up, search, and fetch Magic card objects in many ways.
+  - name: Sets
+    description: List and retrieve Magic: The Gathering set metadata.
+  - name: Rulings
+    description: Oracle rulings, WotC release notes, and Scryfall notes for a card.
+  - name: Symbology
+    description: All card symbols and their semantics.
+  - name: Catalogs
+    description: Convenience lists of Magic data points (card names, types, supertypes, etc.).
+  - name: Bulk Data
+    description: Large daily exports of the entire Scryfall card database.
+  - name: Migrations
+    description: Records of card-object migrations and merges.
+paths:
+  /cards/search:
+    get:
+      tags: [Cards]
+      summary: Search Cards
+      description: Returns a List of cards matching a Scryfall full-text search query.
+      operationId: searchCards
+      parameters:
+        - { name: q, in: query, required: true, description: A fulltext search query., schema: { type: string } }
+        - { name: unique, in: query, schema: { type: string, enum: [cards, art, prints], default: cards } }
+        - { name: order, in: query, schema: { type: string, enum: [name, set, released, rarity, color, usd, tix, eur, cmc, power, toughness, edhrec, penny, artist, review] } }
+        - { name: dir, in: query, schema: { type: string, enum: [auto, asc, desc], default: auto } }
+        - { name: include_extras, in: query, schema: { type: boolean, default: false } }
+        - { name: include_multilingual, in: query, schema: { type: boolean, default: false } }
+        - { name: include_variations, in: query, schema: { type: boolean, default: false } }
+        - { name: page, in: query, schema: { type: integer, default: 1 } }
+        - { name: format, in: query, schema: { type: string, enum: [json, csv], default: json } }
+      responses:
+        '200':
+          description: A list of matching cards.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/CardList' }
+        '404':
+          description: No cards matched the query.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+  /cards/named:
+    get:
+      tags: [Cards]
+      summary: Get Card by Name
+      description: Returns a Card based on a name search string (exact or fuzzy match).
+      operationId: getCardByName
+      parameters:
+        - { name: exact, in: query, description: The exact card name to search for., schema: { type: string } }
+        - { name: fuzzy, in: query, description: A fuzzy card name to search for., schema: { type: string } }
+        - { name: set, in: query, description: A set code to limit the search to one set., schema: { type: string } }
+        - { name: format, in: query, schema: { type: string, enum: [json, text, image], default: json } }
+        - { name: face, in: query, schema: { type: string, enum: [front, back] } }
+        - { name: version, in: query, schema: { type: string, enum: [small, normal, large, png, art_crop, border_crop] } }
+        - { name: pretty, in: query, schema: { type: boolean } }
+      responses:
+        '200':
+          description: A single Card object matching the query.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Card' }
+        '404':
+          description: No card matched the name.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+  /cards/autocomplete:
+    get:
+      tags: [Cards]
+      summary: Autocomplete Card Names
+      description: Returns a Catalog of up to 20 card-name autocompletions for a partial card-name input.
+      operationId: autocompleteCardNames
+      parameters:
+        - { name: q, in: query, required: true, schema: { type: string } }
+        - { name: include_extras, in: query, schema: { type: boolean, default: false } }
+      responses:
+        '200':
+          description: A catalog of suggested card names.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Catalog' }
+  /cards/random:
+    get:
+      tags: [Cards]
+      summary: Get a Random Card
+      description: Returns a single random Card, optionally filtered by a Scryfall search query.
+      operationId: getRandomCard
+      parameters:
+        - { name: q, in: query, schema: { type: string } }
+        - { name: format, in: query, schema: { type: string, enum: [json, text, image], default: json } }
+        - { name: face, in: query, schema: { type: string, enum: [front, back] } }
+        - { name: version, in: query, schema: { type: string, enum: [small, normal, large, png, art_crop, border_crop] } }
+        - { name: pretty, in: query, schema: { type: boolean } }
+      responses:
+        '200':
+          description: A randomly chosen Card.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Card' }
+  /cards/collection:
+    post:
+      tags: [Cards]
+      summary: Get a Card Collection
+      description: Accepts a JSON array of card identifiers and returns a List of the requested cards. Identifiers can be id, mtgo_id, multiverse_id, oracle_id, illustration_id, name, set+name, or set+collector_number.
+      operationId: getCardCollection
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [identifiers]
+              properties:
+                identifiers:
+                  type: array
+                  maxItems: 75
+                  items: { type: object }
+      responses:
+        '200':
+          description: The requested cards plus any unresolvable identifiers.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/CardList' }
+  /cards/{id}:
+    get:
+      tags: [Cards]
+      summary: Get a Card by Scryfall ID
+      description: Returns a single Card with the given Scryfall ID.
+      operationId: getCardById
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string, format: uuid } }
+        - { name: format, in: query, schema: { type: string, enum: [json, text, image], default: json } }
+        - { name: face, in: query, schema: { type: string, enum: [front, back] } }
+        - { name: version, in: query, schema: { type: string, enum: [small, normal, large, png, art_crop, border_crop] } }
+        - { name: pretty, in: query, schema: { type: boolean } }
+      responses:
+        '200':
+          description: The requested Card.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Card' }
+        '404':
+          description: No card with that ID.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+  /cards/{code}/{number}:
+    get:
+      tags: [Cards]
+      summary: Get a Card by Set Code and Collector Number
+      description: Returns a single Card with the given set code and collector number.
+      operationId: getCardBySetAndNumber
+      parameters:
+        - { name: code, in: path, required: true, schema: { type: string } }
+        - { name: number, in: path, required: true, schema: { type: string } }
+        - { name: format, in: query, schema: { type: string, enum: [json, text, image], default: json } }
+      responses:
+        '200':
+          description: The requested Card.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Card' }
+  /cards/{code}/{number}/{lang}:
+    get:
+      tags: [Cards]
+      summary: Get a Localized Card by Set, Number, and Language
+      description: Returns a single Card with the given set code, collector number, and language code.
+      operationId: getLocalizedCard
+      parameters:
+        - { name: code, in: path, required: true, schema: { type: string } }
+        - { name: number, in: path, required: true, schema: { type: string } }
+        - { name: lang, in: path, required: true, schema: { type: string } }
+      responses:
+        '200':
+          description: The localized Card.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Card' }
+  /cards/multiverse/{id}:
+    get:
+      tags: [Cards]
+      summary: Get a Card by Multiverse ID
+      description: Returns the Card with the given Gatherer multiverse ID.
+      operationId: getCardByMultiverseId
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: integer } }
+      responses:
+        '200': { description: The requested Card., content: { application/json: { schema: { $ref: '#/components/schemas/Card' } } } }
+  /cards/mtgo/{id}:
+    get:
+      tags: [Cards]
+      summary: Get a Card by MTGO ID
+      description: Returns the Card with the given Magic Online catalog ID.
+      operationId: getCardByMtgoId
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: integer } }
+      responses:
+        '200': { description: The requested Card., content: { application/json: { schema: { $ref: '#/components/schemas/Card' } } } }
+  /cards/arena/{id}:
+    get:
+      tags: [Cards]
+      summary: Get a Card by Arena ID
+      description: Returns the Card with the given Magic Arena ID.
+      operationId: getCardByArenaId
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: integer } }
+      responses:
+        '200': { description: The requested Card., content: { application/json: { schema: { $ref: '#/components/schemas/Card' } } } }
+  /cards/tcgplayer/{id}:
+    get:
+      tags: [Cards]
+      summary: Get a Card by TCGplayer ID
+      description: Returns the Card with the given TCGplayer product ID.
+      operationId: getCardByTcgplayerId
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: integer } }
+      responses:
+        '200': { description: The requested Card., content: { application/json: { schema: { $ref: '#/components/schemas/Card' } } } }
+  /cards/cardmarket/{id}:
+    get:
+      tags: [Cards]
+      summary: Get a Card by Cardmarket ID
+      description: Returns the Card with the given Cardmarket idProduct.
+      operationId: getCardByCardmarketId
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: integer } }
+      responses:
+        '200': { description: The requested Card., content: { application/json: { schema: { $ref: '#/components/schemas/Card' } } } }
+  /cards/{id}/rulings:
+    get:
+      tags: [Rulings]
+      summary: Get Rulings by Card ID
+      description: Returns a List of all rulings for the Card with the given Scryfall ID.
+      operationId: getRulingsByCardId
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string, format: uuid } }
+      responses:
+        '200': { description: A list of rulings., content: { application/json: { schema: { $ref: '#/components/schemas/RulingList' } } } }
+  /cards/multiverse/{id}/rulings:
+    get:
+      tags: [Rulings]
+      summary: Get Rulings by Multiverse ID
+      description: Returns rulings for the card identified by its Gatherer multiverse ID.
+      operationId: getRulingsByMultiverseId
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: integer } }
+      responses:
+        '200': { description: A list of rulings., content: { application/json: { schema: { $ref: '#/components/schemas/RulingList' } } } }
+  /cards/mtgo/{id}/rulings:
+    get:
+      tags: [Rulings]
+      summary: Get Rulings by MTGO ID
+      description: Returns rulings for the card identified by its Magic Online catalog ID.
+      operationId: getRulingsByMtgoId
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: integer } }
+      responses:
+        '200': { description: A list of rulings., content: { application/json: { schema: { $ref: '#/components/schemas/RulingList' } } } }
+  /cards/arena/{id}/rulings:
+    get:
+      tags: [Rulings]
+      summary: Get Rulings by Arena ID
+      description: Returns rulings for the card identified by its Magic Arena ID.
+      operationId: getRulingsByArenaId
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: integer } }
+      responses:
+        '200': { description: A list of rulings., content: { application/json: { schema: { $ref: '#/components/schemas/RulingList' } } } }
+  /cards/{code}/{number}/rulings:
+    get:
+      tags: [Rulings]
+      summary: Get Rulings by Set Code and Number
+      description: Returns rulings for the card with the given set code and collector number.
+      operationId: getRulingsBySetAndNumber
+      parameters:
+        - { name: code, in: path, required: true, schema: { type: string } }
+        - { name: number, in: path, required: true, schema: { type: string } }
+      responses:
+        '200': { description: A list of rulings., content: { application/json: { schema: { $ref: '#/components/schemas/RulingList' } } } }
+  /sets:
+    get:
+      tags: [Sets]
+      summary: List Sets
+      description: Returns a List of all Magic: The Gathering sets known to Scryfall.
+      operationId: listSets
+      responses:
+        '200':
+          description: A list of sets.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SetList' }
+  /sets/{code}:
+    get:
+      tags: [Sets]
+      summary: Get a Set by Code
+      description: Returns a Set with the given three-to-five-letter set code.
+      operationId: getSetByCode
+      parameters:
+        - { name: code, in: path, required: true, schema: { type: string } }
+      responses:
+        '200':
+          description: The requested Set.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Set' }
+  /sets/tcgplayer/{id}:
+    get:
+      tags: [Sets]
+      summary: Get a Set by TCGplayer ID
+      description: Returns a Set with the given tcgplayer_id (also known as the groupId on TCGplayer's API).
+      operationId: getSetByTcgplayerId
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: integer } }
+      responses:
+        '200':
+          description: The requested Set.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Set' }
+  /sets/{id}:
+    get:
+      tags: [Sets]
+      summary: Get a Set by Scryfall ID
+      description: Returns a Set with the given Scryfall ID.
+      operationId: getSetByScryfallId
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string, format: uuid } }
+      responses:
+        '200':
+          description: The requested Set.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Set' }
+  /symbology:
+    get:
+      tags: [Symbology]
+      summary: List All Card Symbols
+      description: Returns a List of all Card Symbols documented by Scryfall.
+      operationId: listSymbology
+      responses:
+        '200':
+          description: A list of card symbols.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/CardSymbolList' }
+  /symbology/parse-mana:
+    get:
+      tags: [Symbology]
+      summary: Parse a Mana Cost
+      description: Parses the given mana cost string and returns a normalized representation including converted mana cost.
+      operationId: parseMana
+      parameters:
+        - { name: cost, in: query, required: true, schema: { type: string } }
+      responses:
+        '200':
+          description: A parsed mana cost.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ManaCost' }
+  /catalog/card-names:
+    get:
+      tags: [Catalogs]
+      summary: Catalog of Card Names
+      description: Returns a Catalog of every canonical English card name in Scryfall's database.
+      operationId: catalogCardNames
+      responses:
+        '200': { description: A catalog of card names., content: { application/json: { schema: { $ref: '#/components/schemas/Catalog' } } } }
+  /catalog/artist-names:
+    get:
+      tags: [Catalogs]
+      summary: Catalog of Artist Names
+      description: Returns a Catalog of every artist who has illustrated a Magic card.
+      operationId: catalogArtistNames
+      responses:
+        '200': { description: A catalog of artist names., content: { application/json: { schema: { $ref: '#/components/schemas/Catalog' } } } }
+  /catalog/word-bank:
+    get:
+      tags: [Catalogs]
+      summary: Catalog of Word Bank
+      description: Returns a Catalog of every distinct word in card names.
+      operationId: catalogWordBank
+      responses:
+        '200': { description: A catalog of words., content: { application/json: { schema: { $ref: '#/components/schemas/Catalog' } } } }
+  /catalog/creature-types:
+    get:
+      tags: [Catalogs]
+      summary: Catalog of Creature Types
+      description: Returns a Catalog of all creature types in Magic.
+      operationId: catalogCreatureTypes
+      responses:
+        '200': { description: A catalog of creature types., content: { application/json: { schema: { $ref: '#/components/schemas/Catalog' } } } }
+  /catalog/planeswalker-types:
+    get:
+      tags: [Catalogs]
+      summary: Catalog of Planeswalker Types
+      description: Returns a Catalog of all planeswalker subtypes.
+      operationId: catalogPlaneswalkerTypes
+      responses:
+        '200': { description: A catalog of planeswalker types., content: { application/json: { schema: { $ref: '#/components/schemas/Catalog' } } } }
+  /catalog/land-types:
+    get:
+      tags: [Catalogs]
+      summary: Catalog of Land Types
+      description: Returns a Catalog of all land subtypes.
+      operationId: catalogLandTypes
+      responses:
+        '200': { description: A catalog of land types., content: { application/json: { schema: { $ref: '#/components/schemas/Catalog' } } } }
+  /catalog/artifact-types:
+    get:
+      tags: [Catalogs]
+      summary: Catalog of Artifact Types
+      description: Returns a Catalog of all artifact subtypes.
+      operationId: catalogArtifactTypes
+      responses:
+        '200': { description: A catalog of artifact types., content: { application/json: { schema: { $ref: '#/components/schemas/Catalog' } } } }
+  /catalog/enchantment-types:
+    get:
+      tags: [Catalogs]
+      summary: Catalog of Enchantment Types
+      description: Returns a Catalog of all enchantment subtypes.
+      operationId: catalogEnchantmentTypes
+      responses:
+        '200': { description: A catalog of enchantment types., content: { application/json: { schema: { $ref: '#/components/schemas/Catalog' } } } }
+  /catalog/spell-types:
+    get:
+      tags: [Catalogs]
+      summary: Catalog of Spell Types
+      description: Returns a Catalog of all spell subtypes.
+      operationId: catalogSpellTypes
+      responses:
+        '200': { description: A catalog of spell types., content: { application/json: { schema: { $ref: '#/components/schemas/Catalog' } } } }
+  /catalog/powers:
+    get:
+      tags: [Catalogs]
+      summary: Catalog of Powers
+      description: Returns a Catalog of all power values on creature cards.
+      operationId: catalogPowers
+      responses:
+        '200': { description: A catalog of power values., content: { application/json: { schema: { $ref: '#/components/schemas/Catalog' } } } }
+  /catalog/toughnesses:
+    get:
+      tags: [Catalogs]
+      summary: Catalog of Toughnesses
+      description: Returns a Catalog of all toughness values on creature cards.
+      operationId: catalogToughnesses
+      responses:
+        '200': { description: A catalog of toughness values., content: { application/json: { schema: { $ref: '#/components/schemas/Catalog' } } } }
+  /catalog/loyalties:
+    get:
+      tags: [Catalogs]
+      summary: Catalog of Loyalties
+      description: Returns a Catalog of all loyalty values on planeswalker cards.
+      operationId: catalogLoyalties
+      responses:
+        '200': { description: A catalog of loyalty values., content: { application/json: { schema: { $ref: '#/components/schemas/Catalog' } } } }
+  /catalog/keyword-abilities:
+    get:
+      tags: [Catalogs]
+      summary: Catalog of Keyword Abilities
+      description: Returns a Catalog of all keyword abilities Magic cards may have.
+      operationId: catalogKeywordAbilities
+      responses:
+        '200': { description: A catalog of keyword abilities., content: { application/json: { schema: { $ref: '#/components/schemas/Catalog' } } } }
+  /catalog/keyword-actions:
+    get:
+      tags: [Catalogs]
+      summary: Catalog of Keyword Actions
+      description: Returns a Catalog of all keyword actions in Magic.
+      operationId: catalogKeywordActions
+      responses:
+        '200': { description: A catalog of keyword actions., content: { application/json: { schema: { $ref: '#/components/schemas/Catalog' } } } }
+  /catalog/ability-words:
+    get:
+      tags: [Catalogs]
+      summary: Catalog of Ability Words
+      description: Returns a Catalog of all ability words on Magic cards.
+      operationId: catalogAbilityWords
+      responses:
+        '200': { description: A catalog of ability words., content: { application/json: { schema: { $ref: '#/components/schemas/Catalog' } } } }
+  /catalog/watermarks:
+    get:
+      tags: [Catalogs]
+      summary: Catalog of Watermarks
+      description: Returns a Catalog of all distinct illustration watermarks used on Magic cards.
+      operationId: catalogWatermarks
+      responses:
+        '200': { description: A catalog of watermarks., content: { application/json: { schema: { $ref: '#/components/schemas/Catalog' } } } }
+  /catalog/supertypes:
+    get:
+      tags: [Catalogs]
+      summary: Catalog of Card Supertypes
+      description: Returns a Catalog of card supertypes (e.g., Basic, Legendary, Snow, World).
+      operationId: catalogSupertypes
+      responses:
+        '200': { description: A catalog of supertypes., content: { application/json: { schema: { $ref: '#/components/schemas/Catalog' } } } }
+  /bulk-data:
+    get:
+      tags: [Bulk Data]
+      summary: List Bulk Data Files
+      description: Returns a List of all bulk-data exports currently available from Scryfall.
+      operationId: listBulkData
+      responses:
+        '200':
+          description: A list of bulk-data files.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/BulkDataList' }
+  /bulk-data/{id}:
+    get:
+      tags: [Bulk Data]
+      summary: Get a Bulk Data File by ID
+      description: Returns a single bulk-data export by its Scryfall ID.
+      operationId: getBulkDataById
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string, format: uuid } }
+      responses:
+        '200':
+          description: The requested bulk-data file.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/BulkData' }
+  /bulk-data/{type}:
+    get:
+      tags: [Bulk Data]
+      summary: Get a Bulk Data File by Type
+      description: Returns a single bulk-data export by its type (oracle_cards, unique_artwork, default_cards, all_cards, rulings).
+      operationId: getBulkDataByType
+      parameters:
+        - { name: type, in: path, required: true, schema: { type: string, enum: [oracle_cards, unique_artwork, default_cards, all_cards, rulings] } }
+      responses:
+        '200':
+          description: The requested bulk-data file.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/BulkData' }
+  /migrations:
+    get:
+      tags: [Migrations]
+      summary: List Migrations
+      description: Returns a List of all card-object Migration records published by Scryfall.
+      operationId: listMigrations
+      responses:
+        '200':
+          description: A list of migrations.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/MigrationList' }
+  /migrations/{id}:
+    get:
+      tags: [Migrations]
+      summary: Get a Migration by ID
+      description: Returns a single Migration record by its Scryfall ID.
+      operationId: getMigrationById
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string, format: uuid } }
+      responses:
+        '200':
+          description: The requested Migration.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Migration' }
+components:
+  schemas:
+    Card:
+      type: object
+      description: A Scryfall Card object representing a Magic: The Gathering card printing.
+      properties:
+        object: { type: string, enum: [card] }
+        id: { type: string, format: uuid, description: A unique ID for this card in Scryfall's database. }
+        oracle_id: { type: string, format: uuid, description: A unique ID for this card's oracle identity. }
+        multiverse_ids: { type: array, items: { type: integer } }
+        mtgo_id: { type: integer }
+        mtgo_foil_id: { type: integer }
+        arena_id: { type: integer }
+        tcgplayer_id: { type: integer }
+        cardmarket_id: { type: integer }
+        name: { type: string }
+        lang: { type: string }
+        released_at: { type: string, format: date }
+        uri: { type: string, format: uri }
+        scryfall_uri: { type: string, format: uri }
+        layout: { type: string, description: 'normal, split, flip, transform, modal_dfc, meld, leveler, class, saga, adventure, etc.' }
+        highres_image: { type: boolean }
+        image_status: { type: string, enum: [missing, placeholder, lowres, highres_scan] }
+        image_uris: { $ref: '#/components/schemas/ImageUris' }
+        mana_cost: { type: string }
+        cmc: { type: number, format: float }
+        type_line: { type: string }
+        oracle_text: { type: string }
+        colors: { type: array, items: { type: string, enum: [W, U, B, R, G] } }
+        color_identity: { type: array, items: { type: string, enum: [W, U, B, R, G] } }
+        keywords: { type: array, items: { type: string } }
+        legalities: { $ref: '#/components/schemas/Legalities' }
+        games: { type: array, items: { type: string, enum: [paper, mtgo, arena] } }
+        reserved: { type: boolean }
+        foil: { type: boolean }
+        nonfoil: { type: boolean }
+        finishes: { type: array, items: { type: string, enum: [foil, nonfoil, etched] } }
+        oversized: { type: boolean }
+        promo: { type: boolean }
+        reprint: { type: boolean }
+        variation: { type: boolean }
+        set_id: { type: string, format: uuid }
+        set: { type: string }
+        set_name: { type: string }
+        set_type: { type: string }
+        set_uri: { type: string, format: uri }
+        set_search_uri: { type: string, format: uri }
+        scryfall_set_uri: { type: string, format: uri }
+        rulings_uri: { type: string, format: uri }
+        prints_search_uri: { type: string, format: uri }
+        collector_number: { type: string }
+        digital: { type: boolean }
+        rarity: { type: string, enum: [common, uncommon, rare, special, mythic, bonus] }
+        flavor_text: { type: string }
+        card_back_id: { type: string, format: uuid }
+        artist: { type: string }
+        artist_ids: { type: array, items: { type: string, format: uuid } }
+        illustration_id: { type: string, format: uuid }
+        border_color: { type: string }
+        frame: { type: string }
+        frame_effects: { type: array, items: { type: string } }
+        security_stamp: { type: string }
+        full_art: { type: boolean }
+        textless: { type: boolean }
+        booster: { type: boolean }
+        story_spotlight: { type: boolean }
+        edhrec_rank: { type: integer }
+        penny_rank: { type: integer }
+        prices: { $ref: '#/components/schemas/Prices' }
+        related_uris: { type: object, additionalProperties: { type: string, format: uri } }
+        purchase_uris: { type: object, additionalProperties: { type: string, format: uri } }
+        all_parts: { type: array, items: { $ref: '#/components/schemas/RelatedCard' } }
+        card_faces: { type: array, items: { $ref: '#/components/schemas/CardFace' } }
+        power: { type: string }
+        toughness: { type: string }
+        loyalty: { type: string }
+        defense: { type: string }
+        produced_mana: { type: array, items: { type: string } }
+        watermark: { type: string }
+    CardFace:
+      type: object
+      description: One face of a multi-faced Magic card.
+      properties:
+        object: { type: string, enum: [card_face] }
+        name: { type: string }
+        mana_cost: { type: string }
+        type_line: { type: string }
+        oracle_text: { type: string }
+        colors: { type: array, items: { type: string } }
+        power: { type: string }
+        toughness: { type: string }
+        loyalty: { type: string }
+        defense: { type: string }
+        flavor_text: { type: string }
+        artist: { type: string }
+        artist_id: { type: string, format: uuid }
+        illustration_id: { type: string, format: uuid }
+        image_uris: { $ref: '#/components/schemas/ImageUris' }
+        watermark: { type: string }
+    RelatedCard:
+      type: object
+      description: A reference to a card related to this one (e.g., meld, token, combo).
+      properties:
+        object: { type: string, enum: [related_card] }
+        id: { type: string, format: uuid }
+        component: { type: string, enum: [token, meld_part, meld_result, combo_piece] }
+        name: { type: string }
+        type_line: { type: string }
+        uri: { type: string, format: uri }
+    ImageUris:
+      type: object
+      description: URIs for card image renderings at multiple sizes.
+      properties:
+        small: { type: string, format: uri }
+        normal: { type: string, format: uri }
+        large: { type: string, format: uri }
+        png: { type: string, format: uri }
+        art_crop: { type: string, format: uri }
+        border_crop: { type: string, format: uri }
+    Legalities:
+      type: object
+      description: Format-by-format legality of a card; values are legal, not_legal, restricted, or banned.
+      additionalProperties:
+        type: string
+        enum: [legal, not_legal, restricted, banned]
+      properties:
+        standard: { type: string }
+        future: { type: string }
+        historic: { type: string }
+        timeless: { type: string }
+        gladiator: { type: string }
+        pioneer: { type: string }
+        explorer: { type: string }
+        modern: { type: string }
+        legacy: { type: string }
+        pauper: { type: string }
+        vintage: { type: string }
+        penny: { type: string }
+        commander: { type: string }
+        oathbreaker: { type: string }
+        standardbrawl: { type: string }
+        brawl: { type: string }
+        alchemy: { type: string }
+        paupercommander: { type: string }
+        duel: { type: string }
+        oldschool: { type: string }
+        premodern: { type: string }
+        predh: { type: string }
+    Prices:
+      type: object
+      description: Up-to-date market prices for this printing in several currencies and finishes.
+      properties:
+        usd: { type: string }
+        usd_foil: { type: string }
+        usd_etched: { type: string }
+        eur: { type: string }
+        eur_foil: { type: string }
+        tix: { type: string }
+    Set:
+      type: object
+      description: A Scryfall Set object representing a Magic: The Gathering set or product.
+      properties:
+        object: { type: string, enum: [set] }
+        id: { type: string, format: uuid }
+        code: { type: string }
+        mtgo_code: { type: string }
+        arena_code: { type: string }
+        tcgplayer_id: { type: integer }
+        name: { type: string }
+        set_type: { type: string }
+        released_at: { type: string, format: date }
+        block_code: { type: string }
+        block: { type: string }
+        parent_set_code: { type: string }
+        card_count: { type: integer }
+        printed_size: { type: integer }
+        digital: { type: boolean }
+        foil_only: { type: boolean }
+        nonfoil_only: { type: boolean }
+        scryfall_uri: { type: string, format: uri }
+        uri: { type: string, format: uri }
+        icon_svg_uri: { type: string, format: uri }
+        search_uri: { type: string, format: uri }
+    Ruling:
+      type: object
+      description: A Scryfall Ruling object: Oracle ruling, WotC release note, or Scryfall note for a card.
+      properties:
+        object: { type: string, enum: [ruling] }
+        oracle_id: { type: string, format: uuid }
+        source: { type: string, enum: [wotc, scryfall] }
+        published_at: { type: string, format: date }
+        comment: { type: string }
+    CardSymbol:
+      type: object
+      description: A Scryfall Card Symbol object representing a single Magic mana or text symbol.
+      properties:
+        object: { type: string, enum: [card_symbol] }
+        symbol: { type: string }
+        loose_variant: { type: string }
+        english: { type: string }
+        transposable: { type: boolean }
+        represents_mana: { type: boolean }
+        appears_in_mana_costs: { type: boolean }
+        mana_value: { type: number }
+        cmc: { type: number }
+        colors: { type: array, items: { type: string } }
+        funny: { type: boolean }
+        hybrid: { type: boolean }
+        phyrexian: { type: boolean }
+        gatherer_alternates: { type: array, items: { type: string } }
+        svg_uri: { type: string, format: uri }
+    ManaCost:
+      type: object
+      description: A parsed Magic mana cost.
+      properties:
+        object: { type: string, enum: [mana_cost] }
+        cost: { type: string }
+        cmc: { type: number }
+        colors: { type: array, items: { type: string } }
+        colorless: { type: boolean }
+        monocolored: { type: boolean }
+        multicolored: { type: boolean }
+    Catalog:
+      type: object
+      description: A Scryfall Catalog object containing an array of Magic datapoints (names, types, etc.).
+      properties:
+        object: { type: string, enum: [catalog] }
+        uri: { type: string, format: uri }
+        total_values: { type: integer }
+        data: { type: array, items: { type: string } }
+    BulkData:
+      type: object
+      description: A Scryfall Bulk Data object describing one downloadable export of card data.
+      properties:
+        object: { type: string, enum: [bulk_data] }
+        id: { type: string, format: uuid }
+        type: { type: string, enum: [oracle_cards, unique_artwork, default_cards, all_cards, rulings] }
+        updated_at: { type: string, format: date-time }
+        uri: { type: string, format: uri }
+        name: { type: string }
+        description: { type: string }
+        compressed_size: { type: integer }
+        download_uri: { type: string, format: uri }
+        content_type: { type: string }
+        content_encoding: { type: string }
+        size: { type: integer }
+    Migration:
+      type: object
+      description: A Scryfall Migration record indicating a card object was renamed, merged, or removed.
+      properties:
+        object: { type: string, enum: [migration] }
+        id: { type: string, format: uuid }
+        uri: { type: string, format: uri }
+        performed_at: { type: string, format: date }
+        migration_strategy: { type: string, enum: [merge, delete] }
+        old_scryfall_id: { type: string, format: uuid }
+        new_scryfall_id: { type: string, format: uuid }
+        note: { type: string }
+    List:
+      type: object
+      description: A generic Scryfall List object wrapping a paginated collection of any type.
+      properties:
+        object: { type: string, enum: [list] }
+        total_cards: { type: integer }
+        has_more: { type: boolean }
+        next_page: { type: string, format: uri }
+        data: { type: array, items: { type: object } }
+    CardList:
+      allOf:
+        - { $ref: '#/components/schemas/List' }
+        - type: object
+          properties:
+            data: { type: array, items: { $ref: '#/components/schemas/Card' } }
+            not_found: { type: array, items: { type: object } }
+    SetList:
+      allOf:
+        - { $ref: '#/components/schemas/List' }
+        - type: object
+          properties:
+            data: { type: array, items: { $ref: '#/components/schemas/Set' } }
+    RulingList:
+      allOf:
+        - { $ref: '#/components/schemas/List' }
+        - type: object
+          properties:
+            data: { type: array, items: { $ref: '#/components/schemas/Ruling' } }
+    CardSymbolList:
+      allOf:
+        - { $ref: '#/components/schemas/List' }
+        - type: object
+          properties:
+            data: { type: array, items: { $ref: '#/components/schemas/CardSymbol' } }
+    BulkDataList:
+      allOf:
+        - { $ref: '#/components/schemas/List' }
+        - type: object
+          properties:
+            data: { type: array, items: { $ref: '#/components/schemas/BulkData' } }
+    MigrationList:
+      allOf:
+        - { $ref: '#/components/schemas/List' }
+        - type: object
+          properties:
+            data: { type: array, items: { $ref: '#/components/schemas/Migration' } }
+    Error:
+      type: object
+      description: A Scryfall Error response object returned for any non-2xx status.
+      properties:
+        object: { type: string, enum: [error] }
+        status: { type: integer }
+        code: { type: string }
+        details: { type: string }
+        type: { type: string }
+        warnings: { type: array, items: { type: string } }

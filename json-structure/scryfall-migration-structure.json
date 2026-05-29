@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "ScryfallMigration",
+  "type": "object",
+  "properties": {
+    "object": { "type": "string" },
+    "id": { "type": "string" },
+    "uri": { "type": "string" },
+    "performed_at": { "type": "string" },
+    "migration_strategy": { "type": "string" },
+    "old_scryfall_id": { "type": "string" },
+    "new_scryfall_id": { "type": "string" },
+    "note": { "type": "string" }
+  }
+}

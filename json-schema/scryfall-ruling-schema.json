@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/scryfall/main/json-schema/scryfall-ruling-schema.json",
+  "title": "Scryfall Ruling",
+  "description": "An Oracle ruling, Wizards of the Coast set release note, or Scryfall note for a specific Magic card identified by its oracle_id.",
+  "type": "object",
+  "required": ["object", "oracle_id", "source", "published_at", "comment"],
+  "properties": {
+    "object": { "type": "string", "const": "ruling" },
+    "oracle_id": { "type": "string", "format": "uuid" },
+    "source": { "type": "string", "enum": ["wotc", "scryfall"] },
+    "published_at": { "type": "string", "format": "date" },
+    "comment": { "type": "string" }
+  }
+}

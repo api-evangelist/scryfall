@@ -1,0 +1,38 @@
+{
+  "object": "list",
+  "total_cards": 2,
+  "has_more": false,
+  "data": [
+    {
+      "object": "card",
+      "id": "fce4986b-9518-49a4-a4f8-29f33b87b7bf",
+      "name": "Lightning Bolt",
+      "lang": "en",
+      "mana_cost": "{R}",
+      "cmc": 1.0,
+      "type_line": "Instant",
+      "oracle_text": "Lightning Bolt deals 3 damage to any target.",
+      "colors": ["R"],
+      "color_identity": ["R"],
+      "rarity": "common",
+      "set": "lea",
+      "set_name": "Limited Edition Alpha",
+      "collector_number": "161",
+      "prices": { "usd": "5.99" }
+    },
+    {
+      "object": "card",
+      "id": "0000419b-0bba-4488-8f7a-6194d4a7f87a",
+      "name": "Static Discharge",
+      "lang": "en",
+      "mana_cost": "{2}{R}",
+      "cmc": 3.0,
+      "type_line": "Instant",
+      "oracle_text": "Static Discharge deals 3 damage to any target.",
+      "colors": ["R"],
+      "rarity": "common",
+      "set": "kld",
+      "collector_number": "115"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "ScryfallRuling",
+  "type": "object",
+  "properties": {
+    "object": { "type": "string" },
+    "oracle_id": { "type": "string" },
+    "source": { "type": "string" },
+    "published_at": { "type": "string" },
+    "comment": { "type": "string" }
+  }
+}

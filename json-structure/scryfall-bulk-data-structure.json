@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "ScryfallBulkData",
+  "type": "object",
+  "properties": {
+    "object": { "type": "string" },
+    "id": { "type": "string" },
+    "type": { "type": "string" },
+    "updated_at": { "type": "string" },
+    "uri": { "type": "string" },
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "compressed_size": { "type": "integer" },
+    "download_uri": { "type": "string" },
+    "content_type": { "type": "string" },
+    "content_encoding": { "type": "string" },
+    "size": { "type": "integer" }
+  }
+}

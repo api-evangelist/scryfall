@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/scryfall/main/json-schema/scryfall-card-face-schema.json",
+  "title": "Scryfall Card Face",
+  "description": "One face of a multi-faced Scryfall Card (transform, modal DFC, split, flip, adventure, etc.).",
+  "type": "object",
+  "required": ["object", "name", "type_line"],
+  "properties": {
+    "object": { "type": "string", "const": "card_face" },
+    "name": { "type": "string" },
+    "mana_cost": { "type": "string" },
+    "type_line": { "type": "string" },
+    "oracle_text": { "type": "string" },
+    "colors": { "type": "array", "items": { "type": "string", "enum": ["W", "U", "B", "R", "G"] } },
+    "color_indicator": { "type": "array", "items": { "type": "string" } },
+    "power": { "type": "string" },
+    "toughness": { "type": "string" },
+    "loyalty": { "type": "string" },
+    "defense": { "type": "string" },
+    "flavor_text": { "type": "string" },
+    "artist": { "type": "string" },
+    "artist_id": { "type": "string", "format": "uuid" },
+    "illustration_id": { "type": "string", "format": "uuid" },
+    "image_uris": { "$ref": "scryfall-image-uris-schema.json" },
+    "watermark": { "type": "string" },
+    "printed_name": { "type": "string" },
+    "printed_text": { "type": "string" },
+    "printed_type_line": { "type": "string" }
+  }
+}

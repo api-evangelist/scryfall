@@ -1,0 +1,121 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Scryfall Catalogs
+  description: 'Scryfall Catalogs capability — convenience lists of Magic data points: card names, artist names, creature types, planeswalker types, land/artifact/enchantment/spell types, powers, toughnesses, loyalties, keyword abilities/actions, ability words, watermarks, supertypes. 17 operations. Lead operation: Catalog of Card Names.'
+  tags:
+    - Scryfall
+    - Catalogs
+    - Magic The Gathering
+  created: '2026-05-29'
+  modified: '2026-05-29'
+binds:
+  - namespace: env
+    keys:
+      SCRYFALL_USER_AGENT: SCRYFALL_USER_AGENT
+capability:
+  consumes:
+    - type: http
+      namespace: scryfall-catalogs
+      baseUri: https://api.scryfall.com
+      description: Scryfall Catalogs business capability.
+      resources:
+        - name: catalog-card-names
+          path: /catalog/card-names
+          operations:
+            - { name: catalogcardnames, method: GET, description: Catalog of Card Names, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+        - name: catalog-artist-names
+          path: /catalog/artist-names
+          operations:
+            - { name: catalogartistnames, method: GET, description: Catalog of Artist Names, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+        - name: catalog-word-bank
+          path: /catalog/word-bank
+          operations:
+            - { name: catalogwordbank, method: GET, description: Catalog of Word Bank, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+        - name: catalog-creature-types
+          path: /catalog/creature-types
+          operations:
+            - { name: catalogcreaturetypes, method: GET, description: Catalog of Creature Types, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+        - name: catalog-planeswalker-types
+          path: /catalog/planeswalker-types
+          operations:
+            - { name: catalogplaneswalkertypes, method: GET, description: Catalog of Planeswalker Types, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+        - name: catalog-land-types
+          path: /catalog/land-types
+          operations:
+            - { name: cataloglandtypes, method: GET, description: Catalog of Land Types, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+        - name: catalog-artifact-types
+          path: /catalog/artifact-types
+          operations:
+            - { name: catalogartifacttypes, method: GET, description: Catalog of Artifact Types, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+        - name: catalog-enchantment-types
+          path: /catalog/enchantment-types
+          operations:
+            - { name: catalogenchantmenttypes, method: GET, description: Catalog of Enchantment Types, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+        - name: catalog-spell-types
+          path: /catalog/spell-types
+          operations:
+            - { name: catalogspelltypes, method: GET, description: Catalog of Spell Types, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+        - name: catalog-powers
+          path: /catalog/powers
+          operations:
+            - { name: catalogpowers, method: GET, description: Catalog of Powers, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+        - name: catalog-toughnesses
+          path: /catalog/toughnesses
+          operations:
+            - { name: catalogtoughnesses, method: GET, description: Catalog of Toughnesses, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+        - name: catalog-loyalties
+          path: /catalog/loyalties
+          operations:
+            - { name: catalogloyalties, method: GET, description: Catalog of Loyalties, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+        - name: catalog-keyword-abilities
+          path: /catalog/keyword-abilities
+          operations:
+            - { name: catalogkeywordabilities, method: GET, description: Catalog of Keyword Abilities, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+        - name: catalog-keyword-actions
+          path: /catalog/keyword-actions
+          operations:
+            - { name: catalogkeywordactions, method: GET, description: Catalog of Keyword Actions, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+        - name: catalog-ability-words
+          path: /catalog/ability-words
+          operations:
+            - { name: catalogabilitywords, method: GET, description: Catalog of Ability Words, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+        - name: catalog-watermarks
+          path: /catalog/watermarks
+          operations:
+            - { name: catalogwatermarks, method: GET, description: Catalog of Watermarks, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+        - name: catalog-supertypes
+          path: /catalog/supertypes
+          operations:
+            - { name: catalogsupertypes, method: GET, description: Catalog of Card Supertypes, outputRawFormat: json, outputParameters: [{ name: result, type: object, value: $. }] }
+      authentication:
+        type: header
+        key: User-Agent
+        value: '{{env.SCRYFALL_USER_AGENT}}'
+        placement: header
+  exposes:
+    - type: mcp
+      namespace: scryfall-catalogs-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Scryfall Catalogs.
+      tools:
+        - name: catalog-card-names
+          description: List every canonical English card name in Scryfall's database.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: scryfall-catalogs.catalogcardnames
+          outputParameters: [{ type: object, mapping: $. }]
+        - name: catalog-creature-types
+          description: List all creature subtypes in Magic.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: scryfall-catalogs.catalogcreaturetypes
+          outputParameters: [{ type: object, mapping: $. }]
+        - name: catalog-keyword-abilities
+          description: List all keyword abilities Magic cards may have.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: scryfall-catalogs.catalogkeywordabilities
+          outputParameters: [{ type: object, mapping: $. }]
+        - name: catalog-supertypes
+          description: List all card supertypes (Basic, Legendary, Snow, World, etc.).
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: scryfall-catalogs.catalogsupertypes
+          outputParameters: [{ type: object, mapping: $. }]

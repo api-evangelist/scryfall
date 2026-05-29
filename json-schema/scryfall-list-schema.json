@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/scryfall/main/json-schema/scryfall-list-schema.json",
+  "title": "Scryfall List",
+  "description": "A paginated List wrapper returned for any endpoint that yields multiple Scryfall objects.",
+  "type": "object",
+  "required": ["object", "data"],
+  "properties": {
+    "object": { "type": "string", "const": "list" },
+    "total_cards": { "type": "integer" },
+    "has_more": { "type": "boolean" },
+    "next_page": { "type": "string", "format": "uri" },
+    "data": { "type": "array", "items": { "type": "object" } },
+    "warnings": { "type": "array", "items": { "type": "string" } },
+    "not_found": { "type": "array", "items": { "type": "object" } }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "object": "card",
+  "id": "0000419b-0bba-4488-8f7a-6194d4a7f87a",
+  "oracle_id": "b3f5b53b-1f87-4a4f-bc6f-cdc5edaeb2db",
+  "multiverse_ids": [413579],
+  "mtgo_id": 56743,
+  "tcgplayer_id": 96918,
+  "cardmarket_id": 285968,
+  "name": "Static Discharge",
+  "lang": "en",
+  "released_at": "2016-09-30",
+  "uri": "https://api.scryfall.com/cards/0000419b-0bba-4488-8f7a-6194d4a7f87a",
+  "scryfall_uri": "https://scryfall.com/card/kld/115/static-discharge",
+  "layout": "normal",
+  "highres_image": true,
+  "image_status": "highres_scan",
+  "image_uris": {
+    "small": "https://cards.scryfall.io/small/front/0/0/0000419b-0bba-4488-8f7a-6194d4a7f87a.jpg",
+    "normal": "https://cards.scryfall.io/normal/front/0/0/0000419b-0bba-4488-8f7a-6194d4a7f87a.jpg",
+    "large": "https://cards.scryfall.io/large/front/0/0/0000419b-0bba-4488-8f7a-6194d4a7f87a.jpg",
+    "png": "https://cards.scryfall.io/png/front/0/0/0000419b-0bba-4488-8f7a-6194d4a7f87a.png",
+    "art_crop": "https://cards.scryfall.io/art_crop/front/0/0/0000419b-0bba-4488-8f7a-6194d4a7f87a.jpg",
+    "border_crop": "https://cards.scryfall.io/border_crop/front/0/0/0000419b-0bba-4488-8f7a-6194d4a7f87a.jpg"
+  },
+  "mana_cost": "{2}{R}",
+  "cmc": 3.0,
+  "type_line": "Instant",
+  "oracle_text": "Static Discharge deals 3 damage to any target.",
+  "colors": ["R"],
+  "color_identity": ["R"],
+  "keywords": [],
+  "legalities": {
+    "standard": "not_legal", "modern": "legal", "legacy": "legal",
+    "pauper": "legal", "vintage": "legal", "commander": "legal",
+    "pioneer": "not_legal"
+  },
+  "games": ["paper", "mtgo"],
+  "reserved": false, "foil": true, "nonfoil": true,
+  "finishes": ["foil", "nonfoil"],
+  "set_id": "fe5b329d-0764-4d4a-8b78-c1c3b3a2ec3e",
+  "set": "kld",
+  "set_name": "Kaladesh",
+  "set_type": "expansion",
+  "collector_number": "115",
+  "rarity": "common",
+  "artist": "Mathias Kollros",
+  "border_color": "black",
+  "frame": "2015",
+  "edhrec_rank": 14523,
+  "prices": { "usd": "0.07", "usd_foil": "0.34", "eur": "0.05", "tix": "0.03" },
+  "related_uris": {
+    "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=413579",
+    "edhrec": "https://edhrec.com/route/?cc=Static+Discharge"
+  },
+  "purchase_uris": {
+    "tcgplayer": "https://www.tcgplayer.com/product/96918",
+    "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Singles/Kaladesh/Static-Discharge",
+    "cardhoarder": "https://www.cardhoarder.com/cards/56743"
+  }
+}
