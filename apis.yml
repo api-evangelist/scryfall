@@ -1,12 +1,12 @@
 aid: scryfall
 name: Scryfall
-description: Scryfall is the most comprehensive free Magic - The Gathering card database. The Scryfall
-  API exposes Cards (search, autocomplete, named, random, collection, by various IDs), Sets, Rulings,
-  Symbology, Catalogs, Bulk Data downloads, and card-object Migrations. The service is community-funded
-  (Patreon / Ko-fi) and offered free of charge under the Wizards of the Coast Fan Content Policy for
-  community software, research, and content. The API is HTTPS-only, requires a descriptive User-Agent
-  and Accept header on every request, and asks that clients keep sustained traffic under 10 requests
-  per second.
+description: >-
+  Scryfall is the most comprehensive free Magic - The Gathering card database. The Scryfall API exposes Cards (search,
+  autocomplete, named, random, collection, by various IDs), Sets, Rulings, Symbology, Catalogs, Bulk Data downloads, and
+  card-object Migrations. The service is community-funded (Patreon / Ko-fi) and offered free of charge under the Wizards
+  of the Coast Fan Content Policy for community software, research, and content. The API is HTTPS-only, requires a
+  descriptive User-Agent and Accept header on every request, and asks that clients keep sustained traffic under 10
+  requests per second.
 type: Index
 url: https://raw.githubusercontent.com/api-evangelist/scryfall/main/apis.yml
 humanURL: https://scryfall.com/docs/api
@@ -30,12 +30,12 @@ tags:
 apis:
   - aid: scryfall:scryfall-api
     name: Scryfall API
-    description: The Scryfall REST API exposes Magic - The Gathering card data, set metadata, Oracle
-      rulings, symbology, catalogs of in-game data points, daily bulk-data exports, and card-object
-      migration records. The Cards surface alone supports lookup by Scryfall ID, set+number,
-      Multiverse ID, MTGO ID, Arena ID, TCGplayer ID, Cardmarket ID, exact/fuzzy name, autocomplete,
-      random draw, and batch collection. All responses use a discriminated object model keyed by the
-      'object' field.
+    description: >-
+      The Scryfall REST API exposes Magic - The Gathering card data, set metadata, Oracle rulings, symbology, catalogs
+      of in-game data points, daily bulk-data exports, and card-object migration records. The Cards surface alone
+      supports lookup by Scryfall ID, set+number, Multiverse ID, MTGO ID, Arena ID, TCGplayer ID, Cardmarket ID,
+      exact/fuzzy name, autocomplete, random draw, and batch collection. All responses use a discriminated object model
+      keyed by the 'object' field.
     humanURL: https://scryfall.com/docs/api
     baseURL: https://api.scryfall.com
     tags:
@@ -115,20 +115,6 @@ apis:
         url: examples/scryfall-migration-example.json
       - type: Example
         url: examples/scryfall-error-example.json
-      - type: NaftikoCapability
-        url: capabilities/scryfall-cards.yaml
-      - type: NaftikoCapability
-        url: capabilities/scryfall-sets.yaml
-      - type: NaftikoCapability
-        url: capabilities/scryfall-rulings.yaml
-      - type: NaftikoCapability
-        url: capabilities/scryfall-symbology.yaml
-      - type: NaftikoCapability
-        url: capabilities/scryfall-catalogs.yaml
-      - type: NaftikoCapability
-        url: capabilities/scryfall-bulk-data.yaml
-      - type: NaftikoCapability
-        url: capabilities/scryfall-migrations.yaml
       - type: RateLimits
         url: rate-limits/scryfall-rate-limits.yml
       - type: Authentication
@@ -223,8 +209,7 @@ common:
   - type: Tools
     name: bmurdock/scryfall-mcp
     url: https://github.com/bmurdock/scryfall-mcp
-    description: MCP server for Scryfall-backed Magic search, rules lookup, pricing, set discovery,
-      and deckbuilding workflows.
+    description: MCP server for Scryfall-backed Magic search, rules lookup, pricing, set discovery, and deckbuilding workflows.
   - type: Tools
     name: andershaig/mcp-scryfall
     url: https://github.com/andershaig/mcp-scryfall
@@ -246,14 +231,13 @@ common:
   - type: Features
     data:
       - name: Comprehensive card database
-        description: Every Magic - The Gathering printing across paper, MTGO, and Arena with localized
-          translations.
+        description: Every Magic - The Gathering printing across paper, MTGO, and Arena with localized translations.
       - name: Fulltext search query language
-        description: Powerful Scryfall search syntax supporting color, type, format legality, set,
-          price, oracle text, and more.
+        description: Powerful Scryfall search syntax supporting color, type, format legality, set, price, oracle text, and more.
       - name: Daily bulk-data exports
-        description: Five daily JSON exports - oracle_cards, unique_artwork, default_cards, all_cards,
-          and rulings - for offline ingestion.
+        description: >-
+          Five daily JSON exports - oracle_cards, unique_artwork, default_cards, all_cards, and rulings - for offline
+          ingestion.
       - name: Multi-resolution card imagery
         description: Six image renderings per card - small, normal, large, png, art_crop, border_crop.
       - name: Up-to-date market prices
@@ -263,16 +247,15 @@ common:
       - name: Symbology with SVG renderings
         description: All Magic mana and text symbols with parser endpoint and downloadable SVG art.
       - name: Catalogs of in-game data points
-        description: Canonical lists of card names, creature types, supertypes, keyword abilities,
-          and more for autocomplete and validation.
+        description: >-
+          Canonical lists of card names, creature types, supertypes, keyword abilities, and more for autocomplete and
+          validation.
       - name: Free with attribution
-        description: No API key, no paid tier - usage is governed by attribution and a documented
-          rate-limit policy.
+        description: No API key, no paid tier - usage is governed by attribution and a documented rate-limit policy.
   - type: UseCases
     data:
       - name: Deck building applications
-        description: Powering search, autocomplete, and legality checks in deck-builder web and
-          mobile apps.
+        description: Powering search, autocomplete, and legality checks in deck-builder web and mobile apps.
       - name: Price tracking and portfolio tools
         description: Aggregating USD / EUR / Tix prices across reprints for collection valuation.
       - name: Discord and Slack card-lookup bots
@@ -280,16 +263,15 @@ common:
       - name: LLM and AI agent integrations
         description: MCP servers exposing card data, rulings, and search to Claude and other agents.
       - name: Research and dataset publishing
-        description: Bulk-data exports feed academic and journalistic research on Magic's design
-          history and card economy.
+        description: Bulk-data exports feed academic and journalistic research on Magic's design history and card economy.
       - name: Spoiler and set-release coverage
-        description: Tracking newly-spoiled cards into and through release day via the Sets and Cards
-          endpoints.
+        description: Tracking newly-spoiled cards into and through release day via the Sets and Cards endpoints.
       - name: Custom card-rendering and proxy printing
         description: High-resolution PNG and SVG art for personal-use proxies and educational content.
       - name: Tournament-legality verification
-        description: Format-legality checks for Standard, Pioneer, Modern, Legacy, Vintage, Pauper,
-          Commander, Brawl, Alchemy, and historic formats.
+        description: >-
+          Format-legality checks for Standard, Pioneer, Modern, Legacy, Vintage, Pauper, Commander, Brawl, Alchemy, and
+          historic formats.
   - type: Integrations
     data:
       - name: TCGplayer
@@ -307,8 +289,7 @@ common:
       - name: EDHREC
         description: Commander-format recommendation data linked from card.related_uris.
       - name: Anthropic Claude (MCP)
-        description: Multiple community MCP servers expose Scryfall to Claude Desktop and other MCP
-          clients.
+        description: Multiple community MCP servers expose Scryfall to Claude Desktop and other MCP clients.
       - name: Google Sheets
         description: Official Scryfall =SCRYFALL() custom function for spreadsheet card lookups.
       - name: Alfred (macOS)
@@ -318,8 +299,7 @@ common:
       - name: Community software
         description: Powering thousands of fan-built deck builders, collection trackers, and tools.
       - name: Magic content creators
-        description: Source of authoritative card data and imagery for podcasts, articles, and video
-          content.
+        description: Source of authoritative card data and imagery for podcasts, articles, and video content.
       - name: Researchers
         description: Bulk-data exports enabling longitudinal analysis of Magic's design and economy.
 maintainers:
