@@ -97,29 +97,29 @@ apis:
         url: json-structure/scryfall-migration-structure.json
       - type: JSONLD
         url: json-ld/scryfall-context.jsonld
-      - type: Example
+      - type: Examples
         url: examples/scryfall-card-example.json
-      - type: Example
+      - type: Examples
         url: examples/scryfall-card-list-example.json
-      - type: Example
+      - type: Examples
         url: examples/scryfall-set-example.json
-      - type: Example
+      - type: Examples
         url: examples/scryfall-ruling-example.json
-      - type: Example
+      - type: Examples
         url: examples/scryfall-card-symbol-example.json
-      - type: Example
+      - type: Examples
         url: examples/scryfall-catalog-example.json
-      - type: Example
+      - type: Examples
         url: examples/scryfall-bulk-data-example.json
-      - type: Example
+      - type: Examples
         url: examples/scryfall-migration-example.json
-      - type: Example
+      - type: Examples
         url: examples/scryfall-error-example.json
       - type: RateLimits
         url: rate-limits/scryfall-rate-limits.yml
       - type: Authentication
         url: https://scryfall.com/docs/api
-      - type: Errors
+      - type: ErrorCodes
         url: https://scryfall.com/docs/api/errors
 common:
   - type: Website
@@ -186,19 +186,19 @@ common:
     name: scryfall/art-game
     url: https://github.com/scryfall/art-game
     description: The MTG art-guessing game on Scryfall.
-  - type: SDK
+  - type: SDKs
     name: scryfall-client (JavaScript)
     url: https://github.com/crookedneighbor/scryfall-client
     description: Community-maintained JavaScript client for the Scryfall API.
-  - type: SDK
+  - type: SDKs
     name: scryfall-sdk (TypeScript)
     url: https://www.npmjs.com/package/scryfall-sdk
     description: Community-maintained TypeScript SDK for the Scryfall API.
-  - type: SDK
+  - type: SDKs
     name: scrython (Python)
     url: https://github.com/NandaScott/Scrython
     description: Community-maintained Python wrapper for the Scryfall API.
-  - type: SDK
+  - type: SDKs
     name: scryfall (Rust)
     url: https://docs.rs/scryfall
     description: Community-maintained Rust client for the Scryfall API.
