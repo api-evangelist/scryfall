@@ -122,6 +122,10 @@ apis:
       - type: ErrorCodes
         url: https://scryfall.com/docs/api/errors
 common:
+  - type: VulnerabilityDisclosure
+    url: security/scryfall-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/scryfall-domain-security.yml
   - type: Website
     url: https://scryfall.com
   - type: Documentation
