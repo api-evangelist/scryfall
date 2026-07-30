@@ -10,7 +10,19 @@ description: >-
 type: Index
 url: https://raw.githubusercontent.com/api-evangelist/scryfall/main/apis.yml
 humanURL: https://scryfall.com/docs/api
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: free
+  onboarding: open
+  trial: false
+  try_now: true
+  public: true
+  label: Free · Open access
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/scryfall.png
 specificationVersion: '0.20'
 created: '2026-05-28'
 modified: '2026-05-29'
@@ -122,6 +134,8 @@ apis:
       - type: ErrorCodes
         url: https://scryfall.com/docs/api/errors
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/scryfall/overview
   - type: VulnerabilityDisclosure
     url: security/scryfall-vulnerability-disclosure.yml
   - type: DomainSecurity
