@@ -27,7 +27,7 @@ tags:
   - name: Cards
     description: Look up, search, and fetch Magic card objects in many ways.
   - name: Sets
-    description: List and retrieve Magic: The Gathering set metadata.
+    description: "List and retrieve Magic: The Gathering set metadata."
   - name: Rulings
     description: Oracle rulings, WotC release notes, and Scryfall notes for a card.
   - name: Symbology
@@ -308,7 +308,7 @@ paths:
     get:
       tags: [Sets]
       summary: List Sets
-      description: Returns a List of all Magic: The Gathering sets known to Scryfall.
+      description: "Returns a List of all Magic: The Gathering sets known to Scryfall."
       operationId: listSets
       responses:
         '200':
@@ -590,7 +590,7 @@ components:
   schemas:
     Card:
       type: object
-      description: A Scryfall Card object representing a Magic: The Gathering card printing.
+      description: "A Scryfall Card object representing a Magic: The Gathering card printing."
       properties:
         object: { type: string, enum: [card] }
         id: { type: string, format: uuid, description: A unique ID for this card in Scryfall's database. }
@@ -746,7 +746,7 @@ components:
         tix: { type: string }
     Set:
       type: object
-      description: A Scryfall Set object representing a Magic: The Gathering set or product.
+      description: "A Scryfall Set object representing a Magic: The Gathering set or product."
       properties:
         object: { type: string, enum: [set] }
         id: { type: string, format: uuid }
@@ -771,7 +771,7 @@ components:
         search_uri: { type: string, format: uri }
     Ruling:
       type: object
-      description: A Scryfall Ruling object: Oracle ruling, WotC release note, or Scryfall note for a card.
+      description: "A Scryfall Ruling object: Oracle ruling, WotC release note, or Scryfall note for a card."
       properties:
         object: { type: string, enum: [ruling] }
         oracle_id: { type: string, format: uuid }
