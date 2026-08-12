@@ -40,100 +40,584 @@ tags:
   - Community Funded
   - Public APIs
 apis:
-  - aid: scryfall:scryfall-api
-    name: Scryfall API
-    description: >-
-      The Scryfall REST API exposes Magic - The Gathering card data, set metadata, Oracle rulings, symbology, catalogs
-      of in-game data points, daily bulk-data exports, and card-object migration records. The Cards surface alone
-      supports lookup by Scryfall ID, set+number, Multiverse ID, MTGO ID, Arena ID, TCGplayer ID, Cardmarket ID,
-      exact/fuzzy name, autocomplete, random draw, and batch collection. All responses use a discriminated object model
-      keyed by the 'object' field.
-    humanURL: https://scryfall.com/docs/api
-    baseURL: https://api.scryfall.com
-    tags:
-      - Cards
-      - Sets
-      - Rulings
-      - Symbology
-      - Catalogs
-      - Bulk Data
-      - Magic The Gathering
-    properties:
-      - type: Documentation
-        url: https://scryfall.com/docs/api
-      - type: APIReference
-        url: https://scryfall.com/docs/api/cards
-      - type: OpenAPI
-        url: openapi/scryfall-openapi.yml
-      - type: JSONSchema
-        url: json-schema/scryfall-card-schema.json
-      - type: JSONSchema
-        url: json-schema/scryfall-card-face-schema.json
-      - type: JSONSchema
-        url: json-schema/scryfall-related-card-schema.json
-      - type: JSONSchema
-        url: json-schema/scryfall-image-uris-schema.json
-      - type: JSONSchema
-        url: json-schema/scryfall-legalities-schema.json
-      - type: JSONSchema
-        url: json-schema/scryfall-prices-schema.json
-      - type: JSONSchema
-        url: json-schema/scryfall-set-schema.json
-      - type: JSONSchema
-        url: json-schema/scryfall-ruling-schema.json
-      - type: JSONSchema
-        url: json-schema/scryfall-card-symbol-schema.json
-      - type: JSONSchema
-        url: json-schema/scryfall-catalog-schema.json
-      - type: JSONSchema
-        url: json-schema/scryfall-bulk-data-schema.json
-      - type: JSONSchema
-        url: json-schema/scryfall-migration-schema.json
-      - type: JSONSchema
-        url: json-schema/scryfall-list-schema.json
-      - type: JSONSchema
-        url: json-schema/scryfall-error-schema.json
-      - type: JSONStructure
-        url: json-structure/scryfall-card-structure.json
-      - type: JSONStructure
-        url: json-structure/scryfall-set-structure.json
-      - type: JSONStructure
-        url: json-structure/scryfall-ruling-structure.json
-      - type: JSONStructure
-        url: json-structure/scryfall-card-symbol-structure.json
-      - type: JSONStructure
-        url: json-structure/scryfall-catalog-structure.json
-      - type: JSONStructure
-        url: json-structure/scryfall-bulk-data-structure.json
-      - type: JSONStructure
-        url: json-structure/scryfall-migration-structure.json
-      - type: JSONLD
-        url: json-ld/scryfall-context.jsonld
-      - type: Examples
-        url: examples/scryfall-card-example.json
-      - type: Examples
-        url: examples/scryfall-card-list-example.json
-      - type: Examples
-        url: examples/scryfall-set-example.json
-      - type: Examples
-        url: examples/scryfall-ruling-example.json
-      - type: Examples
-        url: examples/scryfall-card-symbol-example.json
-      - type: Examples
-        url: examples/scryfall-catalog-example.json
-      - type: Examples
-        url: examples/scryfall-bulk-data-example.json
-      - type: Examples
-        url: examples/scryfall-migration-example.json
-      - type: Examples
-        url: examples/scryfall-error-example.json
-      - type: RateLimits
-        url: rate-limits/scryfall-rate-limits.yml
-      - type: Authentication
-        url: https://scryfall.com/docs/api
-      - type: ErrorCodes
-        url: https://scryfall.com/docs/api/errors
+- aid: scryfall:scryfall-bulk-data-api
+  name: Scryfall Bulk Data API
+  description: Large daily exports of the entire Scryfall card database.
+  humanURL: https://scryfall.com/docs/api
+  baseURL: https://api.scryfall.com
+  tags:
+  - Bulk Data
+  properties:
+  - type: OpenAPI
+    url: openapi/scryfall-bulk-data-api-openapi.yml
+  - type: Documentation
+    url: https://scryfall.com/docs/api
+  - type: APIReference
+    url: https://scryfall.com/docs/api/cards
+  - type: JSONSchema
+    url: json-schema/scryfall-card-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-card-face-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-related-card-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-image-uris-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-legalities-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-prices-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-set-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-ruling-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-card-symbol-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-catalog-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-bulk-data-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-migration-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-list-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-error-schema.json
+  - type: JSONStructure
+    url: json-structure/scryfall-card-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-set-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-ruling-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-card-symbol-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-catalog-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-bulk-data-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-migration-structure.json
+  - type: JSONLD
+    url: json-ld/scryfall-context.jsonld
+  - type: Examples
+    url: examples/scryfall-card-example.json
+  - type: Examples
+    url: examples/scryfall-card-list-example.json
+  - type: Examples
+    url: examples/scryfall-set-example.json
+  - type: Examples
+    url: examples/scryfall-ruling-example.json
+  - type: Examples
+    url: examples/scryfall-card-symbol-example.json
+  - type: Examples
+    url: examples/scryfall-catalog-example.json
+  - type: Examples
+    url: examples/scryfall-bulk-data-example.json
+  - type: Examples
+    url: examples/scryfall-migration-example.json
+  - type: Examples
+    url: examples/scryfall-error-example.json
+  - type: RateLimits
+    url: rate-limits/scryfall-rate-limits.yml
+  - type: Authentication
+    url: https://scryfall.com/docs/api
+  - type: ErrorCodes
+    url: https://scryfall.com/docs/api/errors
+- aid: scryfall:scryfall-cards-api
+  name: Scryfall Cards API
+  description: Look up, search, and fetch Magic card objects in many ways.
+  humanURL: https://scryfall.com/docs/api
+  baseURL: https://api.scryfall.com
+  tags:
+  - Cards
+  properties:
+  - type: OpenAPI
+    url: openapi/scryfall-cards-api-openapi.yml
+  - type: Documentation
+    url: https://scryfall.com/docs/api
+  - type: APIReference
+    url: https://scryfall.com/docs/api/cards
+  - type: JSONSchema
+    url: json-schema/scryfall-card-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-card-face-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-related-card-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-image-uris-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-legalities-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-prices-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-set-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-ruling-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-card-symbol-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-catalog-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-bulk-data-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-migration-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-list-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-error-schema.json
+  - type: JSONStructure
+    url: json-structure/scryfall-card-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-set-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-ruling-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-card-symbol-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-catalog-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-bulk-data-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-migration-structure.json
+  - type: JSONLD
+    url: json-ld/scryfall-context.jsonld
+  - type: Examples
+    url: examples/scryfall-card-example.json
+  - type: Examples
+    url: examples/scryfall-card-list-example.json
+  - type: Examples
+    url: examples/scryfall-set-example.json
+  - type: Examples
+    url: examples/scryfall-ruling-example.json
+  - type: Examples
+    url: examples/scryfall-card-symbol-example.json
+  - type: Examples
+    url: examples/scryfall-catalog-example.json
+  - type: Examples
+    url: examples/scryfall-bulk-data-example.json
+  - type: Examples
+    url: examples/scryfall-migration-example.json
+  - type: Examples
+    url: examples/scryfall-error-example.json
+  - type: RateLimits
+    url: rate-limits/scryfall-rate-limits.yml
+  - type: Authentication
+    url: https://scryfall.com/docs/api
+  - type: ErrorCodes
+    url: https://scryfall.com/docs/api/errors
+- aid: scryfall:scryfall-catalogs-api
+  name: Scryfall Catalogs API
+  description: Convenience lists of Magic data points (card names, types, supertypes, etc.).
+  humanURL: https://scryfall.com/docs/api
+  baseURL: https://api.scryfall.com
+  tags:
+  - Catalogs
+  properties:
+  - type: OpenAPI
+    url: openapi/scryfall-catalogs-api-openapi.yml
+  - type: Documentation
+    url: https://scryfall.com/docs/api
+  - type: APIReference
+    url: https://scryfall.com/docs/api/cards
+  - type: JSONSchema
+    url: json-schema/scryfall-card-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-card-face-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-related-card-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-image-uris-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-legalities-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-prices-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-set-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-ruling-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-card-symbol-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-catalog-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-bulk-data-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-migration-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-list-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-error-schema.json
+  - type: JSONStructure
+    url: json-structure/scryfall-card-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-set-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-ruling-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-card-symbol-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-catalog-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-bulk-data-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-migration-structure.json
+  - type: JSONLD
+    url: json-ld/scryfall-context.jsonld
+  - type: Examples
+    url: examples/scryfall-card-example.json
+  - type: Examples
+    url: examples/scryfall-card-list-example.json
+  - type: Examples
+    url: examples/scryfall-set-example.json
+  - type: Examples
+    url: examples/scryfall-ruling-example.json
+  - type: Examples
+    url: examples/scryfall-card-symbol-example.json
+  - type: Examples
+    url: examples/scryfall-catalog-example.json
+  - type: Examples
+    url: examples/scryfall-bulk-data-example.json
+  - type: Examples
+    url: examples/scryfall-migration-example.json
+  - type: Examples
+    url: examples/scryfall-error-example.json
+  - type: RateLimits
+    url: rate-limits/scryfall-rate-limits.yml
+  - type: Authentication
+    url: https://scryfall.com/docs/api
+  - type: ErrorCodes
+    url: https://scryfall.com/docs/api/errors
+- aid: scryfall:scryfall-migrations-api
+  name: Scryfall Migrations API
+  description: Records of card-object migrations and merges.
+  humanURL: https://scryfall.com/docs/api
+  baseURL: https://api.scryfall.com
+  tags:
+  - Migrations
+  properties:
+  - type: OpenAPI
+    url: openapi/scryfall-migrations-api-openapi.yml
+  - type: Documentation
+    url: https://scryfall.com/docs/api
+  - type: APIReference
+    url: https://scryfall.com/docs/api/cards
+  - type: JSONSchema
+    url: json-schema/scryfall-card-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-card-face-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-related-card-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-image-uris-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-legalities-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-prices-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-set-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-ruling-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-card-symbol-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-catalog-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-bulk-data-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-migration-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-list-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-error-schema.json
+  - type: JSONStructure
+    url: json-structure/scryfall-card-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-set-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-ruling-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-card-symbol-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-catalog-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-bulk-data-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-migration-structure.json
+  - type: JSONLD
+    url: json-ld/scryfall-context.jsonld
+  - type: Examples
+    url: examples/scryfall-card-example.json
+  - type: Examples
+    url: examples/scryfall-card-list-example.json
+  - type: Examples
+    url: examples/scryfall-set-example.json
+  - type: Examples
+    url: examples/scryfall-ruling-example.json
+  - type: Examples
+    url: examples/scryfall-card-symbol-example.json
+  - type: Examples
+    url: examples/scryfall-catalog-example.json
+  - type: Examples
+    url: examples/scryfall-bulk-data-example.json
+  - type: Examples
+    url: examples/scryfall-migration-example.json
+  - type: Examples
+    url: examples/scryfall-error-example.json
+  - type: RateLimits
+    url: rate-limits/scryfall-rate-limits.yml
+  - type: Authentication
+    url: https://scryfall.com/docs/api
+  - type: ErrorCodes
+    url: https://scryfall.com/docs/api/errors
+- aid: scryfall:scryfall-rulings-api
+  name: Scryfall Rulings API
+  description: Oracle rulings, WotC release notes, and Scryfall notes for a card.
+  humanURL: https://scryfall.com/docs/api
+  baseURL: https://api.scryfall.com
+  tags:
+  - Rulings
+  properties:
+  - type: OpenAPI
+    url: openapi/scryfall-rulings-api-openapi.yml
+  - type: Documentation
+    url: https://scryfall.com/docs/api
+  - type: APIReference
+    url: https://scryfall.com/docs/api/cards
+  - type: JSONSchema
+    url: json-schema/scryfall-card-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-card-face-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-related-card-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-image-uris-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-legalities-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-prices-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-set-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-ruling-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-card-symbol-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-catalog-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-bulk-data-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-migration-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-list-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-error-schema.json
+  - type: JSONStructure
+    url: json-structure/scryfall-card-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-set-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-ruling-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-card-symbol-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-catalog-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-bulk-data-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-migration-structure.json
+  - type: JSONLD
+    url: json-ld/scryfall-context.jsonld
+  - type: Examples
+    url: examples/scryfall-card-example.json
+  - type: Examples
+    url: examples/scryfall-card-list-example.json
+  - type: Examples
+    url: examples/scryfall-set-example.json
+  - type: Examples
+    url: examples/scryfall-ruling-example.json
+  - type: Examples
+    url: examples/scryfall-card-symbol-example.json
+  - type: Examples
+    url: examples/scryfall-catalog-example.json
+  - type: Examples
+    url: examples/scryfall-bulk-data-example.json
+  - type: Examples
+    url: examples/scryfall-migration-example.json
+  - type: Examples
+    url: examples/scryfall-error-example.json
+  - type: RateLimits
+    url: rate-limits/scryfall-rate-limits.yml
+  - type: Authentication
+    url: https://scryfall.com/docs/api
+  - type: ErrorCodes
+    url: https://scryfall.com/docs/api/errors
+- aid: scryfall:scryfall-sets-api
+  name: Scryfall Sets API
+  description: 'List and retrieve Magic: The Gathering set metadata.'
+  humanURL: https://scryfall.com/docs/api
+  baseURL: https://api.scryfall.com
+  tags:
+  - Sets
+  properties:
+  - type: OpenAPI
+    url: openapi/scryfall-sets-api-openapi.yml
+  - type: Documentation
+    url: https://scryfall.com/docs/api
+  - type: APIReference
+    url: https://scryfall.com/docs/api/cards
+  - type: JSONSchema
+    url: json-schema/scryfall-card-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-card-face-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-related-card-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-image-uris-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-legalities-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-prices-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-set-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-ruling-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-card-symbol-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-catalog-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-bulk-data-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-migration-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-list-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-error-schema.json
+  - type: JSONStructure
+    url: json-structure/scryfall-card-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-set-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-ruling-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-card-symbol-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-catalog-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-bulk-data-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-migration-structure.json
+  - type: JSONLD
+    url: json-ld/scryfall-context.jsonld
+  - type: Examples
+    url: examples/scryfall-card-example.json
+  - type: Examples
+    url: examples/scryfall-card-list-example.json
+  - type: Examples
+    url: examples/scryfall-set-example.json
+  - type: Examples
+    url: examples/scryfall-ruling-example.json
+  - type: Examples
+    url: examples/scryfall-card-symbol-example.json
+  - type: Examples
+    url: examples/scryfall-catalog-example.json
+  - type: Examples
+    url: examples/scryfall-bulk-data-example.json
+  - type: Examples
+    url: examples/scryfall-migration-example.json
+  - type: Examples
+    url: examples/scryfall-error-example.json
+  - type: RateLimits
+    url: rate-limits/scryfall-rate-limits.yml
+  - type: Authentication
+    url: https://scryfall.com/docs/api
+  - type: ErrorCodes
+    url: https://scryfall.com/docs/api/errors
+- aid: scryfall:scryfall-symbology-api
+  name: Scryfall Symbology API
+  description: All card symbols and their semantics.
+  humanURL: https://scryfall.com/docs/api
+  baseURL: https://api.scryfall.com
+  tags:
+  - Symbology
+  properties:
+  - type: OpenAPI
+    url: openapi/scryfall-symbology-api-openapi.yml
+  - type: Documentation
+    url: https://scryfall.com/docs/api
+  - type: APIReference
+    url: https://scryfall.com/docs/api/cards
+  - type: JSONSchema
+    url: json-schema/scryfall-card-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-card-face-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-related-card-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-image-uris-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-legalities-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-prices-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-set-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-ruling-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-card-symbol-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-catalog-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-bulk-data-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-migration-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-list-schema.json
+  - type: JSONSchema
+    url: json-schema/scryfall-error-schema.json
+  - type: JSONStructure
+    url: json-structure/scryfall-card-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-set-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-ruling-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-card-symbol-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-catalog-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-bulk-data-structure.json
+  - type: JSONStructure
+    url: json-structure/scryfall-migration-structure.json
+  - type: JSONLD
+    url: json-ld/scryfall-context.jsonld
+  - type: Examples
+    url: examples/scryfall-card-example.json
+  - type: Examples
+    url: examples/scryfall-card-list-example.json
+  - type: Examples
+    url: examples/scryfall-set-example.json
+  - type: Examples
+    url: examples/scryfall-ruling-example.json
+  - type: Examples
+    url: examples/scryfall-card-symbol-example.json
+  - type: Examples
+    url: examples/scryfall-catalog-example.json
+  - type: Examples
+    url: examples/scryfall-bulk-data-example.json
+  - type: Examples
+    url: examples/scryfall-migration-example.json
+  - type: Examples
+    url: examples/scryfall-error-example.json
+  - type: RateLimits
+    url: rate-limits/scryfall-rate-limits.yml
+  - type: Authentication
+    url: https://scryfall.com/docs/api
+  - type: ErrorCodes
+    url: https://scryfall.com/docs/api/errors
 common:
+  - type: License
+    name: MIT
+    url: https://github.com/scryfall/api-types/blob/main/LICENSE
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/scryfall/overview
   - type: VulnerabilityDisclosure
