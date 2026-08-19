@@ -1,0 +1,984 @@
+openapi: 3.2.0
+info:
+  title: Scryfall Cards API
+  description: 'The Scryfall API is a REST-like interface to the most comprehensive Magic: The Gathering
+
+    card database. It exposes Card, Set, Ruling, Symbology, Catalog, and Bulk Data resources
+
+    used by community tools, deck builders, price trackers, and research projects.
+
+
+    The API is provided free of charge as part of the Wizards of the Coast Fan Content Policy
+
+    for the primary purpose of creating additional Magic software, performing research, or
+
+    creating community content. It is served only over HTTPS (TLS 1.2+) and requires both a
+
+    descriptive User-Agent and an Accept header on every request. Clients are expected to
+
+    keep request rates under 10 per second (50–100 ms delay between calls), and to use the
+
+    bulk-data downloads for any large-scale ingestion task instead of crawling Card endpoints.
+
+    '
+  version: '2026-05-29'
+  contact:
+    name: Scryfall API Support
+    url: https://scryfall.com/contact
+  license:
+    name: Scryfall API License (Free with attribution)
+    url: https://scryfall.com/docs/api
+  termsOfService: https://scryfall.com/docs/api
+servers:
+- url: https://api.scryfall.com
+  description: Production API
+tags:
+- name: Cards
+  description: Look up, search, and fetch Magic card objects in many ways.
+paths:
+  /cards/search:
+    get:
+      tags:
+      - Cards
+      summary: Search Cards
+      description: Returns a List of cards matching a Scryfall full-text search query.
+      operationId: searchCards
+      parameters:
+      - name: q
+        in: query
+        required: true
+        description: A fulltext search query.
+        schema:
+          type: string
+      - name: unique
+        in: query
+        schema:
+          type: string
+          enum:
+          - cards
+          - art
+          - prints
+          default: cards
+      - name: order
+        in: query
+        schema:
+          type: string
+          enum:
+          - name
+          - set
+          - released
+          - rarity
+          - color
+          - usd
+          - tix
+          - eur
+          - cmc
+          - power
+          - toughness
+          - edhrec
+          - penny
+          - artist
+          - review
+      - name: dir
+        in: query
+        schema:
+          type: string
+          enum:
+          - auto
+          - asc
+          - desc
+          default: auto
+      - name: include_extras
+        in: query
+        schema:
+          type: boolean
+          default: false
+      - name: include_multilingual
+        in: query
+        schema:
+          type: boolean
+          default: false
+      - name: include_variations
+        in: query
+        schema:
+          type: boolean
+          default: false
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - name: format
+        in: query
+        schema:
+          type: string
+          enum:
+          - json
+          - csv
+          default: json
+      responses:
+        '200':
+          description: A list of matching cards.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CardList'
+        '404':
+          description: No cards matched the query.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /cards/named:
+    get:
+      tags:
+      - Cards
+      summary: Get Card by Name
+      description: Returns a Card based on a name search string (exact or fuzzy match).
+      operationId: getCardByName
+      parameters:
+      - name: exact
+        in: query
+        description: The exact card name to search for.
+        schema:
+          type: string
+      - name: fuzzy
+        in: query
+        description: A fuzzy card name to search for.
+        schema:
+          type: string
+      - name: set
+        in: query
+        description: A set code to limit the search to one set.
+        schema:
+          type: string
+      - name: format
+        in: query
+        schema:
+          type: string
+          enum:
+          - json
+          - text
+          - image
+          default: json
+      - name: face
+        in: query
+        schema:
+          type: string
+          enum:
+          - front
+          - back
+      - name: version
+        in: query
+        schema:
+          type: string
+          enum:
+          - small
+          - normal
+          - large
+          - png
+          - art_crop
+          - border_crop
+      - name: pretty
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: A single Card object matching the query.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Card'
+        '404':
+          description: No card matched the name.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /cards/autocomplete:
+    get:
+      tags:
+      - Cards
+      summary: Autocomplete Card Names
+      description: Returns a Catalog of up to 20 card-name autocompletions for a partial card-name input.
+      operationId: autocompleteCardNames
+      parameters:
+      - name: q
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: include_extras
+        in: query
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: A catalog of suggested card names.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalog'
+  /cards/random:
+    get:
+      tags:
+      - Cards
+      summary: Get a Random Card
+      description: Returns a single random Card, optionally filtered by a Scryfall search query.
+      operationId: getRandomCard
+      parameters:
+      - name: q
+        in: query
+        schema:
+          type: string
+      - name: format
+        in: query
+        schema:
+          type: string
+          enum:
+          - json
+          - text
+          - image
+          default: json
+      - name: face
+        in: query
+        schema:
+          type: string
+          enum:
+          - front
+          - back
+      - name: version
+        in: query
+        schema:
+          type: string
+          enum:
+          - small
+          - normal
+          - large
+          - png
+          - art_crop
+          - border_crop
+      - name: pretty
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: A randomly chosen Card.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Card'
+  /cards/collection:
+    post:
+      tags:
+      - Cards
+      summary: Get a Card Collection
+      description: Accepts a JSON array of card identifiers and returns a List of the requested cards. Identifiers can be id, mtgo_id, multiverse_id, oracle_id, illustration_id, name, set+name, or set+collector_number.
+      operationId: getCardCollection
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - identifiers
+              properties:
+                identifiers:
+                  type: array
+                  maxItems: 75
+                  items:
+                    type: object
+      responses:
+        '200':
+          description: The requested cards plus any unresolvable identifiers.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CardList'
+  /cards/{id}:
+    get:
+      tags:
+      - Cards
+      summary: Get a Card by Scryfall ID
+      description: Returns a single Card with the given Scryfall ID.
+      operationId: getCardById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: format
+        in: query
+        schema:
+          type: string
+          enum:
+          - json
+          - text
+          - image
+          default: json
+      - name: face
+        in: query
+        schema:
+          type: string
+          enum:
+          - front
+          - back
+      - name: version
+        in: query
+        schema:
+          type: string
+          enum:
+          - small
+          - normal
+          - large
+          - png
+          - art_crop
+          - border_crop
+      - name: pretty
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: The requested Card.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Card'
+        '404':
+          description: No card with that ID.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /cards/{code}/{number}:
+    get:
+      tags:
+      - Cards
+      summary: Get a Card by Set Code and Collector Number
+      description: Returns a single Card with the given set code and collector number.
+      operationId: getCardBySetAndNumber
+      parameters:
+      - name: code
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: number
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: format
+        in: query
+        schema:
+          type: string
+          enum:
+          - json
+          - text
+          - image
+          default: json
+      responses:
+        '200':
+          description: The requested Card.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Card'
+  /cards/{code}/{number}/{lang}:
+    get:
+      tags:
+      - Cards
+      summary: Get a Localized Card by Set, Number, and Language
+      description: Returns a single Card with the given set code, collector number, and language code.
+      operationId: getLocalizedCard
+      parameters:
+      - name: code
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: number
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: lang
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The localized Card.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Card'
+  /cards/multiverse/{id}:
+    get:
+      tags:
+      - Cards
+      summary: Get a Card by Multiverse ID
+      description: Returns the Card with the given Gatherer multiverse ID.
+      operationId: getCardByMultiverseId
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: The requested Card.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Card'
+  /cards/mtgo/{id}:
+    get:
+      tags:
+      - Cards
+      summary: Get a Card by MTGO ID
+      description: Returns the Card with the given Magic Online catalog ID.
+      operationId: getCardByMtgoId
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: The requested Card.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Card'
+  /cards/arena/{id}:
+    get:
+      tags:
+      - Cards
+      summary: Get a Card by Arena ID
+      description: Returns the Card with the given Magic Arena ID.
+      operationId: getCardByArenaId
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: The requested Card.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Card'
+  /cards/tcgplayer/{id}:
+    get:
+      tags:
+      - Cards
+      summary: Get a Card by TCGplayer ID
+      description: Returns the Card with the given TCGplayer product ID.
+      operationId: getCardByTcgplayerId
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: The requested Card.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Card'
+  /cards/cardmarket/{id}:
+    get:
+      tags:
+      - Cards
+      summary: Get a Card by Cardmarket ID
+      description: Returns the Card with the given Cardmarket idProduct.
+      operationId: getCardByCardmarketId
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: The requested Card.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Card'
+components:
+  schemas:
+    ImageUris:
+      type: object
+      description: URIs for card image renderings at multiple sizes.
+      properties:
+        small:
+          type: string
+          format: uri
+        normal:
+          type: string
+          format: uri
+        large:
+          type: string
+          format: uri
+        png:
+          type: string
+          format: uri
+        art_crop:
+          type: string
+          format: uri
+        border_crop:
+          type: string
+          format: uri
+    Prices:
+      type: object
+      description: Up-to-date market prices for this printing in several currencies and finishes.
+      properties:
+        usd:
+          type: string
+        usd_foil:
+          type: string
+        usd_etched:
+          type: string
+        eur:
+          type: string
+        eur_foil:
+          type: string
+        tix:
+          type: string
+    RelatedCard:
+      type: object
+      description: A reference to a card related to this one (e.g., meld, token, combo).
+      properties:
+        object:
+          type: string
+          enum:
+          - related_card
+        id:
+          type: string
+          format: uuid
+        component:
+          type: string
+          enum:
+          - token
+          - meld_part
+          - meld_result
+          - combo_piece
+        name:
+          type: string
+        type_line:
+          type: string
+        uri:
+          type: string
+          format: uri
+    Legalities:
+      type: object
+      description: Format-by-format legality of a card; values are legal, not_legal, restricted, or banned.
+      additionalProperties:
+        type: string
+        enum:
+        - legal
+        - not_legal
+        - restricted
+        - banned
+      properties:
+        standard:
+          type: string
+        future:
+          type: string
+        historic:
+          type: string
+        timeless:
+          type: string
+        gladiator:
+          type: string
+        pioneer:
+          type: string
+        explorer:
+          type: string
+        modern:
+          type: string
+        legacy:
+          type: string
+        pauper:
+          type: string
+        vintage:
+          type: string
+        penny:
+          type: string
+        commander:
+          type: string
+        oathbreaker:
+          type: string
+        standardbrawl:
+          type: string
+        brawl:
+          type: string
+        alchemy:
+          type: string
+        paupercommander:
+          type: string
+        duel:
+          type: string
+        oldschool:
+          type: string
+        premodern:
+          type: string
+        predh:
+          type: string
+    Error:
+      type: object
+      description: A Scryfall Error response object returned for any non-2xx status.
+      properties:
+        object:
+          type: string
+          enum:
+          - error
+        status:
+          type: integer
+        code:
+          type: string
+        details:
+          type: string
+        type:
+          type: string
+        warnings:
+          type: array
+          items:
+            type: string
+    CardList:
+      allOf:
+      - $ref: '#/components/schemas/List'
+      - type: object
+        properties:
+          data:
+            type: array
+            items:
+              $ref: '#/components/schemas/Card'
+          not_found:
+            type: array
+            items:
+              type: object
+    List:
+      type: object
+      description: A generic Scryfall List object wrapping a paginated collection of any type.
+      properties:
+        object:
+          type: string
+          enum:
+          - list
+        total_cards:
+          type: integer
+        has_more:
+          type: boolean
+        next_page:
+          type: string
+          format: uri
+        data:
+          type: array
+          items:
+            type: object
+    Catalog:
+      type: object
+      description: A Scryfall Catalog object containing an array of Magic datapoints (names, types, etc.).
+      properties:
+        object:
+          type: string
+          enum:
+          - catalog
+        uri:
+          type: string
+          format: uri
+        total_values:
+          type: integer
+        data:
+          type: array
+          items:
+            type: string
+    Card:
+      type: object
+      description: 'A Scryfall Card object representing a Magic: The Gathering card printing.'
+      properties:
+        object:
+          type: string
+          enum:
+          - card
+        id:
+          type: string
+          format: uuid
+          description: A unique ID for this card in Scryfall's database.
+        oracle_id:
+          type: string
+          format: uuid
+          description: A unique ID for this card's oracle identity.
+        multiverse_ids:
+          type: array
+          items:
+            type: integer
+        mtgo_id:
+          type: integer
+        mtgo_foil_id:
+          type: integer
+        arena_id:
+          type: integer
+        tcgplayer_id:
+          type: integer
+        cardmarket_id:
+          type: integer
+        name:
+          type: string
+        lang:
+          type: string
+        released_at:
+          type: string
+          format: date
+        uri:
+          type: string
+          format: uri
+        scryfall_uri:
+          type: string
+          format: uri
+        layout:
+          type: string
+          description: normal, split, flip, transform, modal_dfc, meld, leveler, class, saga, adventure, etc.
+        highres_image:
+          type: boolean
+        image_status:
+          type: string
+          enum:
+          - missing
+          - placeholder
+          - lowres
+          - highres_scan
+        image_uris:
+          $ref: '#/components/schemas/ImageUris'
+        mana_cost:
+          type: string
+        cmc:
+          type: number
+          format: float
+        type_line:
+          type: string
+        oracle_text:
+          type: string
+        colors:
+          type: array
+          items:
+            type: string
+            enum:
+            - W
+            - U
+            - B
+            - R
+            - G
+        color_identity:
+          type: array
+          items:
+            type: string
+            enum:
+            - W
+            - U
+            - B
+            - R
+            - G
+        keywords:
+          type: array
+          items:
+            type: string
+        legalities:
+          $ref: '#/components/schemas/Legalities'
+        games:
+          type: array
+          items:
+            type: string
+            enum:
+            - paper
+            - mtgo
+            - arena
+        reserved:
+          type: boolean
+        foil:
+          type: boolean
+        nonfoil:
+          type: boolean
+        finishes:
+          type: array
+          items:
+            type: string
+            enum:
+            - foil
+            - nonfoil
+            - etched
+        oversized:
+          type: boolean
+        promo:
+          type: boolean
+        reprint:
+          type: boolean
+        variation:
+          type: boolean
+        set_id:
+          type: string
+          format: uuid
+        set:
+          type: string
+        set_name:
+          type: string
+        set_type:
+          type: string
+        set_uri:
+          type: string
+          format: uri
+        set_search_uri:
+          type: string
+          format: uri
+        scryfall_set_uri:
+          type: string
+          format: uri
+        rulings_uri:
+          type: string
+          format: uri
+        prints_search_uri:
+          type: string
+          format: uri
+        collector_number:
+          type: string
+        digital:
+          type: boolean
+        rarity:
+          type: string
+          enum:
+          - common
+          - uncommon
+          - rare
+          - special
+          - mythic
+          - bonus
+        flavor_text:
+          type: string
+        card_back_id:
+          type: string
+          format: uuid
+        artist:
+          type: string
+        artist_ids:
+          type: array
+          items:
+            type: string
+            format: uuid
+        illustration_id:
+          type: string
+          format: uuid
+        border_color:
+          type: string
+        frame:
+          type: string
+        frame_effects:
+          type: array
+          items:
+            type: string
+        security_stamp:
+          type: string
+        full_art:
+          type: boolean
+        textless:
+          type: boolean
+        booster:
+          type: boolean
+        story_spotlight:
+          type: boolean
+        edhrec_rank:
+          type: integer
+        penny_rank:
+          type: integer
+        prices:
+          $ref: '#/components/schemas/Prices'
+        related_uris:
+          type: object
+          additionalProperties:
+            type: string
+            format: uri
+        purchase_uris:
+          type: object
+          additionalProperties:
+            type: string
+            format: uri
+        all_parts:
+          type: array
+          items:
+            $ref: '#/components/schemas/RelatedCard'
+        card_faces:
+          type: array
+          items:
+            $ref: '#/components/schemas/CardFace'
+        power:
+          type: string
+        toughness:
+          type: string
+        loyalty:
+          type: string
+        defense:
+          type: string
+        produced_mana:
+          type: array
+          items:
+            type: string
+        watermark:
+          type: string
+    CardFace:
+      type: object
+      description: One face of a multi-faced Magic card.
+      properties:
+        object:
+          type: string
+          enum:
+          - card_face
+        name:
+          type: string
+        mana_cost:
+          type: string
+        type_line:
+          type: string
+        oracle_text:
+          type: string
+        colors:
+          type: array
+          items:
+            type: string
+        power:
+          type: string
+        toughness:
+          type: string
+        loyalty:
+          type: string
+        defense:
+          type: string
+        flavor_text:
+          type: string
+        artist:
+          type: string
+        artist_id:
+          type: string
+          format: uuid
+        illustration_id:
+          type: string
+          format: uuid
+        image_uris:
+          $ref: '#/components/schemas/ImageUris'
+        watermark:
+          type: string

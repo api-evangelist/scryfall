@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Scryfall Rulings API",
+    "version": "2026-05-29"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Rulings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Rulings by Card ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/cards/:id/rulings",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a List of all rulings for the Card with the given Scryfall ID."
+        },
+        {
+          "info": {
+            "name": "Get Rulings by Multiverse ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/cards/multiverse/:id/rulings",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns rulings for the card identified by its Gatherer multiverse ID."
+        },
+        {
+          "info": {
+            "name": "Get Rulings by MTGO ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/cards/mtgo/:id/rulings",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns rulings for the card identified by its Magic Online catalog ID."
+        },
+        {
+          "info": {
+            "name": "Get Rulings by Arena ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/cards/arena/:id/rulings",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns rulings for the card identified by its Magic Arena ID."
+        },
+        {
+          "info": {
+            "name": "Get Rulings by Set Code and Number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/cards/:code/:number/rulings",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns rulings for the card with the given set code and collector number."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

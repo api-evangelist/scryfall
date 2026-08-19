@@ -1,0 +1,368 @@
+{
+  "item": [
+    {
+      "id": "f1da1c19-84ae-4795-9411-d17df4978c70",
+      "name": "Sets",
+      "description": {
+        "content": "List and retrieve Magic: The Gathering set metadata.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eee941fc-0c7a-440b-b85c-887ae25d4360",
+          "name": "List Sets",
+          "request": {
+            "name": "List Sets",
+            "description": {
+              "content": "Returns a List of all Magic: The Gathering sets known to Scryfall.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "266885c7-c9cf-4bf0-a6a6-f203d5c45748",
+              "name": "A list of sets.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"list\",\n  \"total_cards\": 7451,\n  \"has_more\": true,\n  \"next_page\": \"https://m.oyfSu5ub3a+KtBzzIwap,+keN7FzK2m+v8icQeNCiyG6xwf+ZAUY\",\n  \"data\": [\n    {\n      \"object\": \"set\",\n      \"id\": \"0177b49a-401e-d77e-cce4-2959a19243de\",\n      \"code\": \"string\",\n      \"mtgo_code\": \"string\",\n      \"arena_code\": \"string\",\n      \"tcgplayer_id\": 9947,\n      \"name\": \"string\",\n      \"set_type\": \"string\",\n      \"released_at\": \"1954-09-09\",\n      \"block_code\": \"string\",\n      \"block\": \"string\",\n      \"parent_set_code\": \"string\",\n      \"card_count\": 1639,\n      \"printed_size\": 925,\n      \"digital\": true,\n      \"foil_only\": false,\n      \"nonfoil_only\": false,\n      \"scryfall_uri\": \"http://mxbTjjq.qyiuoGeV4sD0sl+VyOQaCOajB8T-cNk9zCbDWtctC2M,+QZarsy1kENCTpZdRq.4xF\",\n      \"uri\": \"http://LcvlWZS.khKviFFL.ZLnYy9LbJYrjj8iBp7c-Qdxy7QdJkpwFPhCMY7WtqME1ix2jgXiVgOSO\",\n      \"icon_svg_uri\": \"http://XzNWBWZL.afFUNdmDPFaTi7HN0xo15kAKajkobtV\",\n      \"search_uri\": \"https://XqLqbNhdAhzlWZaWxIC.qzihAnq34frVj7hU9S4\"\n    },\n    {\n      \"object\": \"set\",\n      \"id\": \"a91bdacd-9cd8-aa83-0795-fe3f2e3e0e40\",\n      \"code\": \"string\",\n      \"mtgo_code\": \"string\",\n      \"arena_code\": \"string\",\n      \"tcgplayer_id\": 9691,\n      \"name\": \"string\",\n      \"set_type\": \"string\",\n      \"released_at\": \"1967-12-20\",\n      \"block_code\": \"string\",\n      \"block\": \"string\",\n      \"parent_set_code\": \"string\",\n      \"card_count\": 8479,\n      \"printed_size\": 1493,\n      \"digital\": true,\n      \"foil_only\": true,\n      \"nonfoil_only\": false,\n      \"scryfall_uri\": \"https://LXeRHpqkpR.tlHBW-q+OLDPeB+wvjkMZ3uhQDQ3+IPmHePBwaYZHea82+JSRWZF0oO\",\n      \"uri\": \"https://zYR.ocjkNSlH2PvovP4hQkB.h,P9pbrcwgOo0LrV2q6CJFX\",\n      \"icon_svg_uri\": \"http://LqSBFqPw.qnKC-bPD6bCJTLFUd\",\n      \"search_uri\": \"http://lYgMpNQdHSkwdHnhPpmvH.xyjMa\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0875b7f7-1b78-41d0-8b91-d8aa7f270557",
+          "name": "Get a Set by Code",
+          "request": {
+            "name": "Get a Set by Code",
+            "description": {
+              "content": "Returns a Set with the given three-to-five-letter set code.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sets",
+                ":code"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "code",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d3232c5d-7847-4514-a16a-3e6e88f9ceea",
+              "name": "The requested Set.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sets",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"set\",\n  \"id\": \"382af88a-013d-75d9-ca69-8fbb74d20085\",\n  \"code\": \"string\",\n  \"mtgo_code\": \"string\",\n  \"arena_code\": \"string\",\n  \"tcgplayer_id\": 8082,\n  \"name\": \"string\",\n  \"set_type\": \"string\",\n  \"released_at\": \"1988-02-15\",\n  \"block_code\": \"string\",\n  \"block\": \"string\",\n  \"parent_set_code\": \"string\",\n  \"card_count\": 4953,\n  \"printed_size\": 6391,\n  \"digital\": false,\n  \"foil_only\": true,\n  \"nonfoil_only\": false,\n  \"scryfall_uri\": \"http://oVWjtGrOlUazKBXajcATUWzBBFodkXxyv.oejf,caxJseoYxdRXfxb8XI2BWf2Xy6U7wafPyP2SNGbSTI-al7IpeL\",\n  \"uri\": \"http://CFJjrPQfAeeoqSWsfqSEGNFglajBvhzEb.dpjmD-iXlZAQPSVwNS+j1N7ZJQbCchy4jykZ9soS0vAUZbBkynk8UBUVbs9pPmvJyd085Zz\",\n  \"icon_svg_uri\": \"http://WQ.ifvYeixWSmnr9v2RGc1bm,yKb.PPkorpoTHW1ZoHoiQos\",\n  \"search_uri\": \"https://wLUKjFhEicwpkep.ugzutd\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "39e01aa5-f3c8-4888-84a9-f3307d5d0848",
+          "name": "Get a Set by TCGplayer ID",
+          "request": {
+            "name": "Get a Set by TCGplayer ID",
+            "description": {
+              "content": "Returns a Set with the given tcgplayer_id (also known as the groupId on TCGplayer's API).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sets",
+                "tcgplayer",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "db045882-a578-44c7-bd31-b95abc80e284",
+              "name": "The requested Set.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sets",
+                    "tcgplayer",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"set\",\n  \"id\": \"382af88a-013d-75d9-ca69-8fbb74d20085\",\n  \"code\": \"string\",\n  \"mtgo_code\": \"string\",\n  \"arena_code\": \"string\",\n  \"tcgplayer_id\": 8082,\n  \"name\": \"string\",\n  \"set_type\": \"string\",\n  \"released_at\": \"1988-02-15\",\n  \"block_code\": \"string\",\n  \"block\": \"string\",\n  \"parent_set_code\": \"string\",\n  \"card_count\": 4953,\n  \"printed_size\": 6391,\n  \"digital\": false,\n  \"foil_only\": true,\n  \"nonfoil_only\": false,\n  \"scryfall_uri\": \"http://oVWjtGrOlUazKBXajcATUWzBBFodkXxyv.oejf,caxJseoYxdRXfxb8XI2BWf2Xy6U7wafPyP2SNGbSTI-al7IpeL\",\n  \"uri\": \"http://CFJjrPQfAeeoqSWsfqSEGNFglajBvhzEb.dpjmD-iXlZAQPSVwNS+j1N7ZJQbCchy4jykZ9soS0vAUZbBkynk8UBUVbs9pPmvJyd085Zz\",\n  \"icon_svg_uri\": \"http://WQ.ifvYeixWSmnr9v2RGc1bm,yKb.PPkorpoTHW1ZoHoiQos\",\n  \"search_uri\": \"https://wLUKjFhEicwpkep.ugzutd\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b6002a6f-a177-48a5-ad58-1c35badac745",
+          "name": "Get a Set by Scryfall ID",
+          "request": {
+            "name": "Get a Set by Scryfall ID",
+            "description": {
+              "content": "Returns a Set with the given Scryfall ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sets",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "01b19434-44bf-4e1c-abd5-2088db2e12a3",
+              "name": "The requested Set.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sets",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"set\",\n  \"id\": \"382af88a-013d-75d9-ca69-8fbb74d20085\",\n  \"code\": \"string\",\n  \"mtgo_code\": \"string\",\n  \"arena_code\": \"string\",\n  \"tcgplayer_id\": 8082,\n  \"name\": \"string\",\n  \"set_type\": \"string\",\n  \"released_at\": \"1988-02-15\",\n  \"block_code\": \"string\",\n  \"block\": \"string\",\n  \"parent_set_code\": \"string\",\n  \"card_count\": 4953,\n  \"printed_size\": 6391,\n  \"digital\": false,\n  \"foil_only\": true,\n  \"nonfoil_only\": false,\n  \"scryfall_uri\": \"http://oVWjtGrOlUazKBXajcATUWzBBFodkXxyv.oejf,caxJseoYxdRXfxb8XI2BWf2Xy6U7wafPyP2SNGbSTI-al7IpeL\",\n  \"uri\": \"http://CFJjrPQfAeeoqSWsfqSEGNFglajBvhzEb.dpjmD-iXlZAQPSVwNS+j1N7ZJQbCchy4jykZ9soS0vAUZbBkynk8UBUVbs9pPmvJyd085Zz\",\n  \"icon_svg_uri\": \"http://WQ.ifvYeixWSmnr9v2RGc1bm,yKb.PPkorpoTHW1ZoHoiQos\",\n  \"search_uri\": \"https://wLUKjFhEicwpkep.ugzutd\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.scryfall.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "efe9ba9d-b15e-4dca-92e8-fc5a7aac3271",
+    "name": "Scryfall Sets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Scryfall API is a REST-like interface to the most comprehensive Magic: The Gathering\ncard database. It exposes Card, Set, Ruling, Symbology, Catalog, and Bulk Data resources\nused by community tools, deck builders, price trackers, and research projects.\n\nThe API is provided free of charge as part of the Wizards of the Coast Fan Content Policy\nfor the primary purpose of creating additional Magic software, performing research, or\ncreating community content. It is served only over HTTPS (TLS 1.2+) and requires both a\ndescriptive User-Agent and an Accept header on every request. Clients are expected to\nkeep request rates under 10 per second (50–100 ms delay between calls), and to use the\nbulk-data downloads for any large-scale ingestion task instead of crawling Card endpoints.\n\n\nContact Support:\n Name: Scryfall API Support",
+      "type": "text/plain"
+    }
+  }
+}

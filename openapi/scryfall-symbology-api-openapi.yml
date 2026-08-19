@@ -1,0 +1,165 @@
+openapi: 3.2.0
+info:
+  title: Scryfall Symbology API
+  description: 'The Scryfall API is a REST-like interface to the most comprehensive Magic: The Gathering
+
+    card database. It exposes Card, Set, Ruling, Symbology, Catalog, and Bulk Data resources
+
+    used by community tools, deck builders, price trackers, and research projects.
+
+
+    The API is provided free of charge as part of the Wizards of the Coast Fan Content Policy
+
+    for the primary purpose of creating additional Magic software, performing research, or
+
+    creating community content. It is served only over HTTPS (TLS 1.2+) and requires both a
+
+    descriptive User-Agent and an Accept header on every request. Clients are expected to
+
+    keep request rates under 10 per second (50–100 ms delay between calls), and to use the
+
+    bulk-data downloads for any large-scale ingestion task instead of crawling Card endpoints.
+
+    '
+  version: '2026-05-29'
+  contact:
+    name: Scryfall API Support
+    url: https://scryfall.com/contact
+  license:
+    name: Scryfall API License (Free with attribution)
+    url: https://scryfall.com/docs/api
+  termsOfService: https://scryfall.com/docs/api
+servers:
+- url: https://api.scryfall.com
+  description: Production API
+tags:
+- name: Symbology
+  description: All card symbols and their semantics.
+paths:
+  /symbology:
+    get:
+      tags:
+      - Symbology
+      summary: List All Card Symbols
+      description: Returns a List of all Card Symbols documented by Scryfall.
+      operationId: listSymbology
+      responses:
+        '200':
+          description: A list of card symbols.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CardSymbolList'
+  /symbology/parse-mana:
+    get:
+      tags:
+      - Symbology
+      summary: Parse a Mana Cost
+      description: Parses the given mana cost string and returns a normalized representation including converted mana cost.
+      operationId: parseMana
+      parameters:
+      - name: cost
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A parsed mana cost.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ManaCost'
+components:
+  schemas:
+    CardSymbolList:
+      allOf:
+      - $ref: '#/components/schemas/List'
+      - type: object
+        properties:
+          data:
+            type: array
+            items:
+              $ref: '#/components/schemas/CardSymbol'
+    CardSymbol:
+      type: object
+      description: A Scryfall Card Symbol object representing a single Magic mana or text symbol.
+      properties:
+        object:
+          type: string
+          enum:
+          - card_symbol
+        symbol:
+          type: string
+        loose_variant:
+          type: string
+        english:
+          type: string
+        transposable:
+          type: boolean
+        represents_mana:
+          type: boolean
+        appears_in_mana_costs:
+          type: boolean
+        mana_value:
+          type: number
+        cmc:
+          type: number
+        colors:
+          type: array
+          items:
+            type: string
+        funny:
+          type: boolean
+        hybrid:
+          type: boolean
+        phyrexian:
+          type: boolean
+        gatherer_alternates:
+          type: array
+          items:
+            type: string
+        svg_uri:
+          type: string
+          format: uri
+    ManaCost:
+      type: object
+      description: A parsed Magic mana cost.
+      properties:
+        object:
+          type: string
+          enum:
+          - mana_cost
+        cost:
+          type: string
+        cmc:
+          type: number
+        colors:
+          type: array
+          items:
+            type: string
+        colorless:
+          type: boolean
+        monocolored:
+          type: boolean
+        multicolored:
+          type: boolean
+    List:
+      type: object
+      description: A generic Scryfall List object wrapping a paginated collection of any type.
+      properties:
+        object:
+          type: string
+          enum:
+          - list
+        total_cards:
+          type: integer
+        has_more:
+          type: boolean
+        next_page:
+          type: string
+          format: uri
+        data:
+          type: array
+          items:
+            type: object

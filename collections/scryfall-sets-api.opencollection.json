@@ -1,0 +1,83 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Scryfall Sets API",
+    "version": "2026-05-29"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Sets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/sets"
+          },
+          "docs": "Returns a List of all Magic: The Gathering sets known to Scryfall."
+        },
+        {
+          "info": {
+            "name": "Get a Set by Code",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/sets/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a Set with the given three-to-five-letter set code."
+        },
+        {
+          "info": {
+            "name": "Get a Set by TCGplayer ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/sets/tcgplayer/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a Set with the given tcgplayer_id (also known as the groupId on TCGplayer's API)."
+        },
+        {
+          "info": {
+            "name": "Get a Set by Scryfall ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/sets/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a Set with the given Scryfall ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

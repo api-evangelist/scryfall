@@ -1,0 +1,190 @@
+{
+  "item": [
+    {
+      "id": "80f4263c-9377-4c59-9299-cf617de30409",
+      "name": "Migrations",
+      "description": {
+        "content": "Records of card-object migrations and merges.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5549a216-084c-45f3-acf2-019971a9e7d2",
+          "name": "List Migrations",
+          "request": {
+            "name": "List Migrations",
+            "description": {
+              "content": "Returns a List of all card-object Migration records published by Scryfall.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "migrations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4b4f6111-3177-48bd-b351-5d3e00d80410",
+              "name": "A list of migrations.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "migrations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"list\",\n  \"total_cards\": 800,\n  \"has_more\": false,\n  \"next_page\": \"http://AlOUneYBVUgZbwzSGrPCMLqg.zzyWiGhk0uP0f95E3AY0xKBFI6yCG,Wl3+MgphOr1xkoe\",\n  \"data\": [\n    {\n      \"object\": \"migration\",\n      \"id\": \"2f2ceb0b-16ec-d624-f48b-924d2685fedb\",\n      \"uri\": \"http://ex.gnS2s2Yl+Lc76.,smrwHKZaQcuy9MaLJE+S89QAnL6dP,\",\n      \"performed_at\": \"1974-09-08\",\n      \"migration_strategy\": \"delete\",\n      \"old_scryfall_id\": \"842da034-c96b-78e6-b59f-5a1a7d37a05b\",\n      \"new_scryfall_id\": \"66c54add-b52d-7326-eee4-b42fdc211f57\",\n      \"note\": \"string\"\n    },\n    {\n      \"object\": \"migration\",\n      \"id\": \"7bcc4cee-715f-a838-c5bf-4e7dc42c4499\",\n      \"uri\": \"http://DHPetyxsHoFCXhslZlERWNUju.lfs-FSGM80UKXoc5\",\n      \"performed_at\": \"2008-12-04\",\n      \"migration_strategy\": \"merge\",\n      \"old_scryfall_id\": \"6d50f9b9-5bbd-3cdd-e2cc-8019b8bcf339\",\n      \"new_scryfall_id\": \"3b39bb52-b967-2fe0-5c35-af3a41c3a6ac\",\n      \"note\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ce4072a1-4f97-4c9f-895a-d71631cf5012",
+          "name": "Get a Migration by ID",
+          "request": {
+            "name": "Get a Migration by ID",
+            "description": {
+              "content": "Returns a single Migration record by its Scryfall ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "migrations",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5aa0a41d-e17e-40e2-8c40-491a911bf40c",
+              "name": "The requested Migration.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "migrations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"migration\",\n  \"id\": \"af12f165-7f50-27bb-e15d-1b935f52faf6\",\n  \"uri\": \"https://cHJsphzzPDpjas.itjbJk3UszM5XfDG,pPPzRDccGgN20n-UWR0FDvJvg8+XY.b0lPIYitOgQuBQAgO\",\n  \"performed_at\": \"2009-12-20\",\n  \"migration_strategy\": \"merge\",\n  \"old_scryfall_id\": \"f2714c6e-82d4-50f2-8ccd-89952a84cb03\",\n  \"new_scryfall_id\": \"69566156-c8d4-db26-74cc-a125e0ba125e\",\n  \"note\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.scryfall.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "60c84401-5069-4f71-8dd7-5d935d84b32f",
+    "name": "Scryfall Migrations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Scryfall API is a REST-like interface to the most comprehensive Magic: The Gathering\ncard database. It exposes Card, Set, Ruling, Symbology, Catalog, and Bulk Data resources\nused by community tools, deck builders, price trackers, and research projects.\n\nThe API is provided free of charge as part of the Wizards of the Coast Fan Content Policy\nfor the primary purpose of creating additional Magic software, performing research, or\ncreating community content. It is served only over HTTPS (TLS 1.2+) and requires both a\ndescriptive User-Agent and an Accept header on every request. Clients are expected to\nkeep request rates under 10 per second (50–100 ms delay between calls), and to use the\nbulk-data downloads for any large-scale ingestion task instead of crawling Card endpoints.\n\n\nContact Support:\n Name: Scryfall API Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,295 @@
+openapi: 3.2.0
+info:
+  title: Scryfall Catalogs API
+  description: 'The Scryfall API is a REST-like interface to the most comprehensive Magic: The Gathering
+
+    card database. It exposes Card, Set, Ruling, Symbology, Catalog, and Bulk Data resources
+
+    used by community tools, deck builders, price trackers, and research projects.
+
+
+    The API is provided free of charge as part of the Wizards of the Coast Fan Content Policy
+
+    for the primary purpose of creating additional Magic software, performing research, or
+
+    creating community content. It is served only over HTTPS (TLS 1.2+) and requires both a
+
+    descriptive User-Agent and an Accept header on every request. Clients are expected to
+
+    keep request rates under 10 per second (50–100 ms delay between calls), and to use the
+
+    bulk-data downloads for any large-scale ingestion task instead of crawling Card endpoints.
+
+    '
+  version: '2026-05-29'
+  contact:
+    name: Scryfall API Support
+    url: https://scryfall.com/contact
+  license:
+    name: Scryfall API License (Free with attribution)
+    url: https://scryfall.com/docs/api
+  termsOfService: https://scryfall.com/docs/api
+servers:
+- url: https://api.scryfall.com
+  description: Production API
+tags:
+- name: Catalogs
+  description: Convenience lists of Magic data points (card names, types, supertypes, etc.).
+paths:
+  /catalog/card-names:
+    get:
+      tags:
+      - Catalogs
+      summary: Catalog of Card Names
+      description: Returns a Catalog of every canonical English card name in Scryfall's database.
+      operationId: catalogCardNames
+      responses:
+        '200':
+          description: A catalog of card names.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalog'
+  /catalog/artist-names:
+    get:
+      tags:
+      - Catalogs
+      summary: Catalog of Artist Names
+      description: Returns a Catalog of every artist who has illustrated a Magic card.
+      operationId: catalogArtistNames
+      responses:
+        '200':
+          description: A catalog of artist names.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalog'
+  /catalog/word-bank:
+    get:
+      tags:
+      - Catalogs
+      summary: Catalog of Word Bank
+      description: Returns a Catalog of every distinct word in card names.
+      operationId: catalogWordBank
+      responses:
+        '200':
+          description: A catalog of words.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalog'
+  /catalog/creature-types:
+    get:
+      tags:
+      - Catalogs
+      summary: Catalog of Creature Types
+      description: Returns a Catalog of all creature types in Magic.
+      operationId: catalogCreatureTypes
+      responses:
+        '200':
+          description: A catalog of creature types.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalog'
+  /catalog/planeswalker-types:
+    get:
+      tags:
+      - Catalogs
+      summary: Catalog of Planeswalker Types
+      description: Returns a Catalog of all planeswalker subtypes.
+      operationId: catalogPlaneswalkerTypes
+      responses:
+        '200':
+          description: A catalog of planeswalker types.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalog'
+  /catalog/land-types:
+    get:
+      tags:
+      - Catalogs
+      summary: Catalog of Land Types
+      description: Returns a Catalog of all land subtypes.
+      operationId: catalogLandTypes
+      responses:
+        '200':
+          description: A catalog of land types.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalog'
+  /catalog/artifact-types:
+    get:
+      tags:
+      - Catalogs
+      summary: Catalog of Artifact Types
+      description: Returns a Catalog of all artifact subtypes.
+      operationId: catalogArtifactTypes
+      responses:
+        '200':
+          description: A catalog of artifact types.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalog'
+  /catalog/enchantment-types:
+    get:
+      tags:
+      - Catalogs
+      summary: Catalog of Enchantment Types
+      description: Returns a Catalog of all enchantment subtypes.
+      operationId: catalogEnchantmentTypes
+      responses:
+        '200':
+          description: A catalog of enchantment types.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalog'
+  /catalog/spell-types:
+    get:
+      tags:
+      - Catalogs
+      summary: Catalog of Spell Types
+      description: Returns a Catalog of all spell subtypes.
+      operationId: catalogSpellTypes
+      responses:
+        '200':
+          description: A catalog of spell types.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalog'
+  /catalog/powers:
+    get:
+      tags:
+      - Catalogs
+      summary: Catalog of Powers
+      description: Returns a Catalog of all power values on creature cards.
+      operationId: catalogPowers
+      responses:
+        '200':
+          description: A catalog of power values.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalog'
+  /catalog/toughnesses:
+    get:
+      tags:
+      - Catalogs
+      summary: Catalog of Toughnesses
+      description: Returns a Catalog of all toughness values on creature cards.
+      operationId: catalogToughnesses
+      responses:
+        '200':
+          description: A catalog of toughness values.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalog'
+  /catalog/loyalties:
+    get:
+      tags:
+      - Catalogs
+      summary: Catalog of Loyalties
+      description: Returns a Catalog of all loyalty values on planeswalker cards.
+      operationId: catalogLoyalties
+      responses:
+        '200':
+          description: A catalog of loyalty values.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalog'
+  /catalog/keyword-abilities:
+    get:
+      tags:
+      - Catalogs
+      summary: Catalog of Keyword Abilities
+      description: Returns a Catalog of all keyword abilities Magic cards may have.
+      operationId: catalogKeywordAbilities
+      responses:
+        '200':
+          description: A catalog of keyword abilities.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalog'
+  /catalog/keyword-actions:
+    get:
+      tags:
+      - Catalogs
+      summary: Catalog of Keyword Actions
+      description: Returns a Catalog of all keyword actions in Magic.
+      operationId: catalogKeywordActions
+      responses:
+        '200':
+          description: A catalog of keyword actions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalog'
+  /catalog/ability-words:
+    get:
+      tags:
+      - Catalogs
+      summary: Catalog of Ability Words
+      description: Returns a Catalog of all ability words on Magic cards.
+      operationId: catalogAbilityWords
+      responses:
+        '200':
+          description: A catalog of ability words.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalog'
+  /catalog/watermarks:
+    get:
+      tags:
+      - Catalogs
+      summary: Catalog of Watermarks
+      description: Returns a Catalog of all distinct illustration watermarks used on Magic cards.
+      operationId: catalogWatermarks
+      responses:
+        '200':
+          description: A catalog of watermarks.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalog'
+  /catalog/supertypes:
+    get:
+      tags:
+      - Catalogs
+      summary: Catalog of Card Supertypes
+      description: Returns a Catalog of card supertypes (e.g., Basic, Legendary, Snow, World).
+      operationId: catalogSupertypes
+      responses:
+        '200':
+          description: A catalog of supertypes.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalog'
+components:
+  schemas:
+    Catalog:
+      type: object
+      description: A Scryfall Catalog object containing an array of Magic datapoints (names, types, etc.).
+      properties:
+        object:
+          type: string
+          enum:
+          - catalog
+        uri:
+          type: string
+          format: uri
+        total_values:
+          type: integer
+        data:
+          type: array
+          items:
+            type: string

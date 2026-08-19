@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Scryfall Migrations API",
+    "version": "2026-05-29"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Migrations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Migrations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/migrations"
+          },
+          "docs": "Returns a List of all card-object Migration records published by Scryfall."
+        },
+        {
+          "info": {
+            "name": "Get a Migration by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/migrations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a single Migration record by its Scryfall ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Scryfall Symbology API",
+    "version": "2026-05-29"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Symbology",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Card Symbols",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/symbology"
+          },
+          "docs": "Returns a List of all Card Symbols documented by Scryfall."
+        },
+        {
+          "info": {
+            "name": "Parse a Mana Cost",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/symbology/parse-mana",
+            "params": [
+              {
+                "name": "cost",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Parses the given mana cost string and returns a normalized representation including converted mana cost."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

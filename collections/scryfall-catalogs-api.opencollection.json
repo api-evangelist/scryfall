@@ -1,0 +1,205 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Scryfall Catalogs API",
+    "version": "2026-05-29"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Catalogs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Catalog of Card Names",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/catalog/card-names"
+          },
+          "docs": "Returns a Catalog of every canonical English card name in Scryfall's database."
+        },
+        {
+          "info": {
+            "name": "Catalog of Artist Names",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/catalog/artist-names"
+          },
+          "docs": "Returns a Catalog of every artist who has illustrated a Magic card."
+        },
+        {
+          "info": {
+            "name": "Catalog of Word Bank",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/catalog/word-bank"
+          },
+          "docs": "Returns a Catalog of every distinct word in card names."
+        },
+        {
+          "info": {
+            "name": "Catalog of Creature Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/catalog/creature-types"
+          },
+          "docs": "Returns a Catalog of all creature types in Magic."
+        },
+        {
+          "info": {
+            "name": "Catalog of Planeswalker Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/catalog/planeswalker-types"
+          },
+          "docs": "Returns a Catalog of all planeswalker subtypes."
+        },
+        {
+          "info": {
+            "name": "Catalog of Land Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/catalog/land-types"
+          },
+          "docs": "Returns a Catalog of all land subtypes."
+        },
+        {
+          "info": {
+            "name": "Catalog of Artifact Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/catalog/artifact-types"
+          },
+          "docs": "Returns a Catalog of all artifact subtypes."
+        },
+        {
+          "info": {
+            "name": "Catalog of Enchantment Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/catalog/enchantment-types"
+          },
+          "docs": "Returns a Catalog of all enchantment subtypes."
+        },
+        {
+          "info": {
+            "name": "Catalog of Spell Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/catalog/spell-types"
+          },
+          "docs": "Returns a Catalog of all spell subtypes."
+        },
+        {
+          "info": {
+            "name": "Catalog of Powers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/catalog/powers"
+          },
+          "docs": "Returns a Catalog of all power values on creature cards."
+        },
+        {
+          "info": {
+            "name": "Catalog of Toughnesses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/catalog/toughnesses"
+          },
+          "docs": "Returns a Catalog of all toughness values on creature cards."
+        },
+        {
+          "info": {
+            "name": "Catalog of Loyalties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/catalog/loyalties"
+          },
+          "docs": "Returns a Catalog of all loyalty values on planeswalker cards."
+        },
+        {
+          "info": {
+            "name": "Catalog of Keyword Abilities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/catalog/keyword-abilities"
+          },
+          "docs": "Returns a Catalog of all keyword abilities Magic cards may have."
+        },
+        {
+          "info": {
+            "name": "Catalog of Keyword Actions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/catalog/keyword-actions"
+          },
+          "docs": "Returns a Catalog of all keyword actions in Magic."
+        },
+        {
+          "info": {
+            "name": "Catalog of Ability Words",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/catalog/ability-words"
+          },
+          "docs": "Returns a Catalog of all ability words on Magic cards."
+        },
+        {
+          "info": {
+            "name": "Catalog of Watermarks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/catalog/watermarks"
+          },
+          "docs": "Returns a Catalog of all distinct illustration watermarks used on Magic cards."
+        },
+        {
+          "info": {
+            "name": "Catalog of Card Supertypes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/catalog/supertypes"
+          },
+          "docs": "Returns a Catalog of card supertypes (e.g., Basic, Legendary, Snow, World)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

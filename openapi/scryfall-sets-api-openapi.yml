@@ -1,0 +1,197 @@
+openapi: 3.2.0
+info:
+  title: Scryfall Sets API
+  description: 'The Scryfall API is a REST-like interface to the most comprehensive Magic: The Gathering
+
+    card database. It exposes Card, Set, Ruling, Symbology, Catalog, and Bulk Data resources
+
+    used by community tools, deck builders, price trackers, and research projects.
+
+
+    The API is provided free of charge as part of the Wizards of the Coast Fan Content Policy
+
+    for the primary purpose of creating additional Magic software, performing research, or
+
+    creating community content. It is served only over HTTPS (TLS 1.2+) and requires both a
+
+    descriptive User-Agent and an Accept header on every request. Clients are expected to
+
+    keep request rates under 10 per second (50–100 ms delay between calls), and to use the
+
+    bulk-data downloads for any large-scale ingestion task instead of crawling Card endpoints.
+
+    '
+  version: '2026-05-29'
+  contact:
+    name: Scryfall API Support
+    url: https://scryfall.com/contact
+  license:
+    name: Scryfall API License (Free with attribution)
+    url: https://scryfall.com/docs/api
+  termsOfService: https://scryfall.com/docs/api
+servers:
+- url: https://api.scryfall.com
+  description: Production API
+tags:
+- name: Sets
+  description: 'List and retrieve Magic: The Gathering set metadata.'
+paths:
+  /sets:
+    get:
+      tags:
+      - Sets
+      summary: List Sets
+      description: 'Returns a List of all Magic: The Gathering sets known to Scryfall.'
+      operationId: listSets
+      responses:
+        '200':
+          description: A list of sets.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SetList'
+  /sets/{code}:
+    get:
+      tags:
+      - Sets
+      summary: Get a Set by Code
+      description: Returns a Set with the given three-to-five-letter set code.
+      operationId: getSetByCode
+      parameters:
+      - name: code
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The requested Set.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Set'
+  /sets/tcgplayer/{id}:
+    get:
+      tags:
+      - Sets
+      summary: Get a Set by TCGplayer ID
+      description: Returns a Set with the given tcgplayer_id (also known as the groupId on TCGplayer's API).
+      operationId: getSetByTcgplayerId
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: The requested Set.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Set'
+  /sets/{id}:
+    get:
+      tags:
+      - Sets
+      summary: Get a Set by Scryfall ID
+      description: Returns a Set with the given Scryfall ID.
+      operationId: getSetByScryfallId
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: The requested Set.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Set'
+components:
+  schemas:
+    SetList:
+      allOf:
+      - $ref: '#/components/schemas/List'
+      - type: object
+        properties:
+          data:
+            type: array
+            items:
+              $ref: '#/components/schemas/Set'
+    Set:
+      type: object
+      description: 'A Scryfall Set object representing a Magic: The Gathering set or product.'
+      properties:
+        object:
+          type: string
+          enum:
+          - set
+        id:
+          type: string
+          format: uuid
+        code:
+          type: string
+        mtgo_code:
+          type: string
+        arena_code:
+          type: string
+        tcgplayer_id:
+          type: integer
+        name:
+          type: string
+        set_type:
+          type: string
+        released_at:
+          type: string
+          format: date
+        block_code:
+          type: string
+        block:
+          type: string
+        parent_set_code:
+          type: string
+        card_count:
+          type: integer
+        printed_size:
+          type: integer
+        digital:
+          type: boolean
+        foil_only:
+          type: boolean
+        nonfoil_only:
+          type: boolean
+        scryfall_uri:
+          type: string
+          format: uri
+        uri:
+          type: string
+          format: uri
+        icon_svg_uri:
+          type: string
+          format: uri
+        search_uri:
+          type: string
+          format: uri
+    List:
+      type: object
+      description: A generic Scryfall List object wrapping a paginated collection of any type.
+      properties:
+        object:
+          type: string
+          enum:
+          - list
+        total_cards:
+          type: integer
+        has_more:
+          type: boolean
+        next_page:
+          type: string
+          format: uri
+        data:
+          type: array
+          items:
+            type: object

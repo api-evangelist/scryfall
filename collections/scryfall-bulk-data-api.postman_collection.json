@@ -1,0 +1,278 @@
+{
+  "item": [
+    {
+      "id": "1a6f1966-1375-42cd-849d-7a25f214e181",
+      "name": "Bulk Data",
+      "description": {
+        "content": "Large daily exports of the entire Scryfall card database.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9c5f967b-0c15-4d65-937b-5291db3fd42b",
+          "name": "List Bulk Data Files",
+          "request": {
+            "name": "List Bulk Data Files",
+            "description": {
+              "content": "Returns a List of all bulk-data exports currently available from Scryfall.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bulk-data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7745ab89-de1e-4b33-aacb-f9f77c1a5707",
+              "name": "A list of bulk-data files.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bulk-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"list\",\n  \"total_cards\": 8787,\n  \"has_more\": true,\n  \"next_page\": \"http://jUoxjlZCTp.pqy1W3TKLpOgOKmbOxAdz5h+bX1f6AhgWxg7xReVUKOcAyRCj5tZQrk7.r6e\",\n  \"data\": [\n    {\n      \"object\": \"bulk_data\",\n      \"id\": \"79759cce-815a-e2f2-c1ce-ee85255c0fae\",\n      \"type\": \"unique_artwork\",\n      \"updated_at\": \"1980-02-13T12:40:35.205Z\",\n      \"uri\": \"https://SuezyVXRMpdYsuAQScPdpQArmGGBALTnT.tbmbFtpCi292daKbc9PGhIQjzU4H4+CCcNmRIhpGZ0HZTsxJBaYB,Ytrl\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"compressed_size\": 3065,\n      \"download_uri\": \"http://isF.jjCRL,bnjQGqAC-vsmmZ9rcWAPkXUHSXcayefQDNf\",\n      \"content_type\": \"string\",\n      \"content_encoding\": \"string\",\n      \"size\": 9735\n    },\n    {\n      \"object\": \"bulk_data\",\n      \"id\": \"cfdf1657-3339-e492-29ef-0e458d6fa686\",\n      \"type\": \"default_cards\",\n      \"updated_at\": \"2014-10-23T22:12:33.658Z\",\n      \"uri\": \"http://SsC.jyniwU1x15qNXPQgX91mkoowmBs,AP7+Ck\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"compressed_size\": 1711,\n      \"download_uri\": \"http://iaptLSxX.wjlyhrz86qFbXYDUcXt8r\",\n      \"content_type\": \"string\",\n      \"content_encoding\": \"string\",\n      \"size\": 2104\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "90c49a41-c72d-4fb3-8477-cd70d3e7d4a3",
+          "name": "Get a Bulk Data File by ID",
+          "request": {
+            "name": "Get a Bulk Data File by ID",
+            "description": {
+              "content": "Returns a single bulk-data export by its Scryfall ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bulk-data",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3bb4ab55-0fb1-46be-88bd-244b8573a269",
+              "name": "The requested bulk-data file.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bulk-data",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"bulk_data\",\n  \"id\": \"b41b7429-bc21-a52d-8f46-9d7cf59ad264\",\n  \"type\": \"rulings\",\n  \"updated_at\": \"1956-01-21T01:05:00.199Z\",\n  \"uri\": \"https://JOkhVnQCFaUXkuj.kxcU1w5K.HhhqpM9XSgNra\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"compressed_size\": 840,\n  \"download_uri\": \"https://MWYVJHuLEYYWfjkRniHvdhUBQXwVYmq.djiWI4ry6tzJmH5jA9WtfyhhqBu\",\n  \"content_type\": \"string\",\n  \"content_encoding\": \"string\",\n  \"size\": 3787\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4435e4c-78ac-4d6e-9a96-2798f31f044c",
+          "name": "Get a Bulk Data File by Type",
+          "request": {
+            "name": "Get a Bulk Data File by Type",
+            "description": {
+              "content": "Returns a single bulk-data export by its type (oracle_cards, unique_artwork, default_cards, all_cards, rulings).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bulk-data",
+                ":type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "type",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1baa5802-4e73-457f-ae26-e75f48de2876",
+              "name": "The requested bulk-data file.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bulk-data",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"bulk_data\",\n  \"id\": \"b41b7429-bc21-a52d-8f46-9d7cf59ad264\",\n  \"type\": \"rulings\",\n  \"updated_at\": \"1956-01-21T01:05:00.199Z\",\n  \"uri\": \"https://JOkhVnQCFaUXkuj.kxcU1w5K.HhhqpM9XSgNra\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"compressed_size\": 840,\n  \"download_uri\": \"https://MWYVJHuLEYYWfjkRniHvdhUBQXwVYmq.djiWI4ry6tzJmH5jA9WtfyhhqBu\",\n  \"content_type\": \"string\",\n  \"content_encoding\": \"string\",\n  \"size\": 3787\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.scryfall.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e93050a0-d269-48a4-a794-53ef3f5e2650",
+    "name": "Scryfall Bulk Data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Scryfall API is a REST-like interface to the most comprehensive Magic: The Gathering\ncard database. It exposes Card, Set, Ruling, Symbology, Catalog, and Bulk Data resources\nused by community tools, deck builders, price trackers, and research projects.\n\nThe API is provided free of charge as part of the Wizards of the Coast Fan Content Policy\nfor the primary purpose of creating additional Magic software, performing research, or\ncreating community content. It is served only over HTTPS (TLS 1.2+) and requires both a\ndescriptive User-Agent and an Accept header on every request. Clients are expected to\nkeep request rates under 10 per second (50–100 ms delay between calls), and to use the\nbulk-data downloads for any large-scale ingestion task instead of crawling Card endpoints.\n\n\nContact Support:\n Name: Scryfall API Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1643 @@
+{
+  "item": [
+    {
+      "id": "1e68ff0d-3b9c-42aa-b33c-3aa9adce1708",
+      "name": "Cards",
+      "description": {
+        "content": "Look up, search, and fetch Magic card objects in many ways.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9c16c1e4-16a2-411d-900c-325394058381",
+          "name": "Search Cards",
+          "request": {
+            "name": "Search Cards",
+            "description": {
+              "content": "Returns a List of cards matching a Scryfall full-text search query.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cards",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) A fulltext search query."
+                },
+                {
+                  "disabled": false,
+                  "key": "unique",
+                  "value": "cards"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dir",
+                  "value": "auto"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_extras",
+                  "value": "false"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_multilingual",
+                  "value": "false"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_variations",
+                  "value": "false"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "31038313-5130-4507-91fc-c6b06b4df0cc",
+              "name": "A list of matching cards.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "unique",
+                      "value": "cards"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dir",
+                      "value": "auto"
+                    },
+                    {
+                      "key": "include_extras",
+                      "value": "false"
+                    },
+                    {
+                      "key": "include_multilingual",
+                      "value": "false"
+                    },
+                    {
+                      "key": "include_variations",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"list\",\n  \"total_cards\": 7620,\n  \"has_more\": true,\n  \"next_page\": \"http://WTaSoyhUweRgyhtMsp.cbcWN1MWxRu4-AmWprDs83oQlAzt9oBuQE3yeJCLqKhEABdrKTBsh\",\n  \"data\": [\n    {\n      \"object\": \"card\",\n      \"id\": \"a8fa2cb9-8887-a44c-045a-c772b97fc6ea\",\n      \"oracle_id\": \"3823d8e5-9480-1789-c6a0-1dbe3d2dfdc3\",\n      \"multiverse_ids\": [\n        3509,\n        2834\n      ],\n      \"mtgo_id\": 8470,\n      \"mtgo_foil_id\": 9188,\n      \"arena_id\": 323,\n      \"tcgplayer_id\": 4461,\n      \"cardmarket_id\": 5683,\n      \"name\": \"string\",\n      \"lang\": \"string\",\n      \"released_at\": \"2006-11-10\",\n      \"uri\": \"https://sJxvKRTptSQuJcNYPAo.amcsmkSi9.weB-dvnADc5ybjLXxgVQVxx1uPbrpuwzrIt7dqayk.HUpAAQ6nM9x9c\",\n      \"scryfall_uri\": \"http://WXIIqdjzxVOzLFJvquX.avqU9M9qGTn4BoTEe6JgiX6vUmhRz8aO3LCLLAzd+6a48CGIAE\",\n      \"layout\": \"string\",\n      \"highres_image\": false,\n      \"image_status\": \"placeholder\",\n      \"image_uris\": {\n        \"small\": \"https://FejVxu.ftkewvzB9wNs,kAKgpTcVNclFlJYwg5J0t6ihxtD\",\n        \"normal\": \"http://dkrBnPDGVKzKILddL.psbgKEuyoNzMeHulz4eoDTiqmxOWrpjjLWNHnmdoj\",\n        \"large\": \"https://sho.ujE.qjsOpTG,\",\n        \"png\": \"https://Ol.mwcoOq2n.gWhqxKO3nFHHxZznrbX0RXIpUYOV47dLa5\",\n        \"art_crop\": \"https://geUkMNEsfLMPnPr.oyQepcIVrgw9ZU7\",\n        \"border_crop\": \"http://UiAPpisljwQzrzkwWME.igzpVvx6po+eM5c-lzNu\"\n      },\n      \"mana_cost\": \"string\",\n      \"cmc\": 687.8475905246617,\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"B\",\n        \"G\"\n      ],\n      \"color_identity\": [\n        \"R\",\n        \"W\"\n      ],\n      \"keywords\": [\n        \"string\",\n        \"string\"\n      ],\n      \"legalities\": {\n        \"standard\": \"string\",\n        \"future\": \"string\",\n        \"historic\": \"string\",\n        \"timeless\": \"string\",\n        \"gladiator\": \"string\",\n        \"pioneer\": \"string\",\n        \"explorer\": \"string\",\n        \"modern\": \"string\",\n        \"legacy\": \"string\",\n        \"pauper\": \"string\",\n        \"vintage\": \"string\",\n        \"penny\": \"string\",\n        \"commander\": \"string\",\n        \"oathbreaker\": \"string\",\n        \"standardbrawl\": \"string\",\n        \"brawl\": \"string\",\n        \"alchemy\": \"string\",\n        \"paupercommander\": \"string\",\n        \"duel\": \"string\",\n        \"oldschool\": \"string\",\n        \"premodern\": \"string\",\n        \"predh\": \"string\"\n      },\n      \"games\": [\n        \"paper\",\n        \"arena\"\n      ],\n      \"reserved\": true,\n      \"foil\": true,\n      \"nonfoil\": true,\n      \"finishes\": [\n        \"etched\",\n        \"nonfoil\"\n      ],\n      \"oversized\": false,\n      \"promo\": false,\n      \"reprint\": false,\n      \"variation\": false,\n      \"set_id\": \"3c856b38-a0fe-b002-1352-3dadfb2772c0\",\n      \"set\": \"string\",\n      \"set_name\": \"string\",\n      \"set_type\": \"string\",\n      \"set_uri\": \"http://xGbWuDvDAa.zusAFoTQ4YNjwPMsfdm1UIQLwyWSuzOczU6H4z1IcE0Bz\",\n      \"set_search_uri\": \"https://bzFPzUB.ggtg.I6ASfavfBXCx08B0VoVZPJAm5vikjviBXxRbspGWb2zvm\",\n      \"scryfall_set_uri\": \"https://Tpn.rwcmfeA7BBcmtS1DppHIb,JL3-CDGWCYiEbeWE8LX3efBXGABXk17ANBLo\",\n      \"rulings_uri\": \"http://jgMHa.mxUNGThzeAuizABieRqjQqTrtyEN0mOg3nA3uIjQvCpwWsxWA\",\n      \"prints_search_uri\": \"http://NwEYEsyR.htygTXov3kEplKwqxQPVXSntwdUqnXw5WJLv5cAU5\",\n      \"collector_number\": \"string\",\n      \"digital\": true,\n      \"rarity\": \"mythic\",\n      \"flavor_text\": \"string\",\n      \"card_back_id\": \"df5ee815-f40c-08d2-1def-a86f672f5c86\",\n      \"artist\": \"string\",\n      \"artist_ids\": [\n        \"20166a25-6f35-b7f1-ee2a-3fec91a244f3\",\n        \"00fe08e0-b347-0a64-2969-7817e64826fc\"\n      ],\n      \"illustration_id\": \"c17df262-d71f-dc53-ebe0-1dec6ab57681\",\n      \"border_color\": \"string\",\n      \"frame\": \"string\",\n      \"frame_effects\": [\n        \"string\",\n        \"string\"\n      ],\n      \"security_stamp\": \"string\",\n      \"full_art\": true,\n      \"textless\": true,\n      \"booster\": true,\n      \"story_spotlight\": false,\n      \"edhrec_rank\": 9724,\n      \"penny_rank\": 7336,\n      \"prices\": {\n        \"usd\": \"string\",\n        \"usd_foil\": \"string\",\n        \"usd_etched\": \"string\",\n        \"eur\": \"string\",\n        \"eur_foil\": \"string\",\n        \"tix\": \"string\"\n      },\n      \"related_uris\": {\n        \"key_0\": \"https://mUQmAFNsclsBTvhG.ezipYV0nNElKe6-vDu71CSFPevaiMQ6.uuePTP689owiHptkE0BT4oK5qNNN0T9v5rw6\",\n        \"key_1\": \"http://COBASelaUIMD.mxeuyhj63f+xvc\",\n        \"key_2\": \"https://LCSem.vdt.ouq8X.A4GnR2ojODfcZZelm-cQgPcMnKAwA1PkW-JRuDRtBBcf7L\",\n        \"key_3\": \"https://lgBs.vztfKbTzzi++ZIRVOAsjn6xC7+Y4R2UJUsLdLxroFUx\"\n      },\n      \"purchase_uris\": {\n        \"key_0\": \"https://yJoILVlAXEEdm.ohbwVKUbZvwzdJ75TyRqBxGrUJe3R+bocgY4QIN2cVLJgqe\",\n        \"key_1\": \"http://IkqHWLvRgKDhMhzxamrQgfrSek.ojW8n08+IB74L\",\n        \"key_2\": \"https://c.uvwfOhbhRf3-tj9ByirlTD.JGQo,derKA\"\n      },\n      \"all_parts\": [\n        {\n          \"object\": \"related_card\",\n          \"id\": \"4cdb9b7a-1c8e-caeb-c194-573160c4c787\",\n          \"component\": \"combo_piece\",\n          \"name\": \"string\",\n          \"type_line\": \"string\",\n          \"uri\": \"http://lgdoFPRqNgCxmzTvCpsPTjAUiRsc.umHQmQuigDRdfzuhtWVgUDcJkD8Q,4t3N-8f.eBMidj7GYHy\"\n        },\n        {\n          \"object\": \"related_card\",\n          \"id\": \"df80a0ae-afea-0f20-8856-9ef4bf4cb47b\",\n          \"component\": \"meld_result\",\n          \"name\": \"string\",\n          \"type_line\": \"string\",\n          \"uri\": \"https://h.rtlemD2IFoHLeo,a99\"\n        }\n      ],\n      \"card_faces\": [\n        {\n          \"object\": \"card_face\",\n          \"name\": \"string\",\n          \"mana_cost\": \"string\",\n          \"type_line\": \"string\",\n          \"oracle_text\": \"string\",\n          \"colors\": [\n            \"string\",\n            \"string\"\n          ],\n          \"power\": \"string\",\n          \"toughness\": \"string\",\n          \"loyalty\": \"string\",\n          \"defense\": \"string\",\n          \"flavor_text\": \"string\",\n          \"artist\": \"string\",\n          \"artist_id\": \"6d303d64-c99c-0818-e427-0ca7fc5de662\",\n          \"illustration_id\": \"0fcb33e3-b6b1-adf6-c36a-9057bc1ce10b\",\n          \"image_uris\": {\n            \"small\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"normal\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"large\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"png\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"art_crop\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"border_crop\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"watermark\": \"string\"\n        },\n        {\n          \"object\": \"card_face\",\n          \"name\": \"string\",\n          \"mana_cost\": \"string\",\n          \"type_line\": \"string\",\n          \"oracle_text\": \"string\",\n          \"colors\": [\n            \"string\",\n            \"string\"\n          ],\n          \"power\": \"string\",\n          \"toughness\": \"string\",\n          \"loyalty\": \"string\",\n          \"defense\": \"string\",\n          \"flavor_text\": \"string\",\n          \"artist\": \"string\",\n          \"artist_id\": \"dc87e869-9c73-fca9-ca4b-26f3922b6d9f\",\n          \"illustration_id\": \"db36a86b-0ea6-4daf-44ed-7b19cb19d2e8\",\n          \"image_uris\": {\n            \"small\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"normal\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"large\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"png\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"art_crop\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"border_crop\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"watermark\": \"string\"\n        }\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"produced_mana\": [\n        \"string\",\n        \"string\"\n      ],\n      \"watermark\": \"string\"\n    },\n    {\n      \"object\": \"card\",\n      \"id\": \"6c7500a4-47c8-2c19-bf7e-caede8ae4ed1\",\n      \"oracle_id\": \"42f8a565-93b7-006a-6bc2-31f1fa96a17e\",\n      \"multiverse_ids\": [\n        2370,\n        1925\n      ],\n      \"mtgo_id\": 8142,\n      \"mtgo_foil_id\": 5965,\n      \"arena_id\": 7486,\n      \"tcgplayer_id\": 9066,\n      \"cardmarket_id\": 6284,\n      \"name\": \"string\",\n      \"lang\": \"string\",\n      \"released_at\": \"2010-11-01\",\n      \"uri\": \"https://GjgTbzGycMGmEmgfqfUWfNwiXosWTPO.cmxVne.EO\",\n      \"scryfall_uri\": \"http://SFPzFa.zbtaNOIbrcuBEKzxgFL5FEKV-ZdCAENcEOrDfVRfh\",\n      \"layout\": \"string\",\n      \"highres_image\": false,\n      \"image_status\": \"highres_scan\",\n      \"image_uris\": {\n        \"small\": \"http://Cp.wdaeCwW3uwxrycnRRV9haSuciXRV7S\",\n        \"normal\": \"http://jopoeBjvaHrxwZeRdudQ.qwNvLpqkwNZFUdbSyVq6QbCVkzNcLIILmpV1\",\n        \"large\": \"https://cQAlAOgUjcLS.vbYWemzWAZA5o2VeAy64SdT+edplGqKz8HLu\",\n        \"png\": \"https://a.yveP,VvTyv-OFJddk0KvjR7i,pMcjqNbuNcOLDy-ILlEFAV8HElvyjPCdm3WmXu\",\n        \"art_crop\": \"https://mkiOAzXsTualNzsMIN.dzSadT00vtWKjc-\",\n        \"border_crop\": \"https://uivYzVsSOBMeHsnTChCcIRJJhiXfyCxid.asLbX8E34jYE\"\n      },\n      \"mana_cost\": \"string\",\n      \"cmc\": 7378.840981607837,\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"U\",\n        \"R\"\n      ],\n      \"color_identity\": [\n        \"G\",\n        \"G\"\n      ],\n      \"keywords\": [\n        \"string\",\n        \"string\"\n      ],\n      \"legalities\": {\n        \"standard\": \"string\",\n        \"future\": \"string\",\n        \"historic\": \"string\",\n        \"timeless\": \"string\",\n        \"gladiator\": \"string\",\n        \"pioneer\": \"string\",\n        \"explorer\": \"string\",\n        \"modern\": \"string\",\n        \"legacy\": \"string\",\n        \"pauper\": \"string\",\n        \"vintage\": \"string\",\n        \"penny\": \"string\",\n        \"commander\": \"string\",\n        \"oathbreaker\": \"string\",\n        \"standardbrawl\": \"string\",\n        \"brawl\": \"string\",\n        \"alchemy\": \"string\",\n        \"paupercommander\": \"string\",\n        \"duel\": \"string\",\n        \"oldschool\": \"string\",\n        \"premodern\": \"string\",\n        \"predh\": \"string\"\n      },\n      \"games\": [\n        \"mtgo\",\n        \"mtgo\"\n      ],\n      \"reserved\": false,\n      \"foil\": false,\n      \"nonfoil\": false,\n      \"finishes\": [\n        \"etched\",\n        \"foil\"\n      ],\n      \"oversized\": true,\n      \"promo\": true,\n      \"reprint\": false,\n      \"variation\": true,\n      \"set_id\": \"e9fc349e-0bb8-9522-01da-6e274f9e3b2e\",\n      \"set\": \"string\",\n      \"set_name\": \"string\",\n      \"set_type\": \"string\",\n      \"set_uri\": \"http://BwurnyvooSFPtrVJpidcqPSJU.gdxoN+,QZEWniZffN.EUbV1I13IyRMhaMEh3UFe,ucZjxcG5e7Su+n\",\n      \"set_search_uri\": \"https://X.gygcotr4N1pKXNWF37+iyQmJ80yG2d5fJAH11AuJTYXAFTF9FvnaK.8WSXIz\",\n      \"scryfall_set_uri\": \"http://wLofZJaJWVvJhaUyt.aqfFe,kLX,JdWs\",\n      \"rulings_uri\": \"https://xBwMHdYIXOahqmsXAeZUPiFKBJeLxMBW.rwiiXswDJ2kh+0ywcTait,N7\",\n      \"prints_search_uri\": \"https://YlxuvgSEwxJqeDOwuBhINZ.eappa.CcJnxfm2pM.tHi7VZmGidKgHw9kKluCauHBPPbd7WR\",\n      \"collector_number\": \"string\",\n      \"digital\": false,\n      \"rarity\": \"rare\",\n      \"flavor_text\": \"string\",\n      \"card_back_id\": \"970b8450-e17f-db98-df4f-532e895f3859\",\n      \"artist\": \"string\",\n      \"artist_ids\": [\n        \"780a3423-2ff6-fd99-8c68-e770e43e39df\",\n        \"e96b51b4-e06b-d8f6-04c0-9682fa9401cb\"\n      ],\n      \"illustration_id\": \"09a96f55-b94a-16ae-efaf-4a9741a0fb17\",\n      \"border_color\": \"string\",\n      \"frame\": \"string\",\n      \"frame_effects\": [\n        \"string\",\n        \"string\"\n      ],\n      \"security_stamp\": \"string\",\n      \"full_art\": true,\n      \"textless\": true,\n      \"booster\": false,\n      \"story_spotlight\": true,\n      \"edhrec_rank\": 7557,\n      \"penny_rank\": 2070,\n      \"prices\": {\n        \"usd\": \"string\",\n        \"usd_foil\": \"string\",\n        \"usd_etched\": \"string\",\n        \"eur\": \"string\",\n        \"eur_foil\": \"string\",\n        \"tix\": \"string\"\n      },\n      \"related_uris\": {\n        \"key_0\": \"https://bWcnwiBpPjLkRqpAQbrsJpmWMrQAxeb.qotwN1N,YTutVLg91fp2Kmpynoue6USFFFyzDtFepwj\",\n        \"key_1\": \"https://pLplmCUxzndpLjVyzYFu.zaDLuhJ+xR6s9mPCv4t8Z3GOiHLhPqHOgFp2mDgEfn7OVEDxmXO.r\"\n      },\n      \"purchase_uris\": {\n        \"key_0\": \"https://qlEjtqSOIzvMou.brcwSJ\",\n        \"key_1\": \"http://PGmQPIxlhARdXGyVxjuvocsIqFngJx.bdkwXd0OeAgMDXokiwtLZTupV-YfeGN6G\"\n      },\n      \"all_parts\": [\n        {\n          \"object\": \"related_card\",\n          \"id\": \"4367212e-ef3b-5562-3c60-15f72b940f01\",\n          \"component\": \"combo_piece\",\n          \"name\": \"string\",\n          \"type_line\": \"string\",\n          \"uri\": \"http://ykZtUVzsrrvrCxChAPHehzmUiXhcq.eojzlpiY2mYpBgf3nN\"\n        },\n        {\n          \"object\": \"related_card\",\n          \"id\": \"9a1e6a05-9d53-cd4e-1e6e-83faaee2eb2d\",\n          \"component\": \"meld_part\",\n          \"name\": \"string\",\n          \"type_line\": \"string\",\n          \"uri\": \"https://pCTEckiVYSecsoYpBI.bvreSmBt5xIzatre8IDp.frqMyC9vDOIZ1uwrWwsmuaQnDrZbfvYZ1Sx\"\n        }\n      ],\n      \"card_faces\": [\n        {\n          \"object\": \"card_face\",\n          \"name\": \"string\",\n          \"mana_cost\": \"string\",\n          \"type_line\": \"string\",\n          \"oracle_text\": \"string\",\n          \"colors\": [\n            \"string\",\n            \"string\"\n          ],\n          \"power\": \"string\",\n          \"toughness\": \"string\",\n          \"loyalty\": \"string\",\n          \"defense\": \"string\",\n          \"flavor_text\": \"string\",\n          \"artist\": \"string\",\n          \"artist_id\": \"e2b5ca47-c19e-c203-e242-dc513222e069\",\n          \"illustration_id\": \"6a2e1e15-0878-fef2-c404-69686a9559f8\",\n          \"image_uris\": {\n            \"small\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"normal\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"large\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"png\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"art_crop\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"border_crop\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"watermark\": \"string\"\n        },\n        {\n          \"object\": \"card_face\",\n          \"name\": \"string\",\n          \"mana_cost\": \"string\",\n          \"type_line\": \"string\",\n          \"oracle_text\": \"string\",\n          \"colors\": [\n            \"string\",\n            \"string\"\n          ],\n          \"power\": \"string\",\n          \"toughness\": \"string\",\n          \"loyalty\": \"string\",\n          \"defense\": \"string\",\n          \"flavor_text\": \"string\",\n          \"artist\": \"string\",\n          \"artist_id\": \"2869e832-bb4d-e7d5-fb67-c4666cc068fa\",\n          \"illustration_id\": \"ccb7dcc2-2682-d707-f073-049a7b64f276\",\n          \"image_uris\": {\n            \"small\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"normal\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"large\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"png\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"art_crop\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"border_crop\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"watermark\": \"string\"\n        }\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"produced_mana\": [\n        \"string\",\n        \"string\"\n      ],\n      \"watermark\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c279a844-c362-4e7a-b728-c0c3a376fdf0",
+              "name": "No cards matched the query.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "unique",
+                      "value": "cards"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dir",
+                      "value": "auto"
+                    },
+                    {
+                      "key": "include_extras",
+                      "value": "false"
+                    },
+                    {
+                      "key": "include_multilingual",
+                      "value": "false"
+                    },
+                    {
+                      "key": "include_variations",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"error\",\n  \"status\": 6473,\n  \"code\": \"string\",\n  \"details\": \"string\",\n  \"type\": \"string\",\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "694bbeaa-591d-451d-aa9c-21511719f40b",
+          "name": "Get Card by Name",
+          "request": {
+            "name": "Get Card by Name",
+            "description": {
+              "content": "Returns a Card based on a name search string (exact or fuzzy match).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cards",
+                "named"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "exact",
+                  "value": "<string>",
+                  "description": "The exact card name to search for."
+                },
+                {
+                  "disabled": false,
+                  "key": "fuzzy",
+                  "value": "<string>",
+                  "description": "A fuzzy card name to search for."
+                },
+                {
+                  "disabled": false,
+                  "key": "set",
+                  "value": "<string>",
+                  "description": "A set code to limit the search to one set."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                },
+                {
+                  "disabled": false,
+                  "key": "face",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "version",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1daa2fae-3948-4f32-bcbe-11cad07a6979",
+              "name": "A single Card object matching the query.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    "named"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "exact",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fuzzy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "set",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "face",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"card\",\n  \"id\": \"ac0b8650-d403-356f-c8fd-97c95ad75142\",\n  \"oracle_id\": \"c8511d9a-345e-45cc-6838-c3867ad17b7b\",\n  \"multiverse_ids\": [\n    9183,\n    3505\n  ],\n  \"mtgo_id\": 75,\n  \"mtgo_foil_id\": 2732,\n  \"arena_id\": 9611,\n  \"tcgplayer_id\": 6116,\n  \"cardmarket_id\": 660,\n  \"name\": \"string\",\n  \"lang\": \"string\",\n  \"released_at\": \"1974-05-09\",\n  \"uri\": \"http://IWgVxfOciWWyjNhxFhPOos.lgmawGHG+qt\",\n  \"scryfall_uri\": \"http://wFOBCjXqfJQkrLrg.awndOK4b18drn\",\n  \"layout\": \"string\",\n  \"highres_image\": true,\n  \"image_status\": \"highres_scan\",\n  \"image_uris\": {\n    \"small\": \"https://kFioHJnAxLNvTm.bwRPu1Gq6pGAyZEkWzJVyKCJy8KSSMXL9BiP\",\n    \"normal\": \"https://kDIZoNvjIWzE.aakse1BKbDIZRYfL1+jp.s,CqiMd-eEunEBUM\",\n    \"large\": \"http://pjaCDrlzeqBrjskrJiowbA.qyayZtlp,C,W9O1CHMs2MuHFypDGe5lS6fVRTo-edz9,aKWUTlIp8-,5Glc\",\n    \"png\": \"http://bEEEduPEAkJNABsWARVHyBbyNgnpbyQv.qjblgNW6L6PqrP8FZgyRmtZpaatukzyAsP0o,brB4qhTDwiByfVDpo\",\n    \"art_crop\": \"http://jMOBfnZIirDrPAviqRoAGcwCsNpzGPRG.vnDhe,NJkKwvqfi4iBFBmdwNwSTnSQV.BcQaA79mbceAWjCRUw8SZ9h-\",\n    \"border_crop\": \"https://mOuhItpd.otO0NEQdtA97skl6knhGIs,xO.uSYWIB6N39bxBtMrzJxKEsvuqNBVd8KJNhwOYQUpk,\"\n  },\n  \"mana_cost\": \"string\",\n  \"cmc\": 5084.951590476988,\n  \"type_line\": \"string\",\n  \"oracle_text\": \"string\",\n  \"colors\": [\n    \"R\",\n    \"U\"\n  ],\n  \"color_identity\": [\n    \"B\",\n    \"B\"\n  ],\n  \"keywords\": [\n    \"string\",\n    \"string\"\n  ],\n  \"legalities\": {\n    \"standard\": \"string\",\n    \"future\": \"string\",\n    \"historic\": \"string\",\n    \"timeless\": \"string\",\n    \"gladiator\": \"string\",\n    \"pioneer\": \"string\",\n    \"explorer\": \"string\",\n    \"modern\": \"string\",\n    \"legacy\": \"string\",\n    \"pauper\": \"string\",\n    \"vintage\": \"string\",\n    \"penny\": \"string\",\n    \"commander\": \"string\",\n    \"oathbreaker\": \"string\",\n    \"standardbrawl\": \"string\",\n    \"brawl\": \"string\",\n    \"alchemy\": \"string\",\n    \"paupercommander\": \"string\",\n    \"duel\": \"string\",\n    \"oldschool\": \"string\",\n    \"premodern\": \"string\",\n    \"predh\": \"string\"\n  },\n  \"games\": [\n    \"arena\",\n    \"mtgo\"\n  ],\n  \"reserved\": true,\n  \"foil\": false,\n  \"nonfoil\": false,\n  \"finishes\": [\n    \"etched\",\n    \"nonfoil\"\n  ],\n  \"oversized\": false,\n  \"promo\": false,\n  \"reprint\": false,\n  \"variation\": false,\n  \"set_id\": \"23bfb086-da7b-2977-24c7-766759455757\",\n  \"set\": \"string\",\n  \"set_name\": \"string\",\n  \"set_type\": \"string\",\n  \"set_uri\": \"https://wickEGjXbeAnZlhflKDnVuKGKYAZrool.otrsiI7SbAO9i4rcyMNln5LXPrps8YUHjoIKUHciH,-R7.ScPezqI8czNNaMVuFweBr\",\n  \"set_search_uri\": \"http://O.syfiMnVvmmGDLBVe5h\",\n  \"scryfall_set_uri\": \"http://oUoANYCXqKnjWlvNXEjIihbML.gnbUJVwXVF4Pn.SbCcQk1bJzZpMHgw1jNWVZSX1K1UdFje0H7eTbL.74\",\n  \"rulings_uri\": \"http://YXqdpMJ.oybOjf8vqkLWqyntxyTetvwu64hm\",\n  \"prints_search_uri\": \"https://aDyOAkdseujrwEvEHujQJpV.nmrj\",\n  \"collector_number\": \"string\",\n  \"digital\": false,\n  \"rarity\": \"uncommon\",\n  \"flavor_text\": \"string\",\n  \"card_back_id\": \"d843f4c3-fa63-1c95-d162-12406b36738a\",\n  \"artist\": \"string\",\n  \"artist_ids\": [\n    \"b0d19fe7-957f-ad89-a01f-747066b8b8db\",\n    \"7c0b63cc-1976-2924-0649-629f4ae03bac\"\n  ],\n  \"illustration_id\": \"3e5ed3bc-4a8f-7bc4-2588-0872beeb9790\",\n  \"border_color\": \"string\",\n  \"frame\": \"string\",\n  \"frame_effects\": [\n    \"string\",\n    \"string\"\n  ],\n  \"security_stamp\": \"string\",\n  \"full_art\": false,\n  \"textless\": false,\n  \"booster\": false,\n  \"story_spotlight\": false,\n  \"edhrec_rank\": 8479,\n  \"penny_rank\": 4659,\n  \"prices\": {\n    \"usd\": \"string\",\n    \"usd_foil\": \"string\",\n    \"usd_etched\": \"string\",\n    \"eur\": \"string\",\n    \"eur_foil\": \"string\",\n    \"tix\": \"string\"\n  },\n  \"related_uris\": {\n    \"key_0\": \"https://bsh.gdGU,vkrpO0oHlsD4TsjyYey2+P5fj1uxa3xYUn40xA\",\n    \"key_1\": \"https://t.cdZ2dvQl3GYlv\",\n    \"key_2\": \"http://mFNbAiLFSKY.tcrZVNJhKtOF5rJudgIq17ffuN+tfsfCMzY\"\n  },\n  \"purchase_uris\": {\n    \"key_0\": \"http://vLJJRqiWZHmSedNIfYSNLBQpL.fcuNOPaK6\"\n  },\n  \"all_parts\": [\n    {\n      \"object\": \"related_card\",\n      \"id\": \"123cc31f-19bb-cf6a-7093-95e082b12306\",\n      \"component\": \"token\",\n      \"name\": \"string\",\n      \"type_line\": \"string\",\n      \"uri\": \"http://AkNuaQWzdogNdUkGwnCYo.kgnhOUm7\"\n    },\n    {\n      \"object\": \"related_card\",\n      \"id\": \"64c9def9-4194-91d6-dcd6-a49c81d0a5db\",\n      \"component\": \"meld_part\",\n      \"name\": \"string\",\n      \"type_line\": \"string\",\n      \"uri\": \"http://wXrCWGVuWGrbeVYtOyZKl.jguzrB+anQKyIiqadJCKY,DDfUvFQJv1JlP0i1Tj4pTct9Q3IByWAlvYy0\"\n    }\n  ],\n  \"card_faces\": [\n    {\n      \"object\": \"card_face\",\n      \"name\": \"string\",\n      \"mana_cost\": \"string\",\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"flavor_text\": \"string\",\n      \"artist\": \"string\",\n      \"artist_id\": \"37d87c2d-2d03-1cb5-616b-7e8c6571d3bb\",\n      \"illustration_id\": \"52dc1bf7-0481-334f-1676-29456552140f\",\n      \"image_uris\": {\n        \"small\": \"http://pCsuMb.jjfmIDsVpunh0sf0twVrDlYmiJsQOqVgsxfDFlE22hAoEIlLgbQ5dLv,yGt12OC6E0c\",\n        \"normal\": \"https://bcNLTbZvYeLYofiMcyIWyc.rqvdCK28OCIILTLdVU.heZbGOPO+LkZl7.,1pDjjsvfN0r\",\n        \"large\": \"http://wXsyZrCAsVhwWDEXRiq.dvguBXWe7pXd0gxxftQPN\",\n        \"png\": \"http://UBZKneUPHODPhUdA.ooyhCALpm,-7XY-+5\",\n        \"art_crop\": \"http://QtDWFCN.xmuUMLtdmQ08nvjZARe7t4-X2bVhoSDPktUjvcZ5G3JH6z\",\n        \"border_crop\": \"https://yWrELxgnfGNdnFoQwgtSKumRUUQC.vvo9ZISbINQEQu.VE4cELDrK\"\n      },\n      \"watermark\": \"string\"\n    },\n    {\n      \"object\": \"card_face\",\n      \"name\": \"string\",\n      \"mana_cost\": \"string\",\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"flavor_text\": \"string\",\n      \"artist\": \"string\",\n      \"artist_id\": \"c051d5d3-53c6-3ddb-9200-414bc69501a3\",\n      \"illustration_id\": \"fe10246f-adaf-16c1-82f1-908e859238e0\",\n      \"image_uris\": {\n        \"small\": \"https://RIWKUvfApPbDgVsUTcGJGE.giZWlJ.ir4IfB\",\n        \"normal\": \"http://LcfVGqaSDHAtCem.iwvob6SLDZ4yvmsSuvvxcAHMn-eAdW0.BFktH4cBx0u4iKNhzOPwfktuBqQVY\",\n        \"large\": \"https://l.gjE.xL5Ya5LGYKvpm9F-U6K,jCNLWQXwEzjpm8cR\",\n        \"png\": \"https://UxLEkuJaq.xdplhrXeNIR,l3kYAHhfXYzFFdpo9-Z\",\n        \"art_crop\": \"https://xDCTnUbUDNIGfH.fkjzeO.QdJtm+pWRpBcekirX.KHiPNXnRokqL6+vs\",\n        \"border_crop\": \"https://vSLZwnIXVwXXOrmxKiZPzsjqU.ujbFSxV3FijDZHy6fDOjSUAX8pPFtG8DPOmonNconEtPtdJ-wyoQpVE1FAMmDkhdQFXI,t\"\n      },\n      \"watermark\": \"string\"\n    }\n  ],\n  \"power\": \"string\",\n  \"toughness\": \"string\",\n  \"loyalty\": \"string\",\n  \"defense\": \"string\",\n  \"produced_mana\": [\n    \"string\",\n    \"string\"\n  ],\n  \"watermark\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8176cb24-b2a8-4719-9c16-47f7d513e173",
+              "name": "No card matched the name.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    "named"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "exact",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fuzzy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "set",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "face",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"error\",\n  \"status\": 6032,\n  \"code\": \"string\",\n  \"details\": \"string\",\n  \"type\": \"string\",\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f263dd8-69cd-4028-929c-9b27b7ff32a7",
+          "name": "Autocomplete Card Names",
+          "request": {
+            "name": "Autocomplete Card Names",
+            "description": {
+              "content": "Returns a Catalog of up to 20 card-name autocompletions for a partial card-name input.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cards",
+                "autocomplete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "include_extras",
+                  "value": "false"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e2badfb1-d881-4cc6-a961-3bcfa17a8a87",
+              "name": "A catalog of suggested card names.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    "autocomplete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_extras",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"catalog\",\n  \"uri\": \"https://zvnpeUtLswjypEXA.uwcvyttxVonlTBuhQX73kLBgPmZoaxXF+jOumVGy9rXLwzRQ\",\n  \"total_values\": 8383,\n  \"data\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7f197c9-13ea-4561-b7bf-438388719eb4",
+          "name": "Get a Random Card",
+          "request": {
+            "name": "Get a Random Card",
+            "description": {
+              "content": "Returns a single random Card, optionally filtered by a Scryfall search query.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cards",
+                "random"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                },
+                {
+                  "disabled": false,
+                  "key": "face",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "version",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "adc4c8fa-9661-4de9-a8a3-55428bcb6b84",
+              "name": "A randomly chosen Card.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    "random"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "face",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"card\",\n  \"id\": \"ac0b8650-d403-356f-c8fd-97c95ad75142\",\n  \"oracle_id\": \"c8511d9a-345e-45cc-6838-c3867ad17b7b\",\n  \"multiverse_ids\": [\n    9183,\n    3505\n  ],\n  \"mtgo_id\": 75,\n  \"mtgo_foil_id\": 2732,\n  \"arena_id\": 9611,\n  \"tcgplayer_id\": 6116,\n  \"cardmarket_id\": 660,\n  \"name\": \"string\",\n  \"lang\": \"string\",\n  \"released_at\": \"1974-05-09\",\n  \"uri\": \"http://IWgVxfOciWWyjNhxFhPOos.lgmawGHG+qt\",\n  \"scryfall_uri\": \"http://wFOBCjXqfJQkrLrg.awndOK4b18drn\",\n  \"layout\": \"string\",\n  \"highres_image\": true,\n  \"image_status\": \"highres_scan\",\n  \"image_uris\": {\n    \"small\": \"https://kFioHJnAxLNvTm.bwRPu1Gq6pGAyZEkWzJVyKCJy8KSSMXL9BiP\",\n    \"normal\": \"https://kDIZoNvjIWzE.aakse1BKbDIZRYfL1+jp.s,CqiMd-eEunEBUM\",\n    \"large\": \"http://pjaCDrlzeqBrjskrJiowbA.qyayZtlp,C,W9O1CHMs2MuHFypDGe5lS6fVRTo-edz9,aKWUTlIp8-,5Glc\",\n    \"png\": \"http://bEEEduPEAkJNABsWARVHyBbyNgnpbyQv.qjblgNW6L6PqrP8FZgyRmtZpaatukzyAsP0o,brB4qhTDwiByfVDpo\",\n    \"art_crop\": \"http://jMOBfnZIirDrPAviqRoAGcwCsNpzGPRG.vnDhe,NJkKwvqfi4iBFBmdwNwSTnSQV.BcQaA79mbceAWjCRUw8SZ9h-\",\n    \"border_crop\": \"https://mOuhItpd.otO0NEQdtA97skl6knhGIs,xO.uSYWIB6N39bxBtMrzJxKEsvuqNBVd8KJNhwOYQUpk,\"\n  },\n  \"mana_cost\": \"string\",\n  \"cmc\": 5084.951590476988,\n  \"type_line\": \"string\",\n  \"oracle_text\": \"string\",\n  \"colors\": [\n    \"R\",\n    \"U\"\n  ],\n  \"color_identity\": [\n    \"B\",\n    \"B\"\n  ],\n  \"keywords\": [\n    \"string\",\n    \"string\"\n  ],\n  \"legalities\": {\n    \"standard\": \"string\",\n    \"future\": \"string\",\n    \"historic\": \"string\",\n    \"timeless\": \"string\",\n    \"gladiator\": \"string\",\n    \"pioneer\": \"string\",\n    \"explorer\": \"string\",\n    \"modern\": \"string\",\n    \"legacy\": \"string\",\n    \"pauper\": \"string\",\n    \"vintage\": \"string\",\n    \"penny\": \"string\",\n    \"commander\": \"string\",\n    \"oathbreaker\": \"string\",\n    \"standardbrawl\": \"string\",\n    \"brawl\": \"string\",\n    \"alchemy\": \"string\",\n    \"paupercommander\": \"string\",\n    \"duel\": \"string\",\n    \"oldschool\": \"string\",\n    \"premodern\": \"string\",\n    \"predh\": \"string\"\n  },\n  \"games\": [\n    \"arena\",\n    \"mtgo\"\n  ],\n  \"reserved\": true,\n  \"foil\": false,\n  \"nonfoil\": false,\n  \"finishes\": [\n    \"etched\",\n    \"nonfoil\"\n  ],\n  \"oversized\": false,\n  \"promo\": false,\n  \"reprint\": false,\n  \"variation\": false,\n  \"set_id\": \"23bfb086-da7b-2977-24c7-766759455757\",\n  \"set\": \"string\",\n  \"set_name\": \"string\",\n  \"set_type\": \"string\",\n  \"set_uri\": \"https://wickEGjXbeAnZlhflKDnVuKGKYAZrool.otrsiI7SbAO9i4rcyMNln5LXPrps8YUHjoIKUHciH,-R7.ScPezqI8czNNaMVuFweBr\",\n  \"set_search_uri\": \"http://O.syfiMnVvmmGDLBVe5h\",\n  \"scryfall_set_uri\": \"http://oUoANYCXqKnjWlvNXEjIihbML.gnbUJVwXVF4Pn.SbCcQk1bJzZpMHgw1jNWVZSX1K1UdFje0H7eTbL.74\",\n  \"rulings_uri\": \"http://YXqdpMJ.oybOjf8vqkLWqyntxyTetvwu64hm\",\n  \"prints_search_uri\": \"https://aDyOAkdseujrwEvEHujQJpV.nmrj\",\n  \"collector_number\": \"string\",\n  \"digital\": false,\n  \"rarity\": \"uncommon\",\n  \"flavor_text\": \"string\",\n  \"card_back_id\": \"d843f4c3-fa63-1c95-d162-12406b36738a\",\n  \"artist\": \"string\",\n  \"artist_ids\": [\n    \"b0d19fe7-957f-ad89-a01f-747066b8b8db\",\n    \"7c0b63cc-1976-2924-0649-629f4ae03bac\"\n  ],\n  \"illustration_id\": \"3e5ed3bc-4a8f-7bc4-2588-0872beeb9790\",\n  \"border_color\": \"string\",\n  \"frame\": \"string\",\n  \"frame_effects\": [\n    \"string\",\n    \"string\"\n  ],\n  \"security_stamp\": \"string\",\n  \"full_art\": false,\n  \"textless\": false,\n  \"booster\": false,\n  \"story_spotlight\": false,\n  \"edhrec_rank\": 8479,\n  \"penny_rank\": 4659,\n  \"prices\": {\n    \"usd\": \"string\",\n    \"usd_foil\": \"string\",\n    \"usd_etched\": \"string\",\n    \"eur\": \"string\",\n    \"eur_foil\": \"string\",\n    \"tix\": \"string\"\n  },\n  \"related_uris\": {\n    \"key_0\": \"https://bsh.gdGU,vkrpO0oHlsD4TsjyYey2+P5fj1uxa3xYUn40xA\",\n    \"key_1\": \"https://t.cdZ2dvQl3GYlv\",\n    \"key_2\": \"http://mFNbAiLFSKY.tcrZVNJhKtOF5rJudgIq17ffuN+tfsfCMzY\"\n  },\n  \"purchase_uris\": {\n    \"key_0\": \"http://vLJJRqiWZHmSedNIfYSNLBQpL.fcuNOPaK6\"\n  },\n  \"all_parts\": [\n    {\n      \"object\": \"related_card\",\n      \"id\": \"123cc31f-19bb-cf6a-7093-95e082b12306\",\n      \"component\": \"token\",\n      \"name\": \"string\",\n      \"type_line\": \"string\",\n      \"uri\": \"http://AkNuaQWzdogNdUkGwnCYo.kgnhOUm7\"\n    },\n    {\n      \"object\": \"related_card\",\n      \"id\": \"64c9def9-4194-91d6-dcd6-a49c81d0a5db\",\n      \"component\": \"meld_part\",\n      \"name\": \"string\",\n      \"type_line\": \"string\",\n      \"uri\": \"http://wXrCWGVuWGrbeVYtOyZKl.jguzrB+anQKyIiqadJCKY,DDfUvFQJv1JlP0i1Tj4pTct9Q3IByWAlvYy0\"\n    }\n  ],\n  \"card_faces\": [\n    {\n      \"object\": \"card_face\",\n      \"name\": \"string\",\n      \"mana_cost\": \"string\",\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"flavor_text\": \"string\",\n      \"artist\": \"string\",\n      \"artist_id\": \"37d87c2d-2d03-1cb5-616b-7e8c6571d3bb\",\n      \"illustration_id\": \"52dc1bf7-0481-334f-1676-29456552140f\",\n      \"image_uris\": {\n        \"small\": \"http://pCsuMb.jjfmIDsVpunh0sf0twVrDlYmiJsQOqVgsxfDFlE22hAoEIlLgbQ5dLv,yGt12OC6E0c\",\n        \"normal\": \"https://bcNLTbZvYeLYofiMcyIWyc.rqvdCK28OCIILTLdVU.heZbGOPO+LkZl7.,1pDjjsvfN0r\",\n        \"large\": \"http://wXsyZrCAsVhwWDEXRiq.dvguBXWe7pXd0gxxftQPN\",\n        \"png\": \"http://UBZKneUPHODPhUdA.ooyhCALpm,-7XY-+5\",\n        \"art_crop\": \"http://QtDWFCN.xmuUMLtdmQ08nvjZARe7t4-X2bVhoSDPktUjvcZ5G3JH6z\",\n        \"border_crop\": \"https://yWrELxgnfGNdnFoQwgtSKumRUUQC.vvo9ZISbINQEQu.VE4cELDrK\"\n      },\n      \"watermark\": \"string\"\n    },\n    {\n      \"object\": \"card_face\",\n      \"name\": \"string\",\n      \"mana_cost\": \"string\",\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"flavor_text\": \"string\",\n      \"artist\": \"string\",\n      \"artist_id\": \"c051d5d3-53c6-3ddb-9200-414bc69501a3\",\n      \"illustration_id\": \"fe10246f-adaf-16c1-82f1-908e859238e0\",\n      \"image_uris\": {\n        \"small\": \"https://RIWKUvfApPbDgVsUTcGJGE.giZWlJ.ir4IfB\",\n        \"normal\": \"http://LcfVGqaSDHAtCem.iwvob6SLDZ4yvmsSuvvxcAHMn-eAdW0.BFktH4cBx0u4iKNhzOPwfktuBqQVY\",\n        \"large\": \"https://l.gjE.xL5Ya5LGYKvpm9F-U6K,jCNLWQXwEzjpm8cR\",\n        \"png\": \"https://UxLEkuJaq.xdplhrXeNIR,l3kYAHhfXYzFFdpo9-Z\",\n        \"art_crop\": \"https://xDCTnUbUDNIGfH.fkjzeO.QdJtm+pWRpBcekirX.KHiPNXnRokqL6+vs\",\n        \"border_crop\": \"https://vSLZwnIXVwXXOrmxKiZPzsjqU.ujbFSxV3FijDZHy6fDOjSUAX8pPFtG8DPOmonNconEtPtdJ-wyoQpVE1FAMmDkhdQFXI,t\"\n      },\n      \"watermark\": \"string\"\n    }\n  ],\n  \"power\": \"string\",\n  \"toughness\": \"string\",\n  \"loyalty\": \"string\",\n  \"defense\": \"string\",\n  \"produced_mana\": [\n    \"string\",\n    \"string\"\n  ],\n  \"watermark\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "42243fe4-c54d-4ccc-bec6-7c1f4a326b56",
+          "name": "Get a Card Collection",
+          "request": {
+            "name": "Get a Card Collection",
+            "description": {
+              "content": "Accepts a JSON array of card identifiers and returns a List of the requested cards. Identifiers can be id, mtgo_id, multiverse_id, oracle_id, illustration_id, name, set+name, or set+collector_number.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cards",
+                "collection"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"identifiers\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9ab6eb5d-5118-4e99-8c07-49c4075b3f89",
+              "name": "The requested cards plus any unresolvable identifiers.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    "collection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"identifiers\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"list\",\n  \"total_cards\": 9845,\n  \"has_more\": false,\n  \"next_page\": \"https://i.vxullMBad8OO5UUwPR1xdBvM\",\n  \"data\": [\n    {\n      \"object\": \"card\",\n      \"id\": \"043e6f97-8c3a-ef49-0491-85d9c56761bc\",\n      \"oracle_id\": \"1c1fde75-bb5e-59ba-251d-62bcb2f38196\",\n      \"multiverse_ids\": [\n        6911,\n        8124\n      ],\n      \"mtgo_id\": 7311,\n      \"mtgo_foil_id\": 2264,\n      \"arena_id\": 7235,\n      \"tcgplayer_id\": 1556,\n      \"cardmarket_id\": 5216,\n      \"name\": \"string\",\n      \"lang\": \"string\",\n      \"released_at\": \"2017-06-29\",\n      \"uri\": \"https://lBsGVLgTMEcrqjy.bsljUcpS1n\",\n      \"scryfall_uri\": \"https://gYRQIBSpwaYvuqpGRUGVjTM.xdjnWAisZksyDw8mRXNCzFjJb3xaPEi2MQgjm.hAm0gKVvFc-HxvPToeef0LDZ6\",\n      \"layout\": \"string\",\n      \"highres_image\": true,\n      \"image_status\": \"lowres\",\n      \"image_uris\": {\n        \"small\": \"http://dPTLVYjoGGnDrsQSQjyBQRxpHdQjBkoof.dduVYHtoKWS.V2oS4\",\n        \"normal\": \"https://yLAzjgQevvxpXmJPNMnFNTeFKLaEV.ogzhO4ZK4ORS1b1xWsJEi.,cpCF2YC3z1Gn\",\n        \"large\": \"https://EiGNpXCPCWiBx.utQBK,zCHISgVa5CetXWBOW7pG5LB8hLHYGvkjLWNNe.sT1eIak+3gwfdbCHlOuOduOMu-wez\",\n        \"png\": \"https://sKVOvgjDGIEEwiQFrgiGsba.wvxQBLcb,7x2ZuOunksQttbrpzTQThUDymoNIF4B4qUuXt13G2OKWLLIoo73D5awv\",\n        \"art_crop\": \"http://rVDJvqNHjAMFwBxRzSzs.mqaaX2IM.ba5NL+Yl3zkmxEk,wbBJQfFvIBF9WVFPPN17kSWrlaz72k.v1GELL9jusICoz1\",\n        \"border_crop\": \"https://pgOZxjoVYzdKjOZa.dyR9zRqJpK-btJhxjNxTSrHlZtLcfc0BRh\"\n      },\n      \"mana_cost\": \"string\",\n      \"cmc\": 9759.62995965546,\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"R\",\n        \"G\"\n      ],\n      \"color_identity\": [\n        \"U\",\n        \"W\"\n      ],\n      \"keywords\": [\n        \"string\",\n        \"string\"\n      ],\n      \"legalities\": {\n        \"standard\": \"string\",\n        \"future\": \"string\",\n        \"historic\": \"string\",\n        \"timeless\": \"string\",\n        \"gladiator\": \"string\",\n        \"pioneer\": \"string\",\n        \"explorer\": \"string\",\n        \"modern\": \"string\",\n        \"legacy\": \"string\",\n        \"pauper\": \"string\",\n        \"vintage\": \"string\",\n        \"penny\": \"string\",\n        \"commander\": \"string\",\n        \"oathbreaker\": \"string\",\n        \"standardbrawl\": \"string\",\n        \"brawl\": \"string\",\n        \"alchemy\": \"string\",\n        \"paupercommander\": \"string\",\n        \"duel\": \"string\",\n        \"oldschool\": \"string\",\n        \"premodern\": \"string\",\n        \"predh\": \"string\",\n        \"key_0\": \"legal\",\n        \"key_1\": \"restricted\",\n        \"key_2\": \"not_legal\"\n      },\n      \"games\": [\n        \"mtgo\",\n        \"paper\"\n      ],\n      \"reserved\": false,\n      \"foil\": true,\n      \"nonfoil\": false,\n      \"finishes\": [\n        \"etched\",\n        \"nonfoil\"\n      ],\n      \"oversized\": true,\n      \"promo\": false,\n      \"reprint\": false,\n      \"variation\": false,\n      \"set_id\": \"fcdf9384-c830-ab48-6e10-762500cd4726\",\n      \"set\": \"string\",\n      \"set_name\": \"string\",\n      \"set_type\": \"string\",\n      \"set_uri\": \"https://UzJyYE.ayxBw-ILqkRNLPJzbwmaozZlIeDMcW\",\n      \"set_search_uri\": \"http://xhKO.kazquUNWNk+6XtCW+,npFaAkL-NrILLlDwDFNHt2y-tUgqIlGIrFN2FpWH3S\",\n      \"scryfall_set_uri\": \"http://flHnoFexEWhAGCfIkRamEzjs.xryobSxhxaNpiTN6mYpCRoCK-N\",\n      \"rulings_uri\": \"https://COyzfeIpb.oxdP.vFn3d\",\n      \"prints_search_uri\": \"https://vUlswhBkEZdzOuMuBRdQYyENA.wlmvv6Rkr6,ZmtlqJNNR9drMemJ+NKJY7tL3APrg41Pt5PiQ3h50aDF.\",\n      \"collector_number\": \"string\",\n      \"digital\": true,\n      \"rarity\": \"mythic\",\n      \"flavor_text\": \"string\",\n      \"card_back_id\": \"9159defd-a805-c914-b1d3-cc3249e6657a\",\n      \"artist\": \"string\",\n      \"artist_ids\": [\n        \"250563cd-6bf1-dc6c-db94-634092cf2d04\",\n        \"bffdca4f-8c1b-16ef-0708-ddb4ece2da55\"\n      ],\n      \"illustration_id\": \"d3eb6209-7c1b-c244-7075-1970a22aa6e2\",\n      \"border_color\": \"string\",\n      \"frame\": \"string\",\n      \"frame_effects\": [\n        \"string\",\n        \"string\"\n      ],\n      \"security_stamp\": \"string\",\n      \"full_art\": true,\n      \"textless\": false,\n      \"booster\": false,\n      \"story_spotlight\": false,\n      \"edhrec_rank\": 8876,\n      \"penny_rank\": 7904,\n      \"prices\": {\n        \"usd\": \"string\",\n        \"usd_foil\": \"string\",\n        \"usd_etched\": \"string\",\n        \"eur\": \"string\",\n        \"eur_foil\": \"string\",\n        \"tix\": \"string\"\n      },\n      \"related_uris\": {\n        \"key_0\": \"http://pLZZxwKQMf.xgmDQWKqgQFvPpxp5A92napz-BZT+0RDeQsjYeWfS4Rpw4VSAmCHHEbRR9oaCr4HECqiXHXDVNC\",\n        \"key_1\": \"https://EzHF.oadK5bY8aiN72locFzGWW0.rXD3QGwnyhU\",\n        \"key_2\": \"https://HjWEqddZNfgCHVrFMzirjTitkQIKxSDj.uviDzGIOmO7rd6fvNw-4g\"\n      },\n      \"purchase_uris\": {\n        \"key_0\": \"https://WOqBwSnFyOmjdgK.ddcsUKZR8dG.fLMOq9JwbZyubxE28yeoL1ri+Mtup0PK8A\",\n        \"key_1\": \"https://RVTkqGZSTjJPYnECnSUPeggx.pnwrJ9.yED+0KiclB6o1tSiaSf68cl+xBV4QQGfmGl\"\n      },\n      \"all_parts\": [\n        {\n          \"object\": \"related_card\",\n          \"id\": \"6c53dcaa-d930-a26f-d70e-e80a6c404995\",\n          \"component\": \"meld_result\",\n          \"name\": \"string\",\n          \"type_line\": \"string\",\n          \"uri\": \"http://MmKVDoLNxC.dpkuGZ98sH\"\n        },\n        {\n          \"object\": \"related_card\",\n          \"id\": \"c24e57fd-99c5-cf9b-78e6-a0f017e3374e\",\n          \"component\": \"meld_part\",\n          \"name\": \"string\",\n          \"type_line\": \"string\",\n          \"uri\": \"https://tMLOmAjgbpOs.sgcE\"\n        }\n      ],\n      \"card_faces\": [\n        {\n          \"object\": \"card_face\",\n          \"name\": \"string\",\n          \"mana_cost\": \"string\",\n          \"type_line\": \"string\",\n          \"oracle_text\": \"string\",\n          \"colors\": [\n            \"string\",\n            \"string\"\n          ],\n          \"power\": \"string\",\n          \"toughness\": \"string\",\n          \"loyalty\": \"string\",\n          \"defense\": \"string\",\n          \"flavor_text\": \"string\",\n          \"artist\": \"string\",\n          \"artist_id\": \"0c1c4070-b31a-a54e-648b-68fa1b9aa1e4\",\n          \"illustration_id\": \"7aeff08f-a2a6-22e3-ee02-4186a681b75d\",\n          \"image_uris\": {\n            \"small\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"normal\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"large\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"png\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"art_crop\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"border_crop\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"watermark\": \"string\"\n        },\n        {\n          \"object\": \"card_face\",\n          \"name\": \"string\",\n          \"mana_cost\": \"string\",\n          \"type_line\": \"string\",\n          \"oracle_text\": \"string\",\n          \"colors\": [\n            \"string\",\n            \"string\"\n          ],\n          \"power\": \"string\",\n          \"toughness\": \"string\",\n          \"loyalty\": \"string\",\n          \"defense\": \"string\",\n          \"flavor_text\": \"string\",\n          \"artist\": \"string\",\n          \"artist_id\": \"b6ce79af-1478-23a9-0743-294eca3bbcb5\",\n          \"illustration_id\": \"3c3658ca-7f98-ff12-b6d5-0815f63a31f4\",\n          \"image_uris\": {\n            \"small\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"normal\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"large\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"png\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"art_crop\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"border_crop\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"watermark\": \"string\"\n        }\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"produced_mana\": [\n        \"string\",\n        \"string\"\n      ],\n      \"watermark\": \"string\"\n    },\n    {\n      \"object\": \"card\",\n      \"id\": \"443f9163-6991-639c-2218-d00d14cee426\",\n      \"oracle_id\": \"18e456cd-4816-d815-7645-4fe3586a5ef0\",\n      \"multiverse_ids\": [\n        2244,\n        1049\n      ],\n      \"mtgo_id\": 2847,\n      \"mtgo_foil_id\": 3722,\n      \"arena_id\": 3535,\n      \"tcgplayer_id\": 4680,\n      \"cardmarket_id\": 9562,\n      \"name\": \"string\",\n      \"lang\": \"string\",\n      \"released_at\": \"2008-05-24\",\n      \"uri\": \"https://XrKDXYOMKNDsXlkEkZG.ozpgM7QxyL4PrnNmLIi462TJmVcVcAl-VN2ttJGde\",\n      \"scryfall_uri\": \"https://qrEb.vevnjIjkkq-60E34\",\n      \"layout\": \"string\",\n      \"highres_image\": true,\n      \"image_status\": \"placeholder\",\n      \"image_uris\": {\n        \"small\": \"https://EAzaWNpEEdVbdN.hcijqN4.EijPNi7U+g5b\",\n        \"normal\": \"http://ltFsVlmerhLaPkaCH.all+xGVRJH0BNsI6g\",\n        \"large\": \"https://NdVsT.rldinzAuOSyTUV8eBeD.EMybq+S9KYS2vyTI\",\n        \"png\": \"https://rqYOMmatuMDMiCApmWHxl.spyvdbK8cU+wxPziXPf4WLPYG+4B.SwM4betySm+,zva4STnxj\",\n        \"art_crop\": \"https://wCciumQOTNVFLQWEtFDR.jebjhsYvzBNrAfxeeb3gMp-HvbTmS9mx5oTObCV6INAPD,UW4\",\n        \"border_crop\": \"https://NVz.efgts,Cp2nGyNfI70FgToRx0qqjQLB,O4olIaU+W3QGZ1d-6sgcqrg5TdA6c\"\n      },\n      \"mana_cost\": \"string\",\n      \"cmc\": 7181.36534821927,\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"R\",\n        \"W\"\n      ],\n      \"color_identity\": [\n        \"B\",\n        \"U\"\n      ],\n      \"keywords\": [\n        \"string\",\n        \"string\"\n      ],\n      \"legalities\": {\n        \"standard\": \"string\",\n        \"future\": \"string\",\n        \"historic\": \"string\",\n        \"timeless\": \"string\",\n        \"gladiator\": \"string\",\n        \"pioneer\": \"string\",\n        \"explorer\": \"string\",\n        \"modern\": \"string\",\n        \"legacy\": \"string\",\n        \"pauper\": \"string\",\n        \"vintage\": \"string\",\n        \"penny\": \"string\",\n        \"commander\": \"string\",\n        \"oathbreaker\": \"string\",\n        \"standardbrawl\": \"string\",\n        \"brawl\": \"string\",\n        \"alchemy\": \"string\",\n        \"paupercommander\": \"string\",\n        \"duel\": \"string\",\n        \"oldschool\": \"string\",\n        \"premodern\": \"string\",\n        \"predh\": \"string\"\n      },\n      \"games\": [\n        \"paper\",\n        \"mtgo\"\n      ],\n      \"reserved\": false,\n      \"foil\": true,\n      \"nonfoil\": false,\n      \"finishes\": [\n        \"foil\",\n        \"nonfoil\"\n      ],\n      \"oversized\": true,\n      \"promo\": true,\n      \"reprint\": false,\n      \"variation\": true,\n      \"set_id\": \"fdf42245-b75b-84af-ec8c-6a02f39ae832\",\n      \"set\": \"string\",\n      \"set_name\": \"string\",\n      \"set_type\": \"string\",\n      \"set_uri\": \"http://uQKdfzyGNIPmbLCqkqBddhIQLnNB.rxgkHcPZbg+1jrgcXgCOMY88Q0njRif8lCUBF,sQqFCuKTH9XjexbKDLcn-g\",\n      \"set_search_uri\": \"https://yGKEoJEUqLILuNNUsyPqrWcHXUyNMtE.yqusMivDiD1WhymHrSHbOEglp.0Xn9SLeNbzZXcfRqWQ4e\",\n      \"scryfall_set_uri\": \"https://gvONkESxyrAAscIiUtjCOLxhgzBXRcQsQ.aduX5MG0uruqeQNFF7FeRw6QWjC7n+,Iy2YzH3Ar\",\n      \"rulings_uri\": \"https://lFdnhKAYWSjnbOh.vdaDmLR5hMjflcQ4RAxG2dovB0Z8sWxr0t0.pDs8vABOZAHucA\",\n      \"prints_search_uri\": \"http://NoXLXBsZQpAazqGlONILgRkzboKJMihDq.fyDURoQWc5VjG7G7v6ST-lZQO8.Al9wYDcoe9x2H4B9L\",\n      \"collector_number\": \"string\",\n      \"digital\": false,\n      \"rarity\": \"common\",\n      \"flavor_text\": \"string\",\n      \"card_back_id\": \"82478ad1-f807-b390-0b8e-0ef0c46b5c09\",\n      \"artist\": \"string\",\n      \"artist_ids\": [\n        \"0e272b6c-03dc-996e-90b8-edf2e9db40ed\",\n        \"3b3ce363-82b7-f135-850b-c63e0fa4b367\"\n      ],\n      \"illustration_id\": \"48caec41-7a54-013a-d6ac-ab4f3d276afd\",\n      \"border_color\": \"string\",\n      \"frame\": \"string\",\n      \"frame_effects\": [\n        \"string\",\n        \"string\"\n      ],\n      \"security_stamp\": \"string\",\n      \"full_art\": false,\n      \"textless\": true,\n      \"booster\": false,\n      \"story_spotlight\": true,\n      \"edhrec_rank\": 418,\n      \"penny_rank\": 7072,\n      \"prices\": {\n        \"usd\": \"string\",\n        \"usd_foil\": \"string\",\n        \"usd_etched\": \"string\",\n        \"eur\": \"string\",\n        \"eur_foil\": \"string\",\n        \"tix\": \"string\"\n      },\n      \"related_uris\": {\n        \"key_0\": \"https://gTJClr.yspfT0.eJ+bC2m+BsUkVUNnSDuYX5raoj9DEmtWYpv0zBxpANVeiqy44,\"\n      },\n      \"purchase_uris\": {\n        \"key_0\": \"https://gVpJJisZ.kvWffBJpgkFooUG7jXW4z-qG\",\n        \"key_1\": \"https://DIVMRsCqjpvKjRTWU.ulryls+W.iJdlGOtlEFPsK,nVByfy98NmWRgBQb2YcxEt4gvYO\",\n        \"key_2\": \"http://Jmf.secbC8QTMVRpUfQKG\",\n        \"key_3\": \"https://wuMQgDMZIqZfmvfcBCBlgKxB.mxrzpPSApe3ynjtQfx0xCtPWhja0u8eCYobLqooy7S3+ADan\"\n      },\n      \"all_parts\": [\n        {\n          \"object\": \"related_card\",\n          \"id\": \"70b7abd0-2a7f-b5c5-dd07-630f58678ca0\",\n          \"component\": \"token\",\n          \"name\": \"string\",\n          \"type_line\": \"string\",\n          \"uri\": \"http://xqbuNGTwWvbqp.zweUuqO1S\"\n        },\n        {\n          \"object\": \"related_card\",\n          \"id\": \"67f144bf-e29c-dc40-5c72-328fbadb9e8a\",\n          \"component\": \"meld_result\",\n          \"name\": \"string\",\n          \"type_line\": \"string\",\n          \"uri\": \"http://VEAicmqpoQTxKzNUPNP.nmzinSFl5OKRp00FgMYj1N44BKgLHUNMLABGVC72TFsSbTcYwVTn8\"\n        }\n      ],\n      \"card_faces\": [\n        {\n          \"object\": \"card_face\",\n          \"name\": \"string\",\n          \"mana_cost\": \"string\",\n          \"type_line\": \"string\",\n          \"oracle_text\": \"string\",\n          \"colors\": [\n            \"string\",\n            \"string\"\n          ],\n          \"power\": \"string\",\n          \"toughness\": \"string\",\n          \"loyalty\": \"string\",\n          \"defense\": \"string\",\n          \"flavor_text\": \"string\",\n          \"artist\": \"string\",\n          \"artist_id\": \"df5dcccf-0361-5677-168b-8e00f6d1a2bf\",\n          \"illustration_id\": \"072bcf0d-87ac-f55a-26c4-cffad12efce9\",\n          \"image_uris\": {\n            \"small\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"normal\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"large\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"png\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"art_crop\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"border_crop\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"watermark\": \"string\"\n        },\n        {\n          \"object\": \"card_face\",\n          \"name\": \"string\",\n          \"mana_cost\": \"string\",\n          \"type_line\": \"string\",\n          \"oracle_text\": \"string\",\n          \"colors\": [\n            \"string\",\n            \"string\"\n          ],\n          \"power\": \"string\",\n          \"toughness\": \"string\",\n          \"loyalty\": \"string\",\n          \"defense\": \"string\",\n          \"flavor_text\": \"string\",\n          \"artist\": \"string\",\n          \"artist_id\": \"b3c9c690-f431-3e28-9f51-6b4438955ed3\",\n          \"illustration_id\": \"9ba1cffc-0f12-8d5c-bd4e-366a665fdf89\",\n          \"image_uris\": {\n            \"small\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"normal\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"large\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"png\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"art_crop\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"border_crop\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"watermark\": \"string\"\n        }\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"produced_mana\": [\n        \"string\",\n        \"string\"\n      ],\n      \"watermark\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "532cb9c9-e971-4638-9dbb-3d4ea43961f3",
+          "name": "Get a Card by Scryfall ID",
+          "request": {
+            "name": "Get a Card by Scryfall ID",
+            "description": {
+              "content": "Returns a single Card with the given Scryfall ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cards",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                },
+                {
+                  "disabled": false,
+                  "key": "face",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "version",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pretty",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "21fdd837-65aa-47b6-956b-ad248ed9304e",
+              "name": "The requested Card.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "face",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"card\",\n  \"id\": \"ac0b8650-d403-356f-c8fd-97c95ad75142\",\n  \"oracle_id\": \"c8511d9a-345e-45cc-6838-c3867ad17b7b\",\n  \"multiverse_ids\": [\n    9183,\n    3505\n  ],\n  \"mtgo_id\": 75,\n  \"mtgo_foil_id\": 2732,\n  \"arena_id\": 9611,\n  \"tcgplayer_id\": 6116,\n  \"cardmarket_id\": 660,\n  \"name\": \"string\",\n  \"lang\": \"string\",\n  \"released_at\": \"1974-05-09\",\n  \"uri\": \"http://IWgVxfOciWWyjNhxFhPOos.lgmawGHG+qt\",\n  \"scryfall_uri\": \"http://wFOBCjXqfJQkrLrg.awndOK4b18drn\",\n  \"layout\": \"string\",\n  \"highres_image\": true,\n  \"image_status\": \"highres_scan\",\n  \"image_uris\": {\n    \"small\": \"https://kFioHJnAxLNvTm.bwRPu1Gq6pGAyZEkWzJVyKCJy8KSSMXL9BiP\",\n    \"normal\": \"https://kDIZoNvjIWzE.aakse1BKbDIZRYfL1+jp.s,CqiMd-eEunEBUM\",\n    \"large\": \"http://pjaCDrlzeqBrjskrJiowbA.qyayZtlp,C,W9O1CHMs2MuHFypDGe5lS6fVRTo-edz9,aKWUTlIp8-,5Glc\",\n    \"png\": \"http://bEEEduPEAkJNABsWARVHyBbyNgnpbyQv.qjblgNW6L6PqrP8FZgyRmtZpaatukzyAsP0o,brB4qhTDwiByfVDpo\",\n    \"art_crop\": \"http://jMOBfnZIirDrPAviqRoAGcwCsNpzGPRG.vnDhe,NJkKwvqfi4iBFBmdwNwSTnSQV.BcQaA79mbceAWjCRUw8SZ9h-\",\n    \"border_crop\": \"https://mOuhItpd.otO0NEQdtA97skl6knhGIs,xO.uSYWIB6N39bxBtMrzJxKEsvuqNBVd8KJNhwOYQUpk,\"\n  },\n  \"mana_cost\": \"string\",\n  \"cmc\": 5084.951590476988,\n  \"type_line\": \"string\",\n  \"oracle_text\": \"string\",\n  \"colors\": [\n    \"R\",\n    \"U\"\n  ],\n  \"color_identity\": [\n    \"B\",\n    \"B\"\n  ],\n  \"keywords\": [\n    \"string\",\n    \"string\"\n  ],\n  \"legalities\": {\n    \"standard\": \"string\",\n    \"future\": \"string\",\n    \"historic\": \"string\",\n    \"timeless\": \"string\",\n    \"gladiator\": \"string\",\n    \"pioneer\": \"string\",\n    \"explorer\": \"string\",\n    \"modern\": \"string\",\n    \"legacy\": \"string\",\n    \"pauper\": \"string\",\n    \"vintage\": \"string\",\n    \"penny\": \"string\",\n    \"commander\": \"string\",\n    \"oathbreaker\": \"string\",\n    \"standardbrawl\": \"string\",\n    \"brawl\": \"string\",\n    \"alchemy\": \"string\",\n    \"paupercommander\": \"string\",\n    \"duel\": \"string\",\n    \"oldschool\": \"string\",\n    \"premodern\": \"string\",\n    \"predh\": \"string\"\n  },\n  \"games\": [\n    \"arena\",\n    \"mtgo\"\n  ],\n  \"reserved\": true,\n  \"foil\": false,\n  \"nonfoil\": false,\n  \"finishes\": [\n    \"etched\",\n    \"nonfoil\"\n  ],\n  \"oversized\": false,\n  \"promo\": false,\n  \"reprint\": false,\n  \"variation\": false,\n  \"set_id\": \"23bfb086-da7b-2977-24c7-766759455757\",\n  \"set\": \"string\",\n  \"set_name\": \"string\",\n  \"set_type\": \"string\",\n  \"set_uri\": \"https://wickEGjXbeAnZlhflKDnVuKGKYAZrool.otrsiI7SbAO9i4rcyMNln5LXPrps8YUHjoIKUHciH,-R7.ScPezqI8czNNaMVuFweBr\",\n  \"set_search_uri\": \"http://O.syfiMnVvmmGDLBVe5h\",\n  \"scryfall_set_uri\": \"http://oUoANYCXqKnjWlvNXEjIihbML.gnbUJVwXVF4Pn.SbCcQk1bJzZpMHgw1jNWVZSX1K1UdFje0H7eTbL.74\",\n  \"rulings_uri\": \"http://YXqdpMJ.oybOjf8vqkLWqyntxyTetvwu64hm\",\n  \"prints_search_uri\": \"https://aDyOAkdseujrwEvEHujQJpV.nmrj\",\n  \"collector_number\": \"string\",\n  \"digital\": false,\n  \"rarity\": \"uncommon\",\n  \"flavor_text\": \"string\",\n  \"card_back_id\": \"d843f4c3-fa63-1c95-d162-12406b36738a\",\n  \"artist\": \"string\",\n  \"artist_ids\": [\n    \"b0d19fe7-957f-ad89-a01f-747066b8b8db\",\n    \"7c0b63cc-1976-2924-0649-629f4ae03bac\"\n  ],\n  \"illustration_id\": \"3e5ed3bc-4a8f-7bc4-2588-0872beeb9790\",\n  \"border_color\": \"string\",\n  \"frame\": \"string\",\n  \"frame_effects\": [\n    \"string\",\n    \"string\"\n  ],\n  \"security_stamp\": \"string\",\n  \"full_art\": false,\n  \"textless\": false,\n  \"booster\": false,\n  \"story_spotlight\": false,\n  \"edhrec_rank\": 8479,\n  \"penny_rank\": 4659,\n  \"prices\": {\n    \"usd\": \"string\",\n    \"usd_foil\": \"string\",\n    \"usd_etched\": \"string\",\n    \"eur\": \"string\",\n    \"eur_foil\": \"string\",\n    \"tix\": \"string\"\n  },\n  \"related_uris\": {\n    \"key_0\": \"https://bsh.gdGU,vkrpO0oHlsD4TsjyYey2+P5fj1uxa3xYUn40xA\",\n    \"key_1\": \"https://t.cdZ2dvQl3GYlv\",\n    \"key_2\": \"http://mFNbAiLFSKY.tcrZVNJhKtOF5rJudgIq17ffuN+tfsfCMzY\"\n  },\n  \"purchase_uris\": {\n    \"key_0\": \"http://vLJJRqiWZHmSedNIfYSNLBQpL.fcuNOPaK6\"\n  },\n  \"all_parts\": [\n    {\n      \"object\": \"related_card\",\n      \"id\": \"123cc31f-19bb-cf6a-7093-95e082b12306\",\n      \"component\": \"token\",\n      \"name\": \"string\",\n      \"type_line\": \"string\",\n      \"uri\": \"http://AkNuaQWzdogNdUkGwnCYo.kgnhOUm7\"\n    },\n    {\n      \"object\": \"related_card\",\n      \"id\": \"64c9def9-4194-91d6-dcd6-a49c81d0a5db\",\n      \"component\": \"meld_part\",\n      \"name\": \"string\",\n      \"type_line\": \"string\",\n      \"uri\": \"http://wXrCWGVuWGrbeVYtOyZKl.jguzrB+anQKyIiqadJCKY,DDfUvFQJv1JlP0i1Tj4pTct9Q3IByWAlvYy0\"\n    }\n  ],\n  \"card_faces\": [\n    {\n      \"object\": \"card_face\",\n      \"name\": \"string\",\n      \"mana_cost\": \"string\",\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"flavor_text\": \"string\",\n      \"artist\": \"string\",\n      \"artist_id\": \"37d87c2d-2d03-1cb5-616b-7e8c6571d3bb\",\n      \"illustration_id\": \"52dc1bf7-0481-334f-1676-29456552140f\",\n      \"image_uris\": {\n        \"small\": \"http://pCsuMb.jjfmIDsVpunh0sf0twVrDlYmiJsQOqVgsxfDFlE22hAoEIlLgbQ5dLv,yGt12OC6E0c\",\n        \"normal\": \"https://bcNLTbZvYeLYofiMcyIWyc.rqvdCK28OCIILTLdVU.heZbGOPO+LkZl7.,1pDjjsvfN0r\",\n        \"large\": \"http://wXsyZrCAsVhwWDEXRiq.dvguBXWe7pXd0gxxftQPN\",\n        \"png\": \"http://UBZKneUPHODPhUdA.ooyhCALpm,-7XY-+5\",\n        \"art_crop\": \"http://QtDWFCN.xmuUMLtdmQ08nvjZARe7t4-X2bVhoSDPktUjvcZ5G3JH6z\",\n        \"border_crop\": \"https://yWrELxgnfGNdnFoQwgtSKumRUUQC.vvo9ZISbINQEQu.VE4cELDrK\"\n      },\n      \"watermark\": \"string\"\n    },\n    {\n      \"object\": \"card_face\",\n      \"name\": \"string\",\n      \"mana_cost\": \"string\",\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"flavor_text\": \"string\",\n      \"artist\": \"string\",\n      \"artist_id\": \"c051d5d3-53c6-3ddb-9200-414bc69501a3\",\n      \"illustration_id\": \"fe10246f-adaf-16c1-82f1-908e859238e0\",\n      \"image_uris\": {\n        \"small\": \"https://RIWKUvfApPbDgVsUTcGJGE.giZWlJ.ir4IfB\",\n        \"normal\": \"http://LcfVGqaSDHAtCem.iwvob6SLDZ4yvmsSuvvxcAHMn-eAdW0.BFktH4cBx0u4iKNhzOPwfktuBqQVY\",\n        \"large\": \"https://l.gjE.xL5Ya5LGYKvpm9F-U6K,jCNLWQXwEzjpm8cR\",\n        \"png\": \"https://UxLEkuJaq.xdplhrXeNIR,l3kYAHhfXYzFFdpo9-Z\",\n        \"art_crop\": \"https://xDCTnUbUDNIGfH.fkjzeO.QdJtm+pWRpBcekirX.KHiPNXnRokqL6+vs\",\n        \"border_crop\": \"https://vSLZwnIXVwXXOrmxKiZPzsjqU.ujbFSxV3FijDZHy6fDOjSUAX8pPFtG8DPOmonNconEtPtdJ-wyoQpVE1FAMmDkhdQFXI,t\"\n      },\n      \"watermark\": \"string\"\n    }\n  ],\n  \"power\": \"string\",\n  \"toughness\": \"string\",\n  \"loyalty\": \"string\",\n  \"defense\": \"string\",\n  \"produced_mana\": [\n    \"string\",\n    \"string\"\n  ],\n  \"watermark\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ed963a7b-7027-4b9f-972f-5b98fbee7620",
+              "name": "No card with that ID.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "face",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "version",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pretty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"error\",\n  \"status\": 6032,\n  \"code\": \"string\",\n  \"details\": \"string\",\n  \"type\": \"string\",\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f24edbe1-402c-4a55-adf6-cfe73a72b1b0",
+          "name": "Get a Card by Set Code and Collector Number",
+          "request": {
+            "name": "Get a Card by Set Code and Collector Number",
+            "description": {
+              "content": "Returns a single Card with the given set code and collector number.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cards",
+                ":code",
+                ":number"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "code",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "number",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b0f580ad-8882-4d51-910a-56e24a6ba762",
+              "name": "The requested Card.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    ":code",
+                    ":number"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"card\",\n  \"id\": \"ac0b8650-d403-356f-c8fd-97c95ad75142\",\n  \"oracle_id\": \"c8511d9a-345e-45cc-6838-c3867ad17b7b\",\n  \"multiverse_ids\": [\n    9183,\n    3505\n  ],\n  \"mtgo_id\": 75,\n  \"mtgo_foil_id\": 2732,\n  \"arena_id\": 9611,\n  \"tcgplayer_id\": 6116,\n  \"cardmarket_id\": 660,\n  \"name\": \"string\",\n  \"lang\": \"string\",\n  \"released_at\": \"1974-05-09\",\n  \"uri\": \"http://IWgVxfOciWWyjNhxFhPOos.lgmawGHG+qt\",\n  \"scryfall_uri\": \"http://wFOBCjXqfJQkrLrg.awndOK4b18drn\",\n  \"layout\": \"string\",\n  \"highres_image\": true,\n  \"image_status\": \"highres_scan\",\n  \"image_uris\": {\n    \"small\": \"https://kFioHJnAxLNvTm.bwRPu1Gq6pGAyZEkWzJVyKCJy8KSSMXL9BiP\",\n    \"normal\": \"https://kDIZoNvjIWzE.aakse1BKbDIZRYfL1+jp.s,CqiMd-eEunEBUM\",\n    \"large\": \"http://pjaCDrlzeqBrjskrJiowbA.qyayZtlp,C,W9O1CHMs2MuHFypDGe5lS6fVRTo-edz9,aKWUTlIp8-,5Glc\",\n    \"png\": \"http://bEEEduPEAkJNABsWARVHyBbyNgnpbyQv.qjblgNW6L6PqrP8FZgyRmtZpaatukzyAsP0o,brB4qhTDwiByfVDpo\",\n    \"art_crop\": \"http://jMOBfnZIirDrPAviqRoAGcwCsNpzGPRG.vnDhe,NJkKwvqfi4iBFBmdwNwSTnSQV.BcQaA79mbceAWjCRUw8SZ9h-\",\n    \"border_crop\": \"https://mOuhItpd.otO0NEQdtA97skl6knhGIs,xO.uSYWIB6N39bxBtMrzJxKEsvuqNBVd8KJNhwOYQUpk,\"\n  },\n  \"mana_cost\": \"string\",\n  \"cmc\": 5084.951590476988,\n  \"type_line\": \"string\",\n  \"oracle_text\": \"string\",\n  \"colors\": [\n    \"R\",\n    \"U\"\n  ],\n  \"color_identity\": [\n    \"B\",\n    \"B\"\n  ],\n  \"keywords\": [\n    \"string\",\n    \"string\"\n  ],\n  \"legalities\": {\n    \"standard\": \"string\",\n    \"future\": \"string\",\n    \"historic\": \"string\",\n    \"timeless\": \"string\",\n    \"gladiator\": \"string\",\n    \"pioneer\": \"string\",\n    \"explorer\": \"string\",\n    \"modern\": \"string\",\n    \"legacy\": \"string\",\n    \"pauper\": \"string\",\n    \"vintage\": \"string\",\n    \"penny\": \"string\",\n    \"commander\": \"string\",\n    \"oathbreaker\": \"string\",\n    \"standardbrawl\": \"string\",\n    \"brawl\": \"string\",\n    \"alchemy\": \"string\",\n    \"paupercommander\": \"string\",\n    \"duel\": \"string\",\n    \"oldschool\": \"string\",\n    \"premodern\": \"string\",\n    \"predh\": \"string\"\n  },\n  \"games\": [\n    \"arena\",\n    \"mtgo\"\n  ],\n  \"reserved\": true,\n  \"foil\": false,\n  \"nonfoil\": false,\n  \"finishes\": [\n    \"etched\",\n    \"nonfoil\"\n  ],\n  \"oversized\": false,\n  \"promo\": false,\n  \"reprint\": false,\n  \"variation\": false,\n  \"set_id\": \"23bfb086-da7b-2977-24c7-766759455757\",\n  \"set\": \"string\",\n  \"set_name\": \"string\",\n  \"set_type\": \"string\",\n  \"set_uri\": \"https://wickEGjXbeAnZlhflKDnVuKGKYAZrool.otrsiI7SbAO9i4rcyMNln5LXPrps8YUHjoIKUHciH,-R7.ScPezqI8czNNaMVuFweBr\",\n  \"set_search_uri\": \"http://O.syfiMnVvmmGDLBVe5h\",\n  \"scryfall_set_uri\": \"http://oUoANYCXqKnjWlvNXEjIihbML.gnbUJVwXVF4Pn.SbCcQk1bJzZpMHgw1jNWVZSX1K1UdFje0H7eTbL.74\",\n  \"rulings_uri\": \"http://YXqdpMJ.oybOjf8vqkLWqyntxyTetvwu64hm\",\n  \"prints_search_uri\": \"https://aDyOAkdseujrwEvEHujQJpV.nmrj\",\n  \"collector_number\": \"string\",\n  \"digital\": false,\n  \"rarity\": \"uncommon\",\n  \"flavor_text\": \"string\",\n  \"card_back_id\": \"d843f4c3-fa63-1c95-d162-12406b36738a\",\n  \"artist\": \"string\",\n  \"artist_ids\": [\n    \"b0d19fe7-957f-ad89-a01f-747066b8b8db\",\n    \"7c0b63cc-1976-2924-0649-629f4ae03bac\"\n  ],\n  \"illustration_id\": \"3e5ed3bc-4a8f-7bc4-2588-0872beeb9790\",\n  \"border_color\": \"string\",\n  \"frame\": \"string\",\n  \"frame_effects\": [\n    \"string\",\n    \"string\"\n  ],\n  \"security_stamp\": \"string\",\n  \"full_art\": false,\n  \"textless\": false,\n  \"booster\": false,\n  \"story_spotlight\": false,\n  \"edhrec_rank\": 8479,\n  \"penny_rank\": 4659,\n  \"prices\": {\n    \"usd\": \"string\",\n    \"usd_foil\": \"string\",\n    \"usd_etched\": \"string\",\n    \"eur\": \"string\",\n    \"eur_foil\": \"string\",\n    \"tix\": \"string\"\n  },\n  \"related_uris\": {\n    \"key_0\": \"https://bsh.gdGU,vkrpO0oHlsD4TsjyYey2+P5fj1uxa3xYUn40xA\",\n    \"key_1\": \"https://t.cdZ2dvQl3GYlv\",\n    \"key_2\": \"http://mFNbAiLFSKY.tcrZVNJhKtOF5rJudgIq17ffuN+tfsfCMzY\"\n  },\n  \"purchase_uris\": {\n    \"key_0\": \"http://vLJJRqiWZHmSedNIfYSNLBQpL.fcuNOPaK6\"\n  },\n  \"all_parts\": [\n    {\n      \"object\": \"related_card\",\n      \"id\": \"123cc31f-19bb-cf6a-7093-95e082b12306\",\n      \"component\": \"token\",\n      \"name\": \"string\",\n      \"type_line\": \"string\",\n      \"uri\": \"http://AkNuaQWzdogNdUkGwnCYo.kgnhOUm7\"\n    },\n    {\n      \"object\": \"related_card\",\n      \"id\": \"64c9def9-4194-91d6-dcd6-a49c81d0a5db\",\n      \"component\": \"meld_part\",\n      \"name\": \"string\",\n      \"type_line\": \"string\",\n      \"uri\": \"http://wXrCWGVuWGrbeVYtOyZKl.jguzrB+anQKyIiqadJCKY,DDfUvFQJv1JlP0i1Tj4pTct9Q3IByWAlvYy0\"\n    }\n  ],\n  \"card_faces\": [\n    {\n      \"object\": \"card_face\",\n      \"name\": \"string\",\n      \"mana_cost\": \"string\",\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"flavor_text\": \"string\",\n      \"artist\": \"string\",\n      \"artist_id\": \"37d87c2d-2d03-1cb5-616b-7e8c6571d3bb\",\n      \"illustration_id\": \"52dc1bf7-0481-334f-1676-29456552140f\",\n      \"image_uris\": {\n        \"small\": \"http://pCsuMb.jjfmIDsVpunh0sf0twVrDlYmiJsQOqVgsxfDFlE22hAoEIlLgbQ5dLv,yGt12OC6E0c\",\n        \"normal\": \"https://bcNLTbZvYeLYofiMcyIWyc.rqvdCK28OCIILTLdVU.heZbGOPO+LkZl7.,1pDjjsvfN0r\",\n        \"large\": \"http://wXsyZrCAsVhwWDEXRiq.dvguBXWe7pXd0gxxftQPN\",\n        \"png\": \"http://UBZKneUPHODPhUdA.ooyhCALpm,-7XY-+5\",\n        \"art_crop\": \"http://QtDWFCN.xmuUMLtdmQ08nvjZARe7t4-X2bVhoSDPktUjvcZ5G3JH6z\",\n        \"border_crop\": \"https://yWrELxgnfGNdnFoQwgtSKumRUUQC.vvo9ZISbINQEQu.VE4cELDrK\"\n      },\n      \"watermark\": \"string\"\n    },\n    {\n      \"object\": \"card_face\",\n      \"name\": \"string\",\n      \"mana_cost\": \"string\",\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"flavor_text\": \"string\",\n      \"artist\": \"string\",\n      \"artist_id\": \"c051d5d3-53c6-3ddb-9200-414bc69501a3\",\n      \"illustration_id\": \"fe10246f-adaf-16c1-82f1-908e859238e0\",\n      \"image_uris\": {\n        \"small\": \"https://RIWKUvfApPbDgVsUTcGJGE.giZWlJ.ir4IfB\",\n        \"normal\": \"http://LcfVGqaSDHAtCem.iwvob6SLDZ4yvmsSuvvxcAHMn-eAdW0.BFktH4cBx0u4iKNhzOPwfktuBqQVY\",\n        \"large\": \"https://l.gjE.xL5Ya5LGYKvpm9F-U6K,jCNLWQXwEzjpm8cR\",\n        \"png\": \"https://UxLEkuJaq.xdplhrXeNIR,l3kYAHhfXYzFFdpo9-Z\",\n        \"art_crop\": \"https://xDCTnUbUDNIGfH.fkjzeO.QdJtm+pWRpBcekirX.KHiPNXnRokqL6+vs\",\n        \"border_crop\": \"https://vSLZwnIXVwXXOrmxKiZPzsjqU.ujbFSxV3FijDZHy6fDOjSUAX8pPFtG8DPOmonNconEtPtdJ-wyoQpVE1FAMmDkhdQFXI,t\"\n      },\n      \"watermark\": \"string\"\n    }\n  ],\n  \"power\": \"string\",\n  \"toughness\": \"string\",\n  \"loyalty\": \"string\",\n  \"defense\": \"string\",\n  \"produced_mana\": [\n    \"string\",\n    \"string\"\n  ],\n  \"watermark\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b09ebe8f-554f-4bd6-a6d2-fcec23ef4d78",
+          "name": "Get a Localized Card by Set, Number, and Language",
+          "request": {
+            "name": "Get a Localized Card by Set, Number, and Language",
+            "description": {
+              "content": "Returns a single Card with the given set code, collector number, and language code.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cards",
+                ":code",
+                ":number",
+                ":lang"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "code",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "number",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "lang",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ac872b64-9546-4e74-96d3-05a084c5b8e0",
+              "name": "The localized Card.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    ":code",
+                    ":number",
+                    ":lang"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "number",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "lang",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"card\",\n  \"id\": \"ac0b8650-d403-356f-c8fd-97c95ad75142\",\n  \"oracle_id\": \"c8511d9a-345e-45cc-6838-c3867ad17b7b\",\n  \"multiverse_ids\": [\n    9183,\n    3505\n  ],\n  \"mtgo_id\": 75,\n  \"mtgo_foil_id\": 2732,\n  \"arena_id\": 9611,\n  \"tcgplayer_id\": 6116,\n  \"cardmarket_id\": 660,\n  \"name\": \"string\",\n  \"lang\": \"string\",\n  \"released_at\": \"1974-05-09\",\n  \"uri\": \"http://IWgVxfOciWWyjNhxFhPOos.lgmawGHG+qt\",\n  \"scryfall_uri\": \"http://wFOBCjXqfJQkrLrg.awndOK4b18drn\",\n  \"layout\": \"string\",\n  \"highres_image\": true,\n  \"image_status\": \"highres_scan\",\n  \"image_uris\": {\n    \"small\": \"https://kFioHJnAxLNvTm.bwRPu1Gq6pGAyZEkWzJVyKCJy8KSSMXL9BiP\",\n    \"normal\": \"https://kDIZoNvjIWzE.aakse1BKbDIZRYfL1+jp.s,CqiMd-eEunEBUM\",\n    \"large\": \"http://pjaCDrlzeqBrjskrJiowbA.qyayZtlp,C,W9O1CHMs2MuHFypDGe5lS6fVRTo-edz9,aKWUTlIp8-,5Glc\",\n    \"png\": \"http://bEEEduPEAkJNABsWARVHyBbyNgnpbyQv.qjblgNW6L6PqrP8FZgyRmtZpaatukzyAsP0o,brB4qhTDwiByfVDpo\",\n    \"art_crop\": \"http://jMOBfnZIirDrPAviqRoAGcwCsNpzGPRG.vnDhe,NJkKwvqfi4iBFBmdwNwSTnSQV.BcQaA79mbceAWjCRUw8SZ9h-\",\n    \"border_crop\": \"https://mOuhItpd.otO0NEQdtA97skl6knhGIs,xO.uSYWIB6N39bxBtMrzJxKEsvuqNBVd8KJNhwOYQUpk,\"\n  },\n  \"mana_cost\": \"string\",\n  \"cmc\": 5084.951590476988,\n  \"type_line\": \"string\",\n  \"oracle_text\": \"string\",\n  \"colors\": [\n    \"R\",\n    \"U\"\n  ],\n  \"color_identity\": [\n    \"B\",\n    \"B\"\n  ],\n  \"keywords\": [\n    \"string\",\n    \"string\"\n  ],\n  \"legalities\": {\n    \"standard\": \"string\",\n    \"future\": \"string\",\n    \"historic\": \"string\",\n    \"timeless\": \"string\",\n    \"gladiator\": \"string\",\n    \"pioneer\": \"string\",\n    \"explorer\": \"string\",\n    \"modern\": \"string\",\n    \"legacy\": \"string\",\n    \"pauper\": \"string\",\n    \"vintage\": \"string\",\n    \"penny\": \"string\",\n    \"commander\": \"string\",\n    \"oathbreaker\": \"string\",\n    \"standardbrawl\": \"string\",\n    \"brawl\": \"string\",\n    \"alchemy\": \"string\",\n    \"paupercommander\": \"string\",\n    \"duel\": \"string\",\n    \"oldschool\": \"string\",\n    \"premodern\": \"string\",\n    \"predh\": \"string\"\n  },\n  \"games\": [\n    \"arena\",\n    \"mtgo\"\n  ],\n  \"reserved\": true,\n  \"foil\": false,\n  \"nonfoil\": false,\n  \"finishes\": [\n    \"etched\",\n    \"nonfoil\"\n  ],\n  \"oversized\": false,\n  \"promo\": false,\n  \"reprint\": false,\n  \"variation\": false,\n  \"set_id\": \"23bfb086-da7b-2977-24c7-766759455757\",\n  \"set\": \"string\",\n  \"set_name\": \"string\",\n  \"set_type\": \"string\",\n  \"set_uri\": \"https://wickEGjXbeAnZlhflKDnVuKGKYAZrool.otrsiI7SbAO9i4rcyMNln5LXPrps8YUHjoIKUHciH,-R7.ScPezqI8czNNaMVuFweBr\",\n  \"set_search_uri\": \"http://O.syfiMnVvmmGDLBVe5h\",\n  \"scryfall_set_uri\": \"http://oUoANYCXqKnjWlvNXEjIihbML.gnbUJVwXVF4Pn.SbCcQk1bJzZpMHgw1jNWVZSX1K1UdFje0H7eTbL.74\",\n  \"rulings_uri\": \"http://YXqdpMJ.oybOjf8vqkLWqyntxyTetvwu64hm\",\n  \"prints_search_uri\": \"https://aDyOAkdseujrwEvEHujQJpV.nmrj\",\n  \"collector_number\": \"string\",\n  \"digital\": false,\n  \"rarity\": \"uncommon\",\n  \"flavor_text\": \"string\",\n  \"card_back_id\": \"d843f4c3-fa63-1c95-d162-12406b36738a\",\n  \"artist\": \"string\",\n  \"artist_ids\": [\n    \"b0d19fe7-957f-ad89-a01f-747066b8b8db\",\n    \"7c0b63cc-1976-2924-0649-629f4ae03bac\"\n  ],\n  \"illustration_id\": \"3e5ed3bc-4a8f-7bc4-2588-0872beeb9790\",\n  \"border_color\": \"string\",\n  \"frame\": \"string\",\n  \"frame_effects\": [\n    \"string\",\n    \"string\"\n  ],\n  \"security_stamp\": \"string\",\n  \"full_art\": false,\n  \"textless\": false,\n  \"booster\": false,\n  \"story_spotlight\": false,\n  \"edhrec_rank\": 8479,\n  \"penny_rank\": 4659,\n  \"prices\": {\n    \"usd\": \"string\",\n    \"usd_foil\": \"string\",\n    \"usd_etched\": \"string\",\n    \"eur\": \"string\",\n    \"eur_foil\": \"string\",\n    \"tix\": \"string\"\n  },\n  \"related_uris\": {\n    \"key_0\": \"https://bsh.gdGU,vkrpO0oHlsD4TsjyYey2+P5fj1uxa3xYUn40xA\",\n    \"key_1\": \"https://t.cdZ2dvQl3GYlv\",\n    \"key_2\": \"http://mFNbAiLFSKY.tcrZVNJhKtOF5rJudgIq17ffuN+tfsfCMzY\"\n  },\n  \"purchase_uris\": {\n    \"key_0\": \"http://vLJJRqiWZHmSedNIfYSNLBQpL.fcuNOPaK6\"\n  },\n  \"all_parts\": [\n    {\n      \"object\": \"related_card\",\n      \"id\": \"123cc31f-19bb-cf6a-7093-95e082b12306\",\n      \"component\": \"token\",\n      \"name\": \"string\",\n      \"type_line\": \"string\",\n      \"uri\": \"http://AkNuaQWzdogNdUkGwnCYo.kgnhOUm7\"\n    },\n    {\n      \"object\": \"related_card\",\n      \"id\": \"64c9def9-4194-91d6-dcd6-a49c81d0a5db\",\n      \"component\": \"meld_part\",\n      \"name\": \"string\",\n      \"type_line\": \"string\",\n      \"uri\": \"http://wXrCWGVuWGrbeVYtOyZKl.jguzrB+anQKyIiqadJCKY,DDfUvFQJv1JlP0i1Tj4pTct9Q3IByWAlvYy0\"\n    }\n  ],\n  \"card_faces\": [\n    {\n      \"object\": \"card_face\",\n      \"name\": \"string\",\n      \"mana_cost\": \"string\",\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"flavor_text\": \"string\",\n      \"artist\": \"string\",\n      \"artist_id\": \"37d87c2d-2d03-1cb5-616b-7e8c6571d3bb\",\n      \"illustration_id\": \"52dc1bf7-0481-334f-1676-29456552140f\",\n      \"image_uris\": {\n        \"small\": \"http://pCsuMb.jjfmIDsVpunh0sf0twVrDlYmiJsQOqVgsxfDFlE22hAoEIlLgbQ5dLv,yGt12OC6E0c\",\n        \"normal\": \"https://bcNLTbZvYeLYofiMcyIWyc.rqvdCK28OCIILTLdVU.heZbGOPO+LkZl7.,1pDjjsvfN0r\",\n        \"large\": \"http://wXsyZrCAsVhwWDEXRiq.dvguBXWe7pXd0gxxftQPN\",\n        \"png\": \"http://UBZKneUPHODPhUdA.ooyhCALpm,-7XY-+5\",\n        \"art_crop\": \"http://QtDWFCN.xmuUMLtdmQ08nvjZARe7t4-X2bVhoSDPktUjvcZ5G3JH6z\",\n        \"border_crop\": \"https://yWrELxgnfGNdnFoQwgtSKumRUUQC.vvo9ZISbINQEQu.VE4cELDrK\"\n      },\n      \"watermark\": \"string\"\n    },\n    {\n      \"object\": \"card_face\",\n      \"name\": \"string\",\n      \"mana_cost\": \"string\",\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"flavor_text\": \"string\",\n      \"artist\": \"string\",\n      \"artist_id\": \"c051d5d3-53c6-3ddb-9200-414bc69501a3\",\n      \"illustration_id\": \"fe10246f-adaf-16c1-82f1-908e859238e0\",\n      \"image_uris\": {\n        \"small\": \"https://RIWKUvfApPbDgVsUTcGJGE.giZWlJ.ir4IfB\",\n        \"normal\": \"http://LcfVGqaSDHAtCem.iwvob6SLDZ4yvmsSuvvxcAHMn-eAdW0.BFktH4cBx0u4iKNhzOPwfktuBqQVY\",\n        \"large\": \"https://l.gjE.xL5Ya5LGYKvpm9F-U6K,jCNLWQXwEzjpm8cR\",\n        \"png\": \"https://UxLEkuJaq.xdplhrXeNIR,l3kYAHhfXYzFFdpo9-Z\",\n        \"art_crop\": \"https://xDCTnUbUDNIGfH.fkjzeO.QdJtm+pWRpBcekirX.KHiPNXnRokqL6+vs\",\n        \"border_crop\": \"https://vSLZwnIXVwXXOrmxKiZPzsjqU.ujbFSxV3FijDZHy6fDOjSUAX8pPFtG8DPOmonNconEtPtdJ-wyoQpVE1FAMmDkhdQFXI,t\"\n      },\n      \"watermark\": \"string\"\n    }\n  ],\n  \"power\": \"string\",\n  \"toughness\": \"string\",\n  \"loyalty\": \"string\",\n  \"defense\": \"string\",\n  \"produced_mana\": [\n    \"string\",\n    \"string\"\n  ],\n  \"watermark\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8ad30aac-9242-4d36-a5a9-53ca5ce78c84",
+          "name": "Get a Card by Multiverse ID",
+          "request": {
+            "name": "Get a Card by Multiverse ID",
+            "description": {
+              "content": "Returns the Card with the given Gatherer multiverse ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cards",
+                "multiverse",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5114f55a-6ad6-49ca-a7b5-e9044f532131",
+              "name": "The requested Card.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    "multiverse",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"card\",\n  \"id\": \"ac0b8650-d403-356f-c8fd-97c95ad75142\",\n  \"oracle_id\": \"c8511d9a-345e-45cc-6838-c3867ad17b7b\",\n  \"multiverse_ids\": [\n    9183,\n    3505\n  ],\n  \"mtgo_id\": 75,\n  \"mtgo_foil_id\": 2732,\n  \"arena_id\": 9611,\n  \"tcgplayer_id\": 6116,\n  \"cardmarket_id\": 660,\n  \"name\": \"string\",\n  \"lang\": \"string\",\n  \"released_at\": \"1974-05-09\",\n  \"uri\": \"http://IWgVxfOciWWyjNhxFhPOos.lgmawGHG+qt\",\n  \"scryfall_uri\": \"http://wFOBCjXqfJQkrLrg.awndOK4b18drn\",\n  \"layout\": \"string\",\n  \"highres_image\": true,\n  \"image_status\": \"highres_scan\",\n  \"image_uris\": {\n    \"small\": \"https://kFioHJnAxLNvTm.bwRPu1Gq6pGAyZEkWzJVyKCJy8KSSMXL9BiP\",\n    \"normal\": \"https://kDIZoNvjIWzE.aakse1BKbDIZRYfL1+jp.s,CqiMd-eEunEBUM\",\n    \"large\": \"http://pjaCDrlzeqBrjskrJiowbA.qyayZtlp,C,W9O1CHMs2MuHFypDGe5lS6fVRTo-edz9,aKWUTlIp8-,5Glc\",\n    \"png\": \"http://bEEEduPEAkJNABsWARVHyBbyNgnpbyQv.qjblgNW6L6PqrP8FZgyRmtZpaatukzyAsP0o,brB4qhTDwiByfVDpo\",\n    \"art_crop\": \"http://jMOBfnZIirDrPAviqRoAGcwCsNpzGPRG.vnDhe,NJkKwvqfi4iBFBmdwNwSTnSQV.BcQaA79mbceAWjCRUw8SZ9h-\",\n    \"border_crop\": \"https://mOuhItpd.otO0NEQdtA97skl6knhGIs,xO.uSYWIB6N39bxBtMrzJxKEsvuqNBVd8KJNhwOYQUpk,\"\n  },\n  \"mana_cost\": \"string\",\n  \"cmc\": 5084.951590476988,\n  \"type_line\": \"string\",\n  \"oracle_text\": \"string\",\n  \"colors\": [\n    \"R\",\n    \"U\"\n  ],\n  \"color_identity\": [\n    \"B\",\n    \"B\"\n  ],\n  \"keywords\": [\n    \"string\",\n    \"string\"\n  ],\n  \"legalities\": {\n    \"standard\": \"string\",\n    \"future\": \"string\",\n    \"historic\": \"string\",\n    \"timeless\": \"string\",\n    \"gladiator\": \"string\",\n    \"pioneer\": \"string\",\n    \"explorer\": \"string\",\n    \"modern\": \"string\",\n    \"legacy\": \"string\",\n    \"pauper\": \"string\",\n    \"vintage\": \"string\",\n    \"penny\": \"string\",\n    \"commander\": \"string\",\n    \"oathbreaker\": \"string\",\n    \"standardbrawl\": \"string\",\n    \"brawl\": \"string\",\n    \"alchemy\": \"string\",\n    \"paupercommander\": \"string\",\n    \"duel\": \"string\",\n    \"oldschool\": \"string\",\n    \"premodern\": \"string\",\n    \"predh\": \"string\"\n  },\n  \"games\": [\n    \"arena\",\n    \"mtgo\"\n  ],\n  \"reserved\": true,\n  \"foil\": false,\n  \"nonfoil\": false,\n  \"finishes\": [\n    \"etched\",\n    \"nonfoil\"\n  ],\n  \"oversized\": false,\n  \"promo\": false,\n  \"reprint\": false,\n  \"variation\": false,\n  \"set_id\": \"23bfb086-da7b-2977-24c7-766759455757\",\n  \"set\": \"string\",\n  \"set_name\": \"string\",\n  \"set_type\": \"string\",\n  \"set_uri\": \"https://wickEGjXbeAnZlhflKDnVuKGKYAZrool.otrsiI7SbAO9i4rcyMNln5LXPrps8YUHjoIKUHciH,-R7.ScPezqI8czNNaMVuFweBr\",\n  \"set_search_uri\": \"http://O.syfiMnVvmmGDLBVe5h\",\n  \"scryfall_set_uri\": \"http://oUoANYCXqKnjWlvNXEjIihbML.gnbUJVwXVF4Pn.SbCcQk1bJzZpMHgw1jNWVZSX1K1UdFje0H7eTbL.74\",\n  \"rulings_uri\": \"http://YXqdpMJ.oybOjf8vqkLWqyntxyTetvwu64hm\",\n  \"prints_search_uri\": \"https://aDyOAkdseujrwEvEHujQJpV.nmrj\",\n  \"collector_number\": \"string\",\n  \"digital\": false,\n  \"rarity\": \"uncommon\",\n  \"flavor_text\": \"string\",\n  \"card_back_id\": \"d843f4c3-fa63-1c95-d162-12406b36738a\",\n  \"artist\": \"string\",\n  \"artist_ids\": [\n    \"b0d19fe7-957f-ad89-a01f-747066b8b8db\",\n    \"7c0b63cc-1976-2924-0649-629f4ae03bac\"\n  ],\n  \"illustration_id\": \"3e5ed3bc-4a8f-7bc4-2588-0872beeb9790\",\n  \"border_color\": \"string\",\n  \"frame\": \"string\",\n  \"frame_effects\": [\n    \"string\",\n    \"string\"\n  ],\n  \"security_stamp\": \"string\",\n  \"full_art\": false,\n  \"textless\": false,\n  \"booster\": false,\n  \"story_spotlight\": false,\n  \"edhrec_rank\": 8479,\n  \"penny_rank\": 4659,\n  \"prices\": {\n    \"usd\": \"string\",\n    \"usd_foil\": \"string\",\n    \"usd_etched\": \"string\",\n    \"eur\": \"string\",\n    \"eur_foil\": \"string\",\n    \"tix\": \"string\"\n  },\n  \"related_uris\": {\n    \"key_0\": \"https://bsh.gdGU,vkrpO0oHlsD4TsjyYey2+P5fj1uxa3xYUn40xA\",\n    \"key_1\": \"https://t.cdZ2dvQl3GYlv\",\n    \"key_2\": \"http://mFNbAiLFSKY.tcrZVNJhKtOF5rJudgIq17ffuN+tfsfCMzY\"\n  },\n  \"purchase_uris\": {\n    \"key_0\": \"http://vLJJRqiWZHmSedNIfYSNLBQpL.fcuNOPaK6\"\n  },\n  \"all_parts\": [\n    {\n      \"object\": \"related_card\",\n      \"id\": \"123cc31f-19bb-cf6a-7093-95e082b12306\",\n      \"component\": \"token\",\n      \"name\": \"string\",\n      \"type_line\": \"string\",\n      \"uri\": \"http://AkNuaQWzdogNdUkGwnCYo.kgnhOUm7\"\n    },\n    {\n      \"object\": \"related_card\",\n      \"id\": \"64c9def9-4194-91d6-dcd6-a49c81d0a5db\",\n      \"component\": \"meld_part\",\n      \"name\": \"string\",\n      \"type_line\": \"string\",\n      \"uri\": \"http://wXrCWGVuWGrbeVYtOyZKl.jguzrB+anQKyIiqadJCKY,DDfUvFQJv1JlP0i1Tj4pTct9Q3IByWAlvYy0\"\n    }\n  ],\n  \"card_faces\": [\n    {\n      \"object\": \"card_face\",\n      \"name\": \"string\",\n      \"mana_cost\": \"string\",\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"flavor_text\": \"string\",\n      \"artist\": \"string\",\n      \"artist_id\": \"37d87c2d-2d03-1cb5-616b-7e8c6571d3bb\",\n      \"illustration_id\": \"52dc1bf7-0481-334f-1676-29456552140f\",\n      \"image_uris\": {\n        \"small\": \"http://pCsuMb.jjfmIDsVpunh0sf0twVrDlYmiJsQOqVgsxfDFlE22hAoEIlLgbQ5dLv,yGt12OC6E0c\",\n        \"normal\": \"https://bcNLTbZvYeLYofiMcyIWyc.rqvdCK28OCIILTLdVU.heZbGOPO+LkZl7.,1pDjjsvfN0r\",\n        \"large\": \"http://wXsyZrCAsVhwWDEXRiq.dvguBXWe7pXd0gxxftQPN\",\n        \"png\": \"http://UBZKneUPHODPhUdA.ooyhCALpm,-7XY-+5\",\n        \"art_crop\": \"http://QtDWFCN.xmuUMLtdmQ08nvjZARe7t4-X2bVhoSDPktUjvcZ5G3JH6z\",\n        \"border_crop\": \"https://yWrELxgnfGNdnFoQwgtSKumRUUQC.vvo9ZISbINQEQu.VE4cELDrK\"\n      },\n      \"watermark\": \"string\"\n    },\n    {\n      \"object\": \"card_face\",\n      \"name\": \"string\",\n      \"mana_cost\": \"string\",\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"flavor_text\": \"string\",\n      \"artist\": \"string\",\n      \"artist_id\": \"c051d5d3-53c6-3ddb-9200-414bc69501a3\",\n      \"illustration_id\": \"fe10246f-adaf-16c1-82f1-908e859238e0\",\n      \"image_uris\": {\n        \"small\": \"https://RIWKUvfApPbDgVsUTcGJGE.giZWlJ.ir4IfB\",\n        \"normal\": \"http://LcfVGqaSDHAtCem.iwvob6SLDZ4yvmsSuvvxcAHMn-eAdW0.BFktH4cBx0u4iKNhzOPwfktuBqQVY\",\n        \"large\": \"https://l.gjE.xL5Ya5LGYKvpm9F-U6K,jCNLWQXwEzjpm8cR\",\n        \"png\": \"https://UxLEkuJaq.xdplhrXeNIR,l3kYAHhfXYzFFdpo9-Z\",\n        \"art_crop\": \"https://xDCTnUbUDNIGfH.fkjzeO.QdJtm+pWRpBcekirX.KHiPNXnRokqL6+vs\",\n        \"border_crop\": \"https://vSLZwnIXVwXXOrmxKiZPzsjqU.ujbFSxV3FijDZHy6fDOjSUAX8pPFtG8DPOmonNconEtPtdJ-wyoQpVE1FAMmDkhdQFXI,t\"\n      },\n      \"watermark\": \"string\"\n    }\n  ],\n  \"power\": \"string\",\n  \"toughness\": \"string\",\n  \"loyalty\": \"string\",\n  \"defense\": \"string\",\n  \"produced_mana\": [\n    \"string\",\n    \"string\"\n  ],\n  \"watermark\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51426f0e-70db-4045-bfcf-0da631a0b8e1",
+          "name": "Get a Card by MTGO ID",
+          "request": {
+            "name": "Get a Card by MTGO ID",
+            "description": {
+              "content": "Returns the Card with the given Magic Online catalog ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cards",
+                "mtgo",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "56bdd3f7-5e3b-435d-84b4-49ed6db036a4",
+              "name": "The requested Card.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    "mtgo",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"card\",\n  \"id\": \"ac0b8650-d403-356f-c8fd-97c95ad75142\",\n  \"oracle_id\": \"c8511d9a-345e-45cc-6838-c3867ad17b7b\",\n  \"multiverse_ids\": [\n    9183,\n    3505\n  ],\n  \"mtgo_id\": 75,\n  \"mtgo_foil_id\": 2732,\n  \"arena_id\": 9611,\n  \"tcgplayer_id\": 6116,\n  \"cardmarket_id\": 660,\n  \"name\": \"string\",\n  \"lang\": \"string\",\n  \"released_at\": \"1974-05-09\",\n  \"uri\": \"http://IWgVxfOciWWyjNhxFhPOos.lgmawGHG+qt\",\n  \"scryfall_uri\": \"http://wFOBCjXqfJQkrLrg.awndOK4b18drn\",\n  \"layout\": \"string\",\n  \"highres_image\": true,\n  \"image_status\": \"highres_scan\",\n  \"image_uris\": {\n    \"small\": \"https://kFioHJnAxLNvTm.bwRPu1Gq6pGAyZEkWzJVyKCJy8KSSMXL9BiP\",\n    \"normal\": \"https://kDIZoNvjIWzE.aakse1BKbDIZRYfL1+jp.s,CqiMd-eEunEBUM\",\n    \"large\": \"http://pjaCDrlzeqBrjskrJiowbA.qyayZtlp,C,W9O1CHMs2MuHFypDGe5lS6fVRTo-edz9,aKWUTlIp8-,5Glc\",\n    \"png\": \"http://bEEEduPEAkJNABsWARVHyBbyNgnpbyQv.qjblgNW6L6PqrP8FZgyRmtZpaatukzyAsP0o,brB4qhTDwiByfVDpo\",\n    \"art_crop\": \"http://jMOBfnZIirDrPAviqRoAGcwCsNpzGPRG.vnDhe,NJkKwvqfi4iBFBmdwNwSTnSQV.BcQaA79mbceAWjCRUw8SZ9h-\",\n    \"border_crop\": \"https://mOuhItpd.otO0NEQdtA97skl6knhGIs,xO.uSYWIB6N39bxBtMrzJxKEsvuqNBVd8KJNhwOYQUpk,\"\n  },\n  \"mana_cost\": \"string\",\n  \"cmc\": 5084.951590476988,\n  \"type_line\": \"string\",\n  \"oracle_text\": \"string\",\n  \"colors\": [\n    \"R\",\n    \"U\"\n  ],\n  \"color_identity\": [\n    \"B\",\n    \"B\"\n  ],\n  \"keywords\": [\n    \"string\",\n    \"string\"\n  ],\n  \"legalities\": {\n    \"standard\": \"string\",\n    \"future\": \"string\",\n    \"historic\": \"string\",\n    \"timeless\": \"string\",\n    \"gladiator\": \"string\",\n    \"pioneer\": \"string\",\n    \"explorer\": \"string\",\n    \"modern\": \"string\",\n    \"legacy\": \"string\",\n    \"pauper\": \"string\",\n    \"vintage\": \"string\",\n    \"penny\": \"string\",\n    \"commander\": \"string\",\n    \"oathbreaker\": \"string\",\n    \"standardbrawl\": \"string\",\n    \"brawl\": \"string\",\n    \"alchemy\": \"string\",\n    \"paupercommander\": \"string\",\n    \"duel\": \"string\",\n    \"oldschool\": \"string\",\n    \"premodern\": \"string\",\n    \"predh\": \"string\"\n  },\n  \"games\": [\n    \"arena\",\n    \"mtgo\"\n  ],\n  \"reserved\": true,\n  \"foil\": false,\n  \"nonfoil\": false,\n  \"finishes\": [\n    \"etched\",\n    \"nonfoil\"\n  ],\n  \"oversized\": false,\n  \"promo\": false,\n  \"reprint\": false,\n  \"variation\": false,\n  \"set_id\": \"23bfb086-da7b-2977-24c7-766759455757\",\n  \"set\": \"string\",\n  \"set_name\": \"string\",\n  \"set_type\": \"string\",\n  \"set_uri\": \"https://wickEGjXbeAnZlhflKDnVuKGKYAZrool.otrsiI7SbAO9i4rcyMNln5LXPrps8YUHjoIKUHciH,-R7.ScPezqI8czNNaMVuFweBr\",\n  \"set_search_uri\": \"http://O.syfiMnVvmmGDLBVe5h\",\n  \"scryfall_set_uri\": \"http://oUoANYCXqKnjWlvNXEjIihbML.gnbUJVwXVF4Pn.SbCcQk1bJzZpMHgw1jNWVZSX1K1UdFje0H7eTbL.74\",\n  \"rulings_uri\": \"http://YXqdpMJ.oybOjf8vqkLWqyntxyTetvwu64hm\",\n  \"prints_search_uri\": \"https://aDyOAkdseujrwEvEHujQJpV.nmrj\",\n  \"collector_number\": \"string\",\n  \"digital\": false,\n  \"rarity\": \"uncommon\",\n  \"flavor_text\": \"string\",\n  \"card_back_id\": \"d843f4c3-fa63-1c95-d162-12406b36738a\",\n  \"artist\": \"string\",\n  \"artist_ids\": [\n    \"b0d19fe7-957f-ad89-a01f-747066b8b8db\",\n    \"7c0b63cc-1976-2924-0649-629f4ae03bac\"\n  ],\n  \"illustration_id\": \"3e5ed3bc-4a8f-7bc4-2588-0872beeb9790\",\n  \"border_color\": \"string\",\n  \"frame\": \"string\",\n  \"frame_effects\": [\n    \"string\",\n    \"string\"\n  ],\n  \"security_stamp\": \"string\",\n  \"full_art\": false,\n  \"textless\": false,\n  \"booster\": false,\n  \"story_spotlight\": false,\n  \"edhrec_rank\": 8479,\n  \"penny_rank\": 4659,\n  \"prices\": {\n    \"usd\": \"string\",\n    \"usd_foil\": \"string\",\n    \"usd_etched\": \"string\",\n    \"eur\": \"string\",\n    \"eur_foil\": \"string\",\n    \"tix\": \"string\"\n  },\n  \"related_uris\": {\n    \"key_0\": \"https://bsh.gdGU,vkrpO0oHlsD4TsjyYey2+P5fj1uxa3xYUn40xA\",\n    \"key_1\": \"https://t.cdZ2dvQl3GYlv\",\n    \"key_2\": \"http://mFNbAiLFSKY.tcrZVNJhKtOF5rJudgIq17ffuN+tfsfCMzY\"\n  },\n  \"purchase_uris\": {\n    \"key_0\": \"http://vLJJRqiWZHmSedNIfYSNLBQpL.fcuNOPaK6\"\n  },\n  \"all_parts\": [\n    {\n      \"object\": \"related_card\",\n      \"id\": \"123cc31f-19bb-cf6a-7093-95e082b12306\",\n      \"component\": \"token\",\n      \"name\": \"string\",\n      \"type_line\": \"string\",\n      \"uri\": \"http://AkNuaQWzdogNdUkGwnCYo.kgnhOUm7\"\n    },\n    {\n      \"object\": \"related_card\",\n      \"id\": \"64c9def9-4194-91d6-dcd6-a49c81d0a5db\",\n      \"component\": \"meld_part\",\n      \"name\": \"string\",\n      \"type_line\": \"string\",\n      \"uri\": \"http://wXrCWGVuWGrbeVYtOyZKl.jguzrB+anQKyIiqadJCKY,DDfUvFQJv1JlP0i1Tj4pTct9Q3IByWAlvYy0\"\n    }\n  ],\n  \"card_faces\": [\n    {\n      \"object\": \"card_face\",\n      \"name\": \"string\",\n      \"mana_cost\": \"string\",\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"flavor_text\": \"string\",\n      \"artist\": \"string\",\n      \"artist_id\": \"37d87c2d-2d03-1cb5-616b-7e8c6571d3bb\",\n      \"illustration_id\": \"52dc1bf7-0481-334f-1676-29456552140f\",\n      \"image_uris\": {\n        \"small\": \"http://pCsuMb.jjfmIDsVpunh0sf0twVrDlYmiJsQOqVgsxfDFlE22hAoEIlLgbQ5dLv,yGt12OC6E0c\",\n        \"normal\": \"https://bcNLTbZvYeLYofiMcyIWyc.rqvdCK28OCIILTLdVU.heZbGOPO+LkZl7.,1pDjjsvfN0r\",\n        \"large\": \"http://wXsyZrCAsVhwWDEXRiq.dvguBXWe7pXd0gxxftQPN\",\n        \"png\": \"http://UBZKneUPHODPhUdA.ooyhCALpm,-7XY-+5\",\n        \"art_crop\": \"http://QtDWFCN.xmuUMLtdmQ08nvjZARe7t4-X2bVhoSDPktUjvcZ5G3JH6z\",\n        \"border_crop\": \"https://yWrELxgnfGNdnFoQwgtSKumRUUQC.vvo9ZISbINQEQu.VE4cELDrK\"\n      },\n      \"watermark\": \"string\"\n    },\n    {\n      \"object\": \"card_face\",\n      \"name\": \"string\",\n      \"mana_cost\": \"string\",\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"flavor_text\": \"string\",\n      \"artist\": \"string\",\n      \"artist_id\": \"c051d5d3-53c6-3ddb-9200-414bc69501a3\",\n      \"illustration_id\": \"fe10246f-adaf-16c1-82f1-908e859238e0\",\n      \"image_uris\": {\n        \"small\": \"https://RIWKUvfApPbDgVsUTcGJGE.giZWlJ.ir4IfB\",\n        \"normal\": \"http://LcfVGqaSDHAtCem.iwvob6SLDZ4yvmsSuvvxcAHMn-eAdW0.BFktH4cBx0u4iKNhzOPwfktuBqQVY\",\n        \"large\": \"https://l.gjE.xL5Ya5LGYKvpm9F-U6K,jCNLWQXwEzjpm8cR\",\n        \"png\": \"https://UxLEkuJaq.xdplhrXeNIR,l3kYAHhfXYzFFdpo9-Z\",\n        \"art_crop\": \"https://xDCTnUbUDNIGfH.fkjzeO.QdJtm+pWRpBcekirX.KHiPNXnRokqL6+vs\",\n        \"border_crop\": \"https://vSLZwnIXVwXXOrmxKiZPzsjqU.ujbFSxV3FijDZHy6fDOjSUAX8pPFtG8DPOmonNconEtPtdJ-wyoQpVE1FAMmDkhdQFXI,t\"\n      },\n      \"watermark\": \"string\"\n    }\n  ],\n  \"power\": \"string\",\n  \"toughness\": \"string\",\n  \"loyalty\": \"string\",\n  \"defense\": \"string\",\n  \"produced_mana\": [\n    \"string\",\n    \"string\"\n  ],\n  \"watermark\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d5dfa57f-a327-4892-ab65-da7257a60a77",
+          "name": "Get a Card by Arena ID",
+          "request": {
+            "name": "Get a Card by Arena ID",
+            "description": {
+              "content": "Returns the Card with the given Magic Arena ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cards",
+                "arena",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d915c6a6-122b-4d16-8d69-91c526dad583",
+              "name": "The requested Card.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    "arena",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"card\",\n  \"id\": \"ac0b8650-d403-356f-c8fd-97c95ad75142\",\n  \"oracle_id\": \"c8511d9a-345e-45cc-6838-c3867ad17b7b\",\n  \"multiverse_ids\": [\n    9183,\n    3505\n  ],\n  \"mtgo_id\": 75,\n  \"mtgo_foil_id\": 2732,\n  \"arena_id\": 9611,\n  \"tcgplayer_id\": 6116,\n  \"cardmarket_id\": 660,\n  \"name\": \"string\",\n  \"lang\": \"string\",\n  \"released_at\": \"1974-05-09\",\n  \"uri\": \"http://IWgVxfOciWWyjNhxFhPOos.lgmawGHG+qt\",\n  \"scryfall_uri\": \"http://wFOBCjXqfJQkrLrg.awndOK4b18drn\",\n  \"layout\": \"string\",\n  \"highres_image\": true,\n  \"image_status\": \"highres_scan\",\n  \"image_uris\": {\n    \"small\": \"https://kFioHJnAxLNvTm.bwRPu1Gq6pGAyZEkWzJVyKCJy8KSSMXL9BiP\",\n    \"normal\": \"https://kDIZoNvjIWzE.aakse1BKbDIZRYfL1+jp.s,CqiMd-eEunEBUM\",\n    \"large\": \"http://pjaCDrlzeqBrjskrJiowbA.qyayZtlp,C,W9O1CHMs2MuHFypDGe5lS6fVRTo-edz9,aKWUTlIp8-,5Glc\",\n    \"png\": \"http://bEEEduPEAkJNABsWARVHyBbyNgnpbyQv.qjblgNW6L6PqrP8FZgyRmtZpaatukzyAsP0o,brB4qhTDwiByfVDpo\",\n    \"art_crop\": \"http://jMOBfnZIirDrPAviqRoAGcwCsNpzGPRG.vnDhe,NJkKwvqfi4iBFBmdwNwSTnSQV.BcQaA79mbceAWjCRUw8SZ9h-\",\n    \"border_crop\": \"https://mOuhItpd.otO0NEQdtA97skl6knhGIs,xO.uSYWIB6N39bxBtMrzJxKEsvuqNBVd8KJNhwOYQUpk,\"\n  },\n  \"mana_cost\": \"string\",\n  \"cmc\": 5084.951590476988,\n  \"type_line\": \"string\",\n  \"oracle_text\": \"string\",\n  \"colors\": [\n    \"R\",\n    \"U\"\n  ],\n  \"color_identity\": [\n    \"B\",\n    \"B\"\n  ],\n  \"keywords\": [\n    \"string\",\n    \"string\"\n  ],\n  \"legalities\": {\n    \"standard\": \"string\",\n    \"future\": \"string\",\n    \"historic\": \"string\",\n    \"timeless\": \"string\",\n    \"gladiator\": \"string\",\n    \"pioneer\": \"string\",\n    \"explorer\": \"string\",\n    \"modern\": \"string\",\n    \"legacy\": \"string\",\n    \"pauper\": \"string\",\n    \"vintage\": \"string\",\n    \"penny\": \"string\",\n    \"commander\": \"string\",\n    \"oathbreaker\": \"string\",\n    \"standardbrawl\": \"string\",\n    \"brawl\": \"string\",\n    \"alchemy\": \"string\",\n    \"paupercommander\": \"string\",\n    \"duel\": \"string\",\n    \"oldschool\": \"string\",\n    \"premodern\": \"string\",\n    \"predh\": \"string\"\n  },\n  \"games\": [\n    \"arena\",\n    \"mtgo\"\n  ],\n  \"reserved\": true,\n  \"foil\": false,\n  \"nonfoil\": false,\n  \"finishes\": [\n    \"etched\",\n    \"nonfoil\"\n  ],\n  \"oversized\": false,\n  \"promo\": false,\n  \"reprint\": false,\n  \"variation\": false,\n  \"set_id\": \"23bfb086-da7b-2977-24c7-766759455757\",\n  \"set\": \"string\",\n  \"set_name\": \"string\",\n  \"set_type\": \"string\",\n  \"set_uri\": \"https://wickEGjXbeAnZlhflKDnVuKGKYAZrool.otrsiI7SbAO9i4rcyMNln5LXPrps8YUHjoIKUHciH,-R7.ScPezqI8czNNaMVuFweBr\",\n  \"set_search_uri\": \"http://O.syfiMnVvmmGDLBVe5h\",\n  \"scryfall_set_uri\": \"http://oUoANYCXqKnjWlvNXEjIihbML.gnbUJVwXVF4Pn.SbCcQk1bJzZpMHgw1jNWVZSX1K1UdFje0H7eTbL.74\",\n  \"rulings_uri\": \"http://YXqdpMJ.oybOjf8vqkLWqyntxyTetvwu64hm\",\n  \"prints_search_uri\": \"https://aDyOAkdseujrwEvEHujQJpV.nmrj\",\n  \"collector_number\": \"string\",\n  \"digital\": false,\n  \"rarity\": \"uncommon\",\n  \"flavor_text\": \"string\",\n  \"card_back_id\": \"d843f4c3-fa63-1c95-d162-12406b36738a\",\n  \"artist\": \"string\",\n  \"artist_ids\": [\n    \"b0d19fe7-957f-ad89-a01f-747066b8b8db\",\n    \"7c0b63cc-1976-2924-0649-629f4ae03bac\"\n  ],\n  \"illustration_id\": \"3e5ed3bc-4a8f-7bc4-2588-0872beeb9790\",\n  \"border_color\": \"string\",\n  \"frame\": \"string\",\n  \"frame_effects\": [\n    \"string\",\n    \"string\"\n  ],\n  \"security_stamp\": \"string\",\n  \"full_art\": false,\n  \"textless\": false,\n  \"booster\": false,\n  \"story_spotlight\": false,\n  \"edhrec_rank\": 8479,\n  \"penny_rank\": 4659,\n  \"prices\": {\n    \"usd\": \"string\",\n    \"usd_foil\": \"string\",\n    \"usd_etched\": \"string\",\n    \"eur\": \"string\",\n    \"eur_foil\": \"string\",\n    \"tix\": \"string\"\n  },\n  \"related_uris\": {\n    \"key_0\": \"https://bsh.gdGU,vkrpO0oHlsD4TsjyYey2+P5fj1uxa3xYUn40xA\",\n    \"key_1\": \"https://t.cdZ2dvQl3GYlv\",\n    \"key_2\": \"http://mFNbAiLFSKY.tcrZVNJhKtOF5rJudgIq17ffuN+tfsfCMzY\"\n  },\n  \"purchase_uris\": {\n    \"key_0\": \"http://vLJJRqiWZHmSedNIfYSNLBQpL.fcuNOPaK6\"\n  },\n  \"all_parts\": [\n    {\n      \"object\": \"related_card\",\n      \"id\": \"123cc31f-19bb-cf6a-7093-95e082b12306\",\n      \"component\": \"token\",\n      \"name\": \"string\",\n      \"type_line\": \"string\",\n      \"uri\": \"http://AkNuaQWzdogNdUkGwnCYo.kgnhOUm7\"\n    },\n    {\n      \"object\": \"related_card\",\n      \"id\": \"64c9def9-4194-91d6-dcd6-a49c81d0a5db\",\n      \"component\": \"meld_part\",\n      \"name\": \"string\",\n      \"type_line\": \"string\",\n      \"uri\": \"http://wXrCWGVuWGrbeVYtOyZKl.jguzrB+anQKyIiqadJCKY,DDfUvFQJv1JlP0i1Tj4pTct9Q3IByWAlvYy0\"\n    }\n  ],\n  \"card_faces\": [\n    {\n      \"object\": \"card_face\",\n      \"name\": \"string\",\n      \"mana_cost\": \"string\",\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"flavor_text\": \"string\",\n      \"artist\": \"string\",\n      \"artist_id\": \"37d87c2d-2d03-1cb5-616b-7e8c6571d3bb\",\n      \"illustration_id\": \"52dc1bf7-0481-334f-1676-29456552140f\",\n      \"image_uris\": {\n        \"small\": \"http://pCsuMb.jjfmIDsVpunh0sf0twVrDlYmiJsQOqVgsxfDFlE22hAoEIlLgbQ5dLv,yGt12OC6E0c\",\n        \"normal\": \"https://bcNLTbZvYeLYofiMcyIWyc.rqvdCK28OCIILTLdVU.heZbGOPO+LkZl7.,1pDjjsvfN0r\",\n        \"large\": \"http://wXsyZrCAsVhwWDEXRiq.dvguBXWe7pXd0gxxftQPN\",\n        \"png\": \"http://UBZKneUPHODPhUdA.ooyhCALpm,-7XY-+5\",\n        \"art_crop\": \"http://QtDWFCN.xmuUMLtdmQ08nvjZARe7t4-X2bVhoSDPktUjvcZ5G3JH6z\",\n        \"border_crop\": \"https://yWrELxgnfGNdnFoQwgtSKumRUUQC.vvo9ZISbINQEQu.VE4cELDrK\"\n      },\n      \"watermark\": \"string\"\n    },\n    {\n      \"object\": \"card_face\",\n      \"name\": \"string\",\n      \"mana_cost\": \"string\",\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"flavor_text\": \"string\",\n      \"artist\": \"string\",\n      \"artist_id\": \"c051d5d3-53c6-3ddb-9200-414bc69501a3\",\n      \"illustration_id\": \"fe10246f-adaf-16c1-82f1-908e859238e0\",\n      \"image_uris\": {\n        \"small\": \"https://RIWKUvfApPbDgVsUTcGJGE.giZWlJ.ir4IfB\",\n        \"normal\": \"http://LcfVGqaSDHAtCem.iwvob6SLDZ4yvmsSuvvxcAHMn-eAdW0.BFktH4cBx0u4iKNhzOPwfktuBqQVY\",\n        \"large\": \"https://l.gjE.xL5Ya5LGYKvpm9F-U6K,jCNLWQXwEzjpm8cR\",\n        \"png\": \"https://UxLEkuJaq.xdplhrXeNIR,l3kYAHhfXYzFFdpo9-Z\",\n        \"art_crop\": \"https://xDCTnUbUDNIGfH.fkjzeO.QdJtm+pWRpBcekirX.KHiPNXnRokqL6+vs\",\n        \"border_crop\": \"https://vSLZwnIXVwXXOrmxKiZPzsjqU.ujbFSxV3FijDZHy6fDOjSUAX8pPFtG8DPOmonNconEtPtdJ-wyoQpVE1FAMmDkhdQFXI,t\"\n      },\n      \"watermark\": \"string\"\n    }\n  ],\n  \"power\": \"string\",\n  \"toughness\": \"string\",\n  \"loyalty\": \"string\",\n  \"defense\": \"string\",\n  \"produced_mana\": [\n    \"string\",\n    \"string\"\n  ],\n  \"watermark\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71c5f764-18e8-440a-adb2-3a1278610a00",
+          "name": "Get a Card by TCGplayer ID",
+          "request": {
+            "name": "Get a Card by TCGplayer ID",
+            "description": {
+              "content": "Returns the Card with the given TCGplayer product ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cards",
+                "tcgplayer",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9db910c7-a11f-4ea8-a105-6495cefa19b8",
+              "name": "The requested Card.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    "tcgplayer",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"card\",\n  \"id\": \"ac0b8650-d403-356f-c8fd-97c95ad75142\",\n  \"oracle_id\": \"c8511d9a-345e-45cc-6838-c3867ad17b7b\",\n  \"multiverse_ids\": [\n    9183,\n    3505\n  ],\n  \"mtgo_id\": 75,\n  \"mtgo_foil_id\": 2732,\n  \"arena_id\": 9611,\n  \"tcgplayer_id\": 6116,\n  \"cardmarket_id\": 660,\n  \"name\": \"string\",\n  \"lang\": \"string\",\n  \"released_at\": \"1974-05-09\",\n  \"uri\": \"http://IWgVxfOciWWyjNhxFhPOos.lgmawGHG+qt\",\n  \"scryfall_uri\": \"http://wFOBCjXqfJQkrLrg.awndOK4b18drn\",\n  \"layout\": \"string\",\n  \"highres_image\": true,\n  \"image_status\": \"highres_scan\",\n  \"image_uris\": {\n    \"small\": \"https://kFioHJnAxLNvTm.bwRPu1Gq6pGAyZEkWzJVyKCJy8KSSMXL9BiP\",\n    \"normal\": \"https://kDIZoNvjIWzE.aakse1BKbDIZRYfL1+jp.s,CqiMd-eEunEBUM\",\n    \"large\": \"http://pjaCDrlzeqBrjskrJiowbA.qyayZtlp,C,W9O1CHMs2MuHFypDGe5lS6fVRTo-edz9,aKWUTlIp8-,5Glc\",\n    \"png\": \"http://bEEEduPEAkJNABsWARVHyBbyNgnpbyQv.qjblgNW6L6PqrP8FZgyRmtZpaatukzyAsP0o,brB4qhTDwiByfVDpo\",\n    \"art_crop\": \"http://jMOBfnZIirDrPAviqRoAGcwCsNpzGPRG.vnDhe,NJkKwvqfi4iBFBmdwNwSTnSQV.BcQaA79mbceAWjCRUw8SZ9h-\",\n    \"border_crop\": \"https://mOuhItpd.otO0NEQdtA97skl6knhGIs,xO.uSYWIB6N39bxBtMrzJxKEsvuqNBVd8KJNhwOYQUpk,\"\n  },\n  \"mana_cost\": \"string\",\n  \"cmc\": 5084.951590476988,\n  \"type_line\": \"string\",\n  \"oracle_text\": \"string\",\n  \"colors\": [\n    \"R\",\n    \"U\"\n  ],\n  \"color_identity\": [\n    \"B\",\n    \"B\"\n  ],\n  \"keywords\": [\n    \"string\",\n    \"string\"\n  ],\n  \"legalities\": {\n    \"standard\": \"string\",\n    \"future\": \"string\",\n    \"historic\": \"string\",\n    \"timeless\": \"string\",\n    \"gladiator\": \"string\",\n    \"pioneer\": \"string\",\n    \"explorer\": \"string\",\n    \"modern\": \"string\",\n    \"legacy\": \"string\",\n    \"pauper\": \"string\",\n    \"vintage\": \"string\",\n    \"penny\": \"string\",\n    \"commander\": \"string\",\n    \"oathbreaker\": \"string\",\n    \"standardbrawl\": \"string\",\n    \"brawl\": \"string\",\n    \"alchemy\": \"string\",\n    \"paupercommander\": \"string\",\n    \"duel\": \"string\",\n    \"oldschool\": \"string\",\n    \"premodern\": \"string\",\n    \"predh\": \"string\"\n  },\n  \"games\": [\n    \"arena\",\n    \"mtgo\"\n  ],\n  \"reserved\": true,\n  \"foil\": false,\n  \"nonfoil\": false,\n  \"finishes\": [\n    \"etched\",\n    \"nonfoil\"\n  ],\n  \"oversized\": false,\n  \"promo\": false,\n  \"reprint\": false,\n  \"variation\": false,\n  \"set_id\": \"23bfb086-da7b-2977-24c7-766759455757\",\n  \"set\": \"string\",\n  \"set_name\": \"string\",\n  \"set_type\": \"string\",\n  \"set_uri\": \"https://wickEGjXbeAnZlhflKDnVuKGKYAZrool.otrsiI7SbAO9i4rcyMNln5LXPrps8YUHjoIKUHciH,-R7.ScPezqI8czNNaMVuFweBr\",\n  \"set_search_uri\": \"http://O.syfiMnVvmmGDLBVe5h\",\n  \"scryfall_set_uri\": \"http://oUoANYCXqKnjWlvNXEjIihbML.gnbUJVwXVF4Pn.SbCcQk1bJzZpMHgw1jNWVZSX1K1UdFje0H7eTbL.74\",\n  \"rulings_uri\": \"http://YXqdpMJ.oybOjf8vqkLWqyntxyTetvwu64hm\",\n  \"prints_search_uri\": \"https://aDyOAkdseujrwEvEHujQJpV.nmrj\",\n  \"collector_number\": \"string\",\n  \"digital\": false,\n  \"rarity\": \"uncommon\",\n  \"flavor_text\": \"string\",\n  \"card_back_id\": \"d843f4c3-fa63-1c95-d162-12406b36738a\",\n  \"artist\": \"string\",\n  \"artist_ids\": [\n    \"b0d19fe7-957f-ad89-a01f-747066b8b8db\",\n    \"7c0b63cc-1976-2924-0649-629f4ae03bac\"\n  ],\n  \"illustration_id\": \"3e5ed3bc-4a8f-7bc4-2588-0872beeb9790\",\n  \"border_color\": \"string\",\n  \"frame\": \"string\",\n  \"frame_effects\": [\n    \"string\",\n    \"string\"\n  ],\n  \"security_stamp\": \"string\",\n  \"full_art\": false,\n  \"textless\": false,\n  \"booster\": false,\n  \"story_spotlight\": false,\n  \"edhrec_rank\": 8479,\n  \"penny_rank\": 4659,\n  \"prices\": {\n    \"usd\": \"string\",\n    \"usd_foil\": \"string\",\n    \"usd_etched\": \"string\",\n    \"eur\": \"string\",\n    \"eur_foil\": \"string\",\n    \"tix\": \"string\"\n  },\n  \"related_uris\": {\n    \"key_0\": \"https://bsh.gdGU,vkrpO0oHlsD4TsjyYey2+P5fj1uxa3xYUn40xA\",\n    \"key_1\": \"https://t.cdZ2dvQl3GYlv\",\n    \"key_2\": \"http://mFNbAiLFSKY.tcrZVNJhKtOF5rJudgIq17ffuN+tfsfCMzY\"\n  },\n  \"purchase_uris\": {\n    \"key_0\": \"http://vLJJRqiWZHmSedNIfYSNLBQpL.fcuNOPaK6\"\n  },\n  \"all_parts\": [\n    {\n      \"object\": \"related_card\",\n      \"id\": \"123cc31f-19bb-cf6a-7093-95e082b12306\",\n      \"component\": \"token\",\n      \"name\": \"string\",\n      \"type_line\": \"string\",\n      \"uri\": \"http://AkNuaQWzdogNdUkGwnCYo.kgnhOUm7\"\n    },\n    {\n      \"object\": \"related_card\",\n      \"id\": \"64c9def9-4194-91d6-dcd6-a49c81d0a5db\",\n      \"component\": \"meld_part\",\n      \"name\": \"string\",\n      \"type_line\": \"string\",\n      \"uri\": \"http://wXrCWGVuWGrbeVYtOyZKl.jguzrB+anQKyIiqadJCKY,DDfUvFQJv1JlP0i1Tj4pTct9Q3IByWAlvYy0\"\n    }\n  ],\n  \"card_faces\": [\n    {\n      \"object\": \"card_face\",\n      \"name\": \"string\",\n      \"mana_cost\": \"string\",\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"flavor_text\": \"string\",\n      \"artist\": \"string\",\n      \"artist_id\": \"37d87c2d-2d03-1cb5-616b-7e8c6571d3bb\",\n      \"illustration_id\": \"52dc1bf7-0481-334f-1676-29456552140f\",\n      \"image_uris\": {\n        \"small\": \"http://pCsuMb.jjfmIDsVpunh0sf0twVrDlYmiJsQOqVgsxfDFlE22hAoEIlLgbQ5dLv,yGt12OC6E0c\",\n        \"normal\": \"https://bcNLTbZvYeLYofiMcyIWyc.rqvdCK28OCIILTLdVU.heZbGOPO+LkZl7.,1pDjjsvfN0r\",\n        \"large\": \"http://wXsyZrCAsVhwWDEXRiq.dvguBXWe7pXd0gxxftQPN\",\n        \"png\": \"http://UBZKneUPHODPhUdA.ooyhCALpm,-7XY-+5\",\n        \"art_crop\": \"http://QtDWFCN.xmuUMLtdmQ08nvjZARe7t4-X2bVhoSDPktUjvcZ5G3JH6z\",\n        \"border_crop\": \"https://yWrELxgnfGNdnFoQwgtSKumRUUQC.vvo9ZISbINQEQu.VE4cELDrK\"\n      },\n      \"watermark\": \"string\"\n    },\n    {\n      \"object\": \"card_face\",\n      \"name\": \"string\",\n      \"mana_cost\": \"string\",\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"flavor_text\": \"string\",\n      \"artist\": \"string\",\n      \"artist_id\": \"c051d5d3-53c6-3ddb-9200-414bc69501a3\",\n      \"illustration_id\": \"fe10246f-adaf-16c1-82f1-908e859238e0\",\n      \"image_uris\": {\n        \"small\": \"https://RIWKUvfApPbDgVsUTcGJGE.giZWlJ.ir4IfB\",\n        \"normal\": \"http://LcfVGqaSDHAtCem.iwvob6SLDZ4yvmsSuvvxcAHMn-eAdW0.BFktH4cBx0u4iKNhzOPwfktuBqQVY\",\n        \"large\": \"https://l.gjE.xL5Ya5LGYKvpm9F-U6K,jCNLWQXwEzjpm8cR\",\n        \"png\": \"https://UxLEkuJaq.xdplhrXeNIR,l3kYAHhfXYzFFdpo9-Z\",\n        \"art_crop\": \"https://xDCTnUbUDNIGfH.fkjzeO.QdJtm+pWRpBcekirX.KHiPNXnRokqL6+vs\",\n        \"border_crop\": \"https://vSLZwnIXVwXXOrmxKiZPzsjqU.ujbFSxV3FijDZHy6fDOjSUAX8pPFtG8DPOmonNconEtPtdJ-wyoQpVE1FAMmDkhdQFXI,t\"\n      },\n      \"watermark\": \"string\"\n    }\n  ],\n  \"power\": \"string\",\n  \"toughness\": \"string\",\n  \"loyalty\": \"string\",\n  \"defense\": \"string\",\n  \"produced_mana\": [\n    \"string\",\n    \"string\"\n  ],\n  \"watermark\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50daaab3-f657-4824-8d5e-9d78c25ee76d",
+          "name": "Get a Card by Cardmarket ID",
+          "request": {
+            "name": "Get a Card by Cardmarket ID",
+            "description": {
+              "content": "Returns the Card with the given Cardmarket idProduct.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cards",
+                "cardmarket",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a8f2b7a7-e8e3-4688-8f02-111c4ef0e6e9",
+              "name": "The requested Card.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    "cardmarket",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"card\",\n  \"id\": \"ac0b8650-d403-356f-c8fd-97c95ad75142\",\n  \"oracle_id\": \"c8511d9a-345e-45cc-6838-c3867ad17b7b\",\n  \"multiverse_ids\": [\n    9183,\n    3505\n  ],\n  \"mtgo_id\": 75,\n  \"mtgo_foil_id\": 2732,\n  \"arena_id\": 9611,\n  \"tcgplayer_id\": 6116,\n  \"cardmarket_id\": 660,\n  \"name\": \"string\",\n  \"lang\": \"string\",\n  \"released_at\": \"1974-05-09\",\n  \"uri\": \"http://IWgVxfOciWWyjNhxFhPOos.lgmawGHG+qt\",\n  \"scryfall_uri\": \"http://wFOBCjXqfJQkrLrg.awndOK4b18drn\",\n  \"layout\": \"string\",\n  \"highres_image\": true,\n  \"image_status\": \"highres_scan\",\n  \"image_uris\": {\n    \"small\": \"https://kFioHJnAxLNvTm.bwRPu1Gq6pGAyZEkWzJVyKCJy8KSSMXL9BiP\",\n    \"normal\": \"https://kDIZoNvjIWzE.aakse1BKbDIZRYfL1+jp.s,CqiMd-eEunEBUM\",\n    \"large\": \"http://pjaCDrlzeqBrjskrJiowbA.qyayZtlp,C,W9O1CHMs2MuHFypDGe5lS6fVRTo-edz9,aKWUTlIp8-,5Glc\",\n    \"png\": \"http://bEEEduPEAkJNABsWARVHyBbyNgnpbyQv.qjblgNW6L6PqrP8FZgyRmtZpaatukzyAsP0o,brB4qhTDwiByfVDpo\",\n    \"art_crop\": \"http://jMOBfnZIirDrPAviqRoAGcwCsNpzGPRG.vnDhe,NJkKwvqfi4iBFBmdwNwSTnSQV.BcQaA79mbceAWjCRUw8SZ9h-\",\n    \"border_crop\": \"https://mOuhItpd.otO0NEQdtA97skl6knhGIs,xO.uSYWIB6N39bxBtMrzJxKEsvuqNBVd8KJNhwOYQUpk,\"\n  },\n  \"mana_cost\": \"string\",\n  \"cmc\": 5084.951590476988,\n  \"type_line\": \"string\",\n  \"oracle_text\": \"string\",\n  \"colors\": [\n    \"R\",\n    \"U\"\n  ],\n  \"color_identity\": [\n    \"B\",\n    \"B\"\n  ],\n  \"keywords\": [\n    \"string\",\n    \"string\"\n  ],\n  \"legalities\": {\n    \"standard\": \"string\",\n    \"future\": \"string\",\n    \"historic\": \"string\",\n    \"timeless\": \"string\",\n    \"gladiator\": \"string\",\n    \"pioneer\": \"string\",\n    \"explorer\": \"string\",\n    \"modern\": \"string\",\n    \"legacy\": \"string\",\n    \"pauper\": \"string\",\n    \"vintage\": \"string\",\n    \"penny\": \"string\",\n    \"commander\": \"string\",\n    \"oathbreaker\": \"string\",\n    \"standardbrawl\": \"string\",\n    \"brawl\": \"string\",\n    \"alchemy\": \"string\",\n    \"paupercommander\": \"string\",\n    \"duel\": \"string\",\n    \"oldschool\": \"string\",\n    \"premodern\": \"string\",\n    \"predh\": \"string\"\n  },\n  \"games\": [\n    \"arena\",\n    \"mtgo\"\n  ],\n  \"reserved\": true,\n  \"foil\": false,\n  \"nonfoil\": false,\n  \"finishes\": [\n    \"etched\",\n    \"nonfoil\"\n  ],\n  \"oversized\": false,\n  \"promo\": false,\n  \"reprint\": false,\n  \"variation\": false,\n  \"set_id\": \"23bfb086-da7b-2977-24c7-766759455757\",\n  \"set\": \"string\",\n  \"set_name\": \"string\",\n  \"set_type\": \"string\",\n  \"set_uri\": \"https://wickEGjXbeAnZlhflKDnVuKGKYAZrool.otrsiI7SbAO9i4rcyMNln5LXPrps8YUHjoIKUHciH,-R7.ScPezqI8czNNaMVuFweBr\",\n  \"set_search_uri\": \"http://O.syfiMnVvmmGDLBVe5h\",\n  \"scryfall_set_uri\": \"http://oUoANYCXqKnjWlvNXEjIihbML.gnbUJVwXVF4Pn.SbCcQk1bJzZpMHgw1jNWVZSX1K1UdFje0H7eTbL.74\",\n  \"rulings_uri\": \"http://YXqdpMJ.oybOjf8vqkLWqyntxyTetvwu64hm\",\n  \"prints_search_uri\": \"https://aDyOAkdseujrwEvEHujQJpV.nmrj\",\n  \"collector_number\": \"string\",\n  \"digital\": false,\n  \"rarity\": \"uncommon\",\n  \"flavor_text\": \"string\",\n  \"card_back_id\": \"d843f4c3-fa63-1c95-d162-12406b36738a\",\n  \"artist\": \"string\",\n  \"artist_ids\": [\n    \"b0d19fe7-957f-ad89-a01f-747066b8b8db\",\n    \"7c0b63cc-1976-2924-0649-629f4ae03bac\"\n  ],\n  \"illustration_id\": \"3e5ed3bc-4a8f-7bc4-2588-0872beeb9790\",\n  \"border_color\": \"string\",\n  \"frame\": \"string\",\n  \"frame_effects\": [\n    \"string\",\n    \"string\"\n  ],\n  \"security_stamp\": \"string\",\n  \"full_art\": false,\n  \"textless\": false,\n  \"booster\": false,\n  \"story_spotlight\": false,\n  \"edhrec_rank\": 8479,\n  \"penny_rank\": 4659,\n  \"prices\": {\n    \"usd\": \"string\",\n    \"usd_foil\": \"string\",\n    \"usd_etched\": \"string\",\n    \"eur\": \"string\",\n    \"eur_foil\": \"string\",\n    \"tix\": \"string\"\n  },\n  \"related_uris\": {\n    \"key_0\": \"https://bsh.gdGU,vkrpO0oHlsD4TsjyYey2+P5fj1uxa3xYUn40xA\",\n    \"key_1\": \"https://t.cdZ2dvQl3GYlv\",\n    \"key_2\": \"http://mFNbAiLFSKY.tcrZVNJhKtOF5rJudgIq17ffuN+tfsfCMzY\"\n  },\n  \"purchase_uris\": {\n    \"key_0\": \"http://vLJJRqiWZHmSedNIfYSNLBQpL.fcuNOPaK6\"\n  },\n  \"all_parts\": [\n    {\n      \"object\": \"related_card\",\n      \"id\": \"123cc31f-19bb-cf6a-7093-95e082b12306\",\n      \"component\": \"token\",\n      \"name\": \"string\",\n      \"type_line\": \"string\",\n      \"uri\": \"http://AkNuaQWzdogNdUkGwnCYo.kgnhOUm7\"\n    },\n    {\n      \"object\": \"related_card\",\n      \"id\": \"64c9def9-4194-91d6-dcd6-a49c81d0a5db\",\n      \"component\": \"meld_part\",\n      \"name\": \"string\",\n      \"type_line\": \"string\",\n      \"uri\": \"http://wXrCWGVuWGrbeVYtOyZKl.jguzrB+anQKyIiqadJCKY,DDfUvFQJv1JlP0i1Tj4pTct9Q3IByWAlvYy0\"\n    }\n  ],\n  \"card_faces\": [\n    {\n      \"object\": \"card_face\",\n      \"name\": \"string\",\n      \"mana_cost\": \"string\",\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"flavor_text\": \"string\",\n      \"artist\": \"string\",\n      \"artist_id\": \"37d87c2d-2d03-1cb5-616b-7e8c6571d3bb\",\n      \"illustration_id\": \"52dc1bf7-0481-334f-1676-29456552140f\",\n      \"image_uris\": {\n        \"small\": \"http://pCsuMb.jjfmIDsVpunh0sf0twVrDlYmiJsQOqVgsxfDFlE22hAoEIlLgbQ5dLv,yGt12OC6E0c\",\n        \"normal\": \"https://bcNLTbZvYeLYofiMcyIWyc.rqvdCK28OCIILTLdVU.heZbGOPO+LkZl7.,1pDjjsvfN0r\",\n        \"large\": \"http://wXsyZrCAsVhwWDEXRiq.dvguBXWe7pXd0gxxftQPN\",\n        \"png\": \"http://UBZKneUPHODPhUdA.ooyhCALpm,-7XY-+5\",\n        \"art_crop\": \"http://QtDWFCN.xmuUMLtdmQ08nvjZARe7t4-X2bVhoSDPktUjvcZ5G3JH6z\",\n        \"border_crop\": \"https://yWrELxgnfGNdnFoQwgtSKumRUUQC.vvo9ZISbINQEQu.VE4cELDrK\"\n      },\n      \"watermark\": \"string\"\n    },\n    {\n      \"object\": \"card_face\",\n      \"name\": \"string\",\n      \"mana_cost\": \"string\",\n      \"type_line\": \"string\",\n      \"oracle_text\": \"string\",\n      \"colors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"power\": \"string\",\n      \"toughness\": \"string\",\n      \"loyalty\": \"string\",\n      \"defense\": \"string\",\n      \"flavor_text\": \"string\",\n      \"artist\": \"string\",\n      \"artist_id\": \"c051d5d3-53c6-3ddb-9200-414bc69501a3\",\n      \"illustration_id\": \"fe10246f-adaf-16c1-82f1-908e859238e0\",\n      \"image_uris\": {\n        \"small\": \"https://RIWKUvfApPbDgVsUTcGJGE.giZWlJ.ir4IfB\",\n        \"normal\": \"http://LcfVGqaSDHAtCem.iwvob6SLDZ4yvmsSuvvxcAHMn-eAdW0.BFktH4cBx0u4iKNhzOPwfktuBqQVY\",\n        \"large\": \"https://l.gjE.xL5Ya5LGYKvpm9F-U6K,jCNLWQXwEzjpm8cR\",\n        \"png\": \"https://UxLEkuJaq.xdplhrXeNIR,l3kYAHhfXYzFFdpo9-Z\",\n        \"art_crop\": \"https://xDCTnUbUDNIGfH.fkjzeO.QdJtm+pWRpBcekirX.KHiPNXnRokqL6+vs\",\n        \"border_crop\": \"https://vSLZwnIXVwXXOrmxKiZPzsjqU.ujbFSxV3FijDZHy6fDOjSUAX8pPFtG8DPOmonNconEtPtdJ-wyoQpVE1FAMmDkhdQFXI,t\"\n      },\n      \"watermark\": \"string\"\n    }\n  ],\n  \"power\": \"string\",\n  \"toughness\": \"string\",\n  \"loyalty\": \"string\",\n  \"defense\": \"string\",\n  \"produced_mana\": [\n    \"string\",\n    \"string\"\n  ],\n  \"watermark\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.scryfall.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9253be7f-e569-4282-9deb-24e77a7f81da",
+    "name": "Scryfall Cards API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Scryfall API is a REST-like interface to the most comprehensive Magic: The Gathering\ncard database. It exposes Card, Set, Ruling, Symbology, Catalog, and Bulk Data resources\nused by community tools, deck builders, price trackers, and research projects.\n\nThe API is provided free of charge as part of the Wizards of the Coast Fan Content Policy\nfor the primary purpose of creating additional Magic software, performing research, or\ncreating community content. It is served only over HTTPS (TLS 1.2+) and requires both a\ndescriptive User-Agent and an Accept header on every request. Clients are expected to\nkeep request rates under 10 per second (50–100 ms delay between calls), and to use the\nbulk-data downloads for any large-scale ingestion task instead of crawling Card endpoints.\n\n\nContact Support:\n Name: Scryfall API Support",
+      "type": "text/plain"
+    }
+  }
+}

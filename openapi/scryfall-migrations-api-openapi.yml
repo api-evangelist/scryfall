@@ -1,0 +1,133 @@
+openapi: 3.2.0
+info:
+  title: Scryfall Migrations API
+  description: 'The Scryfall API is a REST-like interface to the most comprehensive Magic: The Gathering
+
+    card database. It exposes Card, Set, Ruling, Symbology, Catalog, and Bulk Data resources
+
+    used by community tools, deck builders, price trackers, and research projects.
+
+
+    The API is provided free of charge as part of the Wizards of the Coast Fan Content Policy
+
+    for the primary purpose of creating additional Magic software, performing research, or
+
+    creating community content. It is served only over HTTPS (TLS 1.2+) and requires both a
+
+    descriptive User-Agent and an Accept header on every request. Clients are expected to
+
+    keep request rates under 10 per second (50–100 ms delay between calls), and to use the
+
+    bulk-data downloads for any large-scale ingestion task instead of crawling Card endpoints.
+
+    '
+  version: '2026-05-29'
+  contact:
+    name: Scryfall API Support
+    url: https://scryfall.com/contact
+  license:
+    name: Scryfall API License (Free with attribution)
+    url: https://scryfall.com/docs/api
+  termsOfService: https://scryfall.com/docs/api
+servers:
+- url: https://api.scryfall.com
+  description: Production API
+tags:
+- name: Migrations
+  description: Records of card-object migrations and merges.
+paths:
+  /migrations:
+    get:
+      tags:
+      - Migrations
+      summary: List Migrations
+      description: Returns a List of all card-object Migration records published by Scryfall.
+      operationId: listMigrations
+      responses:
+        '200':
+          description: A list of migrations.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MigrationList'
+  /migrations/{id}:
+    get:
+      tags:
+      - Migrations
+      summary: Get a Migration by ID
+      description: Returns a single Migration record by its Scryfall ID.
+      operationId: getMigrationById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: The requested Migration.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Migration'
+components:
+  schemas:
+    Migration:
+      type: object
+      description: A Scryfall Migration record indicating a card object was renamed, merged, or removed.
+      properties:
+        object:
+          type: string
+          enum:
+          - migration
+        id:
+          type: string
+          format: uuid
+        uri:
+          type: string
+          format: uri
+        performed_at:
+          type: string
+          format: date
+        migration_strategy:
+          type: string
+          enum:
+          - merge
+          - delete
+        old_scryfall_id:
+          type: string
+          format: uuid
+        new_scryfall_id:
+          type: string
+          format: uuid
+        note:
+          type: string
+    MigrationList:
+      allOf:
+      - $ref: '#/components/schemas/List'
+      - type: object
+        properties:
+          data:
+            type: array
+            items:
+              $ref: '#/components/schemas/Migration'
+    List:
+      type: object
+      description: A generic Scryfall List object wrapping a paginated collection of any type.
+      properties:
+        object:
+          type: string
+          enum:
+          - list
+        total_cards:
+          type: integer
+        has_more:
+          type: boolean
+        next_page:
+          type: string
+          format: uri
+        data:
+          type: array
+          items:
+            type: object

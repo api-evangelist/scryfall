@@ -1,0 +1,65 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Scryfall Bulk Data API",
+    "version": "2026-05-29"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bulk Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Bulk Data Files",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/bulk-data"
+          },
+          "docs": "Returns a List of all bulk-data exports currently available from Scryfall."
+        },
+        {
+          "info": {
+            "name": "Get a Bulk Data File by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/bulk-data/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a single bulk-data export by its Scryfall ID."
+        },
+        {
+          "info": {
+            "name": "Get a Bulk Data File by Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/bulk-data/:type",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a single bulk-data export by its type (oracle_cards, unique_artwork, default_cards, all_cards, rulings)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

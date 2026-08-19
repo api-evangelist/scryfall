@@ -1,0 +1,1256 @@
+{
+  "item": [
+    {
+      "id": "c3697e9b-3f56-4a3d-bfcb-d48aed628245",
+      "name": "Catalogs",
+      "description": {
+        "content": "Convenience lists of Magic data points (card names, types, supertypes, etc.).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9ade2939-d21b-4f00-bc45-6e3e7a106853",
+          "name": "Catalog of Card Names",
+          "request": {
+            "name": "Catalog of Card Names",
+            "description": {
+              "content": "Returns a Catalog of every canonical English card name in Scryfall's database.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "catalog",
+                "card-names"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3edcbb09-9cd6-4c80-bc85-a60cffa6eb5d",
+              "name": "A catalog of card names.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "card-names"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"catalog\",\n  \"uri\": \"http://OSoJgiTEDCwnEuoSXWVXh.qkwz5d,FjE65lh\",\n  \"total_values\": 3639,\n  \"data\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f9213f25-33ef-402c-9dfa-96c47c1a19d3",
+          "name": "Catalog of Artist Names",
+          "request": {
+            "name": "Catalog of Artist Names",
+            "description": {
+              "content": "Returns a Catalog of every artist who has illustrated a Magic card.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "catalog",
+                "artist-names"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9f38e934-ef34-4142-8292-c7adc6762e4a",
+              "name": "A catalog of artist names.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "artist-names"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"catalog\",\n  \"uri\": \"https://sMRgXRQeSv.ttiha8pSmKOEvDqGKsf5,fFyzNIpW26HOacGSRibDFcMZm6PN,j41m6+BT\",\n  \"total_values\": 8076,\n  \"data\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5041d48f-cc84-4448-81ac-97c59010d2a6",
+          "name": "Catalog of Word Bank",
+          "request": {
+            "name": "Catalog of Word Bank",
+            "description": {
+              "content": "Returns a Catalog of every distinct word in card names.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "catalog",
+                "word-bank"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "40bd2b95-95c5-4743-8772-7938d448eeae",
+              "name": "A catalog of words.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "word-bank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"catalog\",\n  \"uri\": \"https://sMRgXRQeSv.ttiha8pSmKOEvDqGKsf5,fFyzNIpW26HOacGSRibDFcMZm6PN,j41m6+BT\",\n  \"total_values\": 8076,\n  \"data\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "58844fd0-5d19-4c64-a1fc-b5a375dd969e",
+          "name": "Catalog of Creature Types",
+          "request": {
+            "name": "Catalog of Creature Types",
+            "description": {
+              "content": "Returns a Catalog of all creature types in Magic.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "catalog",
+                "creature-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5431c9c8-d565-498f-93ec-b92f9865b745",
+              "name": "A catalog of creature types.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "creature-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"catalog\",\n  \"uri\": \"https://sMRgXRQeSv.ttiha8pSmKOEvDqGKsf5,fFyzNIpW26HOacGSRibDFcMZm6PN,j41m6+BT\",\n  \"total_values\": 8076,\n  \"data\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ad244a9-e057-41eb-ab06-2423f7c9aec7",
+          "name": "Catalog of Planeswalker Types",
+          "request": {
+            "name": "Catalog of Planeswalker Types",
+            "description": {
+              "content": "Returns a Catalog of all planeswalker subtypes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "catalog",
+                "planeswalker-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f4892f35-9b48-4199-abb5-4aeeac42c149",
+              "name": "A catalog of planeswalker types.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "planeswalker-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"catalog\",\n  \"uri\": \"https://sMRgXRQeSv.ttiha8pSmKOEvDqGKsf5,fFyzNIpW26HOacGSRibDFcMZm6PN,j41m6+BT\",\n  \"total_values\": 8076,\n  \"data\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5a7ac78-4e84-4d6f-bcac-0e3a82324328",
+          "name": "Catalog of Land Types",
+          "request": {
+            "name": "Catalog of Land Types",
+            "description": {
+              "content": "Returns a Catalog of all land subtypes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "catalog",
+                "land-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d0b3e952-056d-4824-977d-6adbb361a8db",
+              "name": "A catalog of land types.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "land-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"catalog\",\n  \"uri\": \"https://sMRgXRQeSv.ttiha8pSmKOEvDqGKsf5,fFyzNIpW26HOacGSRibDFcMZm6PN,j41m6+BT\",\n  \"total_values\": 8076,\n  \"data\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4b39779a-9ce5-4fd3-96d6-94fc3ee20f3a",
+          "name": "Catalog of Artifact Types",
+          "request": {
+            "name": "Catalog of Artifact Types",
+            "description": {
+              "content": "Returns a Catalog of all artifact subtypes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "catalog",
+                "artifact-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9c0812cd-0ea6-4f24-b509-5395a95e6bea",
+              "name": "A catalog of artifact types.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "artifact-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"catalog\",\n  \"uri\": \"https://sMRgXRQeSv.ttiha8pSmKOEvDqGKsf5,fFyzNIpW26HOacGSRibDFcMZm6PN,j41m6+BT\",\n  \"total_values\": 8076,\n  \"data\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f347d7c4-90b3-49f8-9eec-041279c83967",
+          "name": "Catalog of Enchantment Types",
+          "request": {
+            "name": "Catalog of Enchantment Types",
+            "description": {
+              "content": "Returns a Catalog of all enchantment subtypes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "catalog",
+                "enchantment-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5901c5fa-ca6d-42d7-84c4-bf7339e1b704",
+              "name": "A catalog of enchantment types.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "enchantment-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"catalog\",\n  \"uri\": \"https://sMRgXRQeSv.ttiha8pSmKOEvDqGKsf5,fFyzNIpW26HOacGSRibDFcMZm6PN,j41m6+BT\",\n  \"total_values\": 8076,\n  \"data\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a51b45f7-6f14-44c2-b9f8-5a474614ae31",
+          "name": "Catalog of Spell Types",
+          "request": {
+            "name": "Catalog of Spell Types",
+            "description": {
+              "content": "Returns a Catalog of all spell subtypes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "catalog",
+                "spell-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3489e0f5-c120-41e0-9d6a-2632dfe369c4",
+              "name": "A catalog of spell types.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "spell-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"catalog\",\n  \"uri\": \"https://sMRgXRQeSv.ttiha8pSmKOEvDqGKsf5,fFyzNIpW26HOacGSRibDFcMZm6PN,j41m6+BT\",\n  \"total_values\": 8076,\n  \"data\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c0842dbd-385f-4057-947b-1ff36c9faf38",
+          "name": "Catalog of Powers",
+          "request": {
+            "name": "Catalog of Powers",
+            "description": {
+              "content": "Returns a Catalog of all power values on creature cards.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "catalog",
+                "powers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "415704db-8e54-4c87-ac93-a9150befaafc",
+              "name": "A catalog of power values.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "powers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"catalog\",\n  \"uri\": \"https://sMRgXRQeSv.ttiha8pSmKOEvDqGKsf5,fFyzNIpW26HOacGSRibDFcMZm6PN,j41m6+BT\",\n  \"total_values\": 8076,\n  \"data\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "35c7e589-5ae6-4cc4-a2d5-a5ba4b20d302",
+          "name": "Catalog of Toughnesses",
+          "request": {
+            "name": "Catalog of Toughnesses",
+            "description": {
+              "content": "Returns a Catalog of all toughness values on creature cards.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "catalog",
+                "toughnesses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4186496d-4146-4270-9f1a-13568acfb631",
+              "name": "A catalog of toughness values.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "toughnesses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"catalog\",\n  \"uri\": \"https://sMRgXRQeSv.ttiha8pSmKOEvDqGKsf5,fFyzNIpW26HOacGSRibDFcMZm6PN,j41m6+BT\",\n  \"total_values\": 8076,\n  \"data\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a49a437-8432-4e51-973d-864e41ce953a",
+          "name": "Catalog of Loyalties",
+          "request": {
+            "name": "Catalog of Loyalties",
+            "description": {
+              "content": "Returns a Catalog of all loyalty values on planeswalker cards.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "catalog",
+                "loyalties"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "563689a6-aa12-4d4f-a360-a1c5796615fe",
+              "name": "A catalog of loyalty values.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "loyalties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"catalog\",\n  \"uri\": \"https://sMRgXRQeSv.ttiha8pSmKOEvDqGKsf5,fFyzNIpW26HOacGSRibDFcMZm6PN,j41m6+BT\",\n  \"total_values\": 8076,\n  \"data\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b3e3e1fc-aa44-4d5f-bdbf-2a1a2911a6c9",
+          "name": "Catalog of Keyword Abilities",
+          "request": {
+            "name": "Catalog of Keyword Abilities",
+            "description": {
+              "content": "Returns a Catalog of all keyword abilities Magic cards may have.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "catalog",
+                "keyword-abilities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aa010dd1-a333-4f84-a4a3-f1c7919b4902",
+              "name": "A catalog of keyword abilities.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "keyword-abilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"catalog\",\n  \"uri\": \"https://sMRgXRQeSv.ttiha8pSmKOEvDqGKsf5,fFyzNIpW26HOacGSRibDFcMZm6PN,j41m6+BT\",\n  \"total_values\": 8076,\n  \"data\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d52c649a-b172-483f-a188-370a2af5af20",
+          "name": "Catalog of Keyword Actions",
+          "request": {
+            "name": "Catalog of Keyword Actions",
+            "description": {
+              "content": "Returns a Catalog of all keyword actions in Magic.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "catalog",
+                "keyword-actions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eea68487-aca4-4763-9c65-58ca8baa8b27",
+              "name": "A catalog of keyword actions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "keyword-actions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"catalog\",\n  \"uri\": \"https://sMRgXRQeSv.ttiha8pSmKOEvDqGKsf5,fFyzNIpW26HOacGSRibDFcMZm6PN,j41m6+BT\",\n  \"total_values\": 8076,\n  \"data\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b8976cc5-dcae-4474-81c6-df7ebe7f0264",
+          "name": "Catalog of Ability Words",
+          "request": {
+            "name": "Catalog of Ability Words",
+            "description": {
+              "content": "Returns a Catalog of all ability words on Magic cards.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "catalog",
+                "ability-words"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fb41e3f3-cc9f-4be9-bb0d-38a90acbadad",
+              "name": "A catalog of ability words.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "ability-words"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"catalog\",\n  \"uri\": \"https://sMRgXRQeSv.ttiha8pSmKOEvDqGKsf5,fFyzNIpW26HOacGSRibDFcMZm6PN,j41m6+BT\",\n  \"total_values\": 8076,\n  \"data\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7756cf6-8c34-4dc3-b627-832dd133aa90",
+          "name": "Catalog of Watermarks",
+          "request": {
+            "name": "Catalog of Watermarks",
+            "description": {
+              "content": "Returns a Catalog of all distinct illustration watermarks used on Magic cards.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "catalog",
+                "watermarks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3eea6b26-6889-48bf-b747-d5593ccca2f2",
+              "name": "A catalog of watermarks.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "watermarks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"catalog\",\n  \"uri\": \"https://sMRgXRQeSv.ttiha8pSmKOEvDqGKsf5,fFyzNIpW26HOacGSRibDFcMZm6PN,j41m6+BT\",\n  \"total_values\": 8076,\n  \"data\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e18d097-5acd-467a-af31-cde1da8f61ac",
+          "name": "Catalog of Card Supertypes",
+          "request": {
+            "name": "Catalog of Card Supertypes",
+            "description": {
+              "content": "Returns a Catalog of card supertypes (e.g., Basic, Legendary, Snow, World).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "catalog",
+                "supertypes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "399874da-372a-4bff-af76-7bd2e3ed211e",
+              "name": "A catalog of supertypes.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "supertypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"catalog\",\n  \"uri\": \"https://sMRgXRQeSv.ttiha8pSmKOEvDqGKsf5,fFyzNIpW26HOacGSRibDFcMZm6PN,j41m6+BT\",\n  \"total_values\": 8076,\n  \"data\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.scryfall.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4debd637-dd83-4dff-b527-8e2f82370abe",
+    "name": "Scryfall Catalogs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Scryfall API is a REST-like interface to the most comprehensive Magic: The Gathering\ncard database. It exposes Card, Set, Ruling, Symbology, Catalog, and Bulk Data resources\nused by community tools, deck builders, price trackers, and research projects.\n\nThe API is provided free of charge as part of the Wizards of the Coast Fan Content Policy\nfor the primary purpose of creating additional Magic software, performing research, or\ncreating community content. It is served only over HTTPS (TLS 1.2+) and requires both a\ndescriptive User-Agent and an Accept header on every request. Clients are expected to\nkeep request rates under 10 per second (50–100 ms delay between calls), and to use the\nbulk-data downloads for any large-scale ingestion task instead of crawling Card endpoints.\n\n\nContact Support:\n Name: Scryfall API Support",
+      "type": "text/plain"
+    }
+  }
+}

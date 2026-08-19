@@ -1,0 +1,388 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Scryfall Cards API",
+    "version": "2026-05-29"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Cards",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/cards/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "A fulltext search query."
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dir",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_extras",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_multilingual",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_variations",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a List of cards matching a Scryfall full-text search query."
+        },
+        {
+          "info": {
+            "name": "Get Card by Name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/cards/named",
+            "params": [
+              {
+                "name": "exact",
+                "value": "",
+                "type": "query",
+                "description": "The exact card name to search for."
+              },
+              {
+                "name": "fuzzy",
+                "value": "",
+                "type": "query",
+                "description": "A fuzzy card name to search for."
+              },
+              {
+                "name": "set",
+                "value": "",
+                "type": "query",
+                "description": "A set code to limit the search to one set."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "face",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a Card based on a name search string (exact or fuzzy match)."
+        },
+        {
+          "info": {
+            "name": "Autocomplete Card Names",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/cards/autocomplete",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_extras",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a Catalog of up to 20 card-name autocompletions for a partial card-name input."
+        },
+        {
+          "info": {
+            "name": "Get a Random Card",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/cards/random",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "face",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a single random Card, optionally filtered by a Scryfall search query."
+        },
+        {
+          "info": {
+            "name": "Get a Card Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.scryfall.com/cards/collection",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Accepts a JSON array of card identifiers and returns a List of the requested cards. Identifiers can be id, mtgo_id, multiverse_id, oracle_id, illustration_id, name, set+name, or set+collector_number."
+        },
+        {
+          "info": {
+            "name": "Get a Card by Scryfall ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/cards/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "face",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pretty",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a single Card with the given Scryfall ID."
+        },
+        {
+          "info": {
+            "name": "Get a Card by Set Code and Collector Number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/cards/:code/:number",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a single Card with the given set code and collector number."
+        },
+        {
+          "info": {
+            "name": "Get a Localized Card by Set, Number, and Language",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/cards/:code/:number/:lang",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a single Card with the given set code, collector number, and language code."
+        },
+        {
+          "info": {
+            "name": "Get a Card by Multiverse ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/cards/multiverse/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the Card with the given Gatherer multiverse ID."
+        },
+        {
+          "info": {
+            "name": "Get a Card by MTGO ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/cards/mtgo/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the Card with the given Magic Online catalog ID."
+        },
+        {
+          "info": {
+            "name": "Get a Card by Arena ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/cards/arena/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the Card with the given Magic Arena ID."
+        },
+        {
+          "info": {
+            "name": "Get a Card by TCGplayer ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/cards/tcgplayer/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the Card with the given TCGplayer product ID."
+        },
+        {
+          "info": {
+            "name": "Get a Card by Cardmarket ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.scryfall.com/cards/cardmarket/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the Card with the given Cardmarket idProduct."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

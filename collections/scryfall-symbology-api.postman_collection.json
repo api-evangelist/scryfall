@@ -1,0 +1,186 @@
+{
+  "item": [
+    {
+      "id": "ce327527-ada7-4a6b-b6af-90d6c393da0f",
+      "name": "Symbology",
+      "description": {
+        "content": "All card symbols and their semantics.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2976d858-1ad5-4875-9e58-fdded0ade35b",
+          "name": "List All Card Symbols",
+          "request": {
+            "name": "List All Card Symbols",
+            "description": {
+              "content": "Returns a List of all Card Symbols documented by Scryfall.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "symbology"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "776901f3-7deb-4a1d-a048-0b58de5c41d1",
+              "name": "A list of card symbols.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "symbology"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"list\",\n  \"total_cards\": 8716,\n  \"has_more\": true,\n  \"next_page\": \"http://StImGvWliwnYAHVUeEvxMNyIiZEJGWO.xxlMw9aF86eS5zClIfwlRV5x,C1BZ,muhwOSqJ+Jiweti-qsZtUFpQt\",\n  \"data\": [\n    {\n      \"object\": \"card_symbol\",\n      \"symbol\": \"string\",\n      \"loose_variant\": \"string\",\n      \"english\": \"string\",\n      \"transposable\": false,\n      \"represents_mana\": false,\n      \"appears_in_mana_costs\": false,\n      \"mana_value\": 2213.497359897606,\n      \"cmc\": 151.2741408294638,\n      \"colors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"funny\": false,\n      \"hybrid\": true,\n      \"phyrexian\": true,\n      \"gatherer_alternates\": [\n        \"string\",\n        \"string\"\n      ],\n      \"svg_uri\": \"http://ZqSJyigwTKUPPAIiP.dvuqpWEO4xbp4OA054LfFYrX8a29wyx.kJRo2c\"\n    },\n    {\n      \"object\": \"card_symbol\",\n      \"symbol\": \"string\",\n      \"loose_variant\": \"string\",\n      \"english\": \"string\",\n      \"transposable\": true,\n      \"represents_mana\": true,\n      \"appears_in_mana_costs\": true,\n      \"mana_value\": 9318.049682750496,\n      \"cmc\": 6050.009367325486,\n      \"colors\": [\n        \"string\",\n        \"string\"\n      ],\n      \"funny\": true,\n      \"hybrid\": true,\n      \"phyrexian\": false,\n      \"gatherer_alternates\": [\n        \"string\",\n        \"string\"\n      ],\n      \"svg_uri\": \"http://KwPTENRzWVNSJ.xvuDt4Mf2\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e65eb8cc-4c02-4421-8ae5-54873d5b7394",
+          "name": "Parse a Mana Cost",
+          "request": {
+            "name": "Parse a Mana Cost",
+            "description": {
+              "content": "Parses the given mana cost string and returns a normalized representation including converted mana cost.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "symbology",
+                "parse-mana"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cost",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0f895559-c331-4359-8902-111ae0032803",
+              "name": "A parsed mana cost.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "symbology",
+                    "parse-mana"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cost",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"mana_cost\",\n  \"cost\": \"string\",\n  \"cmc\": 9549.954506297274,\n  \"colors\": [\n    \"string\",\n    \"string\"\n  ],\n  \"colorless\": false,\n  \"monocolored\": false,\n  \"multicolored\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.scryfall.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1dd00d2e-c2d3-4c9a-99d3-beceb1712fc9",
+    "name": "Scryfall Symbology API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Scryfall API is a REST-like interface to the most comprehensive Magic: The Gathering\ncard database. It exposes Card, Set, Ruling, Symbology, Catalog, and Bulk Data resources\nused by community tools, deck builders, price trackers, and research projects.\n\nThe API is provided free of charge as part of the Wizards of the Coast Fan Content Policy\nfor the primary purpose of creating additional Magic software, performing research, or\ncreating community content. It is served only over HTTPS (TLS 1.2+) and requires both a\ndescriptive User-Agent and an Accept header on every request. Clients are expected to\nkeep request rates under 10 per second (50–100 ms delay between calls), and to use the\nbulk-data downloads for any large-scale ingestion task instead of crawling Card endpoints.\n\n\nContact Support:\n Name: Scryfall API Support",
+      "type": "text/plain"
+    }
+  }
+}

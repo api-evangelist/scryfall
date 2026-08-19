@@ -1,0 +1,504 @@
+{
+  "item": [
+    {
+      "id": "d37821b8-ae2e-449e-9db3-994bb3e6078e",
+      "name": "Rulings",
+      "description": {
+        "content": "Oracle rulings, WotC release notes, and Scryfall notes for a card.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "db1222c6-8602-4c0b-94cc-e12d6d8d24b1",
+          "name": "Get Rulings by Card ID",
+          "request": {
+            "name": "Get Rulings by Card ID",
+            "description": {
+              "content": "Returns a List of all rulings for the Card with the given Scryfall ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cards",
+                ":id",
+                "rulings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a060ff30-ca14-4818-a527-06c0a5e9c598",
+              "name": "A list of rulings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    ":id",
+                    "rulings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"list\",\n  \"total_cards\": 8478,\n  \"has_more\": false,\n  \"next_page\": \"https://lPdVDuuJqkTspgZOQCtOZEiP.liKttR1rQXetqMcD.Mu-tt-G-rUh6YlVnnh9mCRXcBKOLsktynPbig,h8pzmb\",\n  \"data\": [\n    {\n      \"object\": \"ruling\",\n      \"oracle_id\": \"d03bce58-8efe-7952-d2b2-d66d939913cc\",\n      \"source\": \"wotc\",\n      \"published_at\": \"1956-02-06\",\n      \"comment\": \"string\"\n    },\n    {\n      \"object\": \"ruling\",\n      \"oracle_id\": \"afdc354c-0fd6-7b1b-a7b3-77d14c68c601\",\n      \"source\": \"scryfall\",\n      \"published_at\": \"1948-08-03\",\n      \"comment\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3af2d7fb-2f3a-4363-bdd4-36caddf20cd3",
+          "name": "Get Rulings by Multiverse ID",
+          "request": {
+            "name": "Get Rulings by Multiverse ID",
+            "description": {
+              "content": "Returns rulings for the card identified by its Gatherer multiverse ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cards",
+                "multiverse",
+                ":id",
+                "rulings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3a7d1691-38d0-45dc-be4a-0a56bcbba8ea",
+              "name": "A list of rulings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    "multiverse",
+                    ":id",
+                    "rulings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"list\",\n  \"total_cards\": 2571,\n  \"has_more\": true,\n  \"next_page\": \"https://HgQZoGQwPbDKvuRmPWIjRSMqNrSeeaM.jkG.7b12RW4ugE98TMK8XU43ASqdCWgrQ33RSW4\",\n  \"data\": [\n    {\n      \"object\": \"ruling\",\n      \"oracle_id\": \"0d99fcff-e8eb-a4bb-f528-6b01dd3d3285\",\n      \"source\": \"wotc\",\n      \"published_at\": \"1969-03-23\",\n      \"comment\": \"string\"\n    },\n    {\n      \"object\": \"ruling\",\n      \"oracle_id\": \"7eb8aa8d-a524-0a68-4362-305f4e0b3625\",\n      \"source\": \"scryfall\",\n      \"published_at\": \"1998-01-22\",\n      \"comment\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f645729e-fdb8-4202-8995-0092a9347265",
+          "name": "Get Rulings by MTGO ID",
+          "request": {
+            "name": "Get Rulings by MTGO ID",
+            "description": {
+              "content": "Returns rulings for the card identified by its Magic Online catalog ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cards",
+                "mtgo",
+                ":id",
+                "rulings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6581efa5-26f1-46dc-995c-cb2f5afcb0fa",
+              "name": "A list of rulings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    "mtgo",
+                    ":id",
+                    "rulings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"list\",\n  \"total_cards\": 2571,\n  \"has_more\": true,\n  \"next_page\": \"https://HgQZoGQwPbDKvuRmPWIjRSMqNrSeeaM.jkG.7b12RW4ugE98TMK8XU43ASqdCWgrQ33RSW4\",\n  \"data\": [\n    {\n      \"object\": \"ruling\",\n      \"oracle_id\": \"0d99fcff-e8eb-a4bb-f528-6b01dd3d3285\",\n      \"source\": \"wotc\",\n      \"published_at\": \"1969-03-23\",\n      \"comment\": \"string\"\n    },\n    {\n      \"object\": \"ruling\",\n      \"oracle_id\": \"7eb8aa8d-a524-0a68-4362-305f4e0b3625\",\n      \"source\": \"scryfall\",\n      \"published_at\": \"1998-01-22\",\n      \"comment\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "560b510f-7b56-4775-9a0c-6cda7524a282",
+          "name": "Get Rulings by Arena ID",
+          "request": {
+            "name": "Get Rulings by Arena ID",
+            "description": {
+              "content": "Returns rulings for the card identified by its Magic Arena ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cards",
+                "arena",
+                ":id",
+                "rulings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b02eb80b-25c1-4efb-b30e-32781f9b1244",
+              "name": "A list of rulings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    "arena",
+                    ":id",
+                    "rulings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"list\",\n  \"total_cards\": 2571,\n  \"has_more\": true,\n  \"next_page\": \"https://HgQZoGQwPbDKvuRmPWIjRSMqNrSeeaM.jkG.7b12RW4ugE98TMK8XU43ASqdCWgrQ33RSW4\",\n  \"data\": [\n    {\n      \"object\": \"ruling\",\n      \"oracle_id\": \"0d99fcff-e8eb-a4bb-f528-6b01dd3d3285\",\n      \"source\": \"wotc\",\n      \"published_at\": \"1969-03-23\",\n      \"comment\": \"string\"\n    },\n    {\n      \"object\": \"ruling\",\n      \"oracle_id\": \"7eb8aa8d-a524-0a68-4362-305f4e0b3625\",\n      \"source\": \"scryfall\",\n      \"published_at\": \"1998-01-22\",\n      \"comment\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19674163-8cfd-4523-974c-63f2cd52bd47",
+          "name": "Get Rulings by Set Code and Number",
+          "request": {
+            "name": "Get Rulings by Set Code and Number",
+            "description": {
+              "content": "Returns rulings for the card with the given set code and collector number.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cards",
+                ":code",
+                ":number",
+                "rulings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "code",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "number",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "82656d37-0b19-44f7-9abb-719c79a94f4e",
+              "name": "A list of rulings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    ":code",
+                    ":number",
+                    "rulings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"object\": \"list\",\n  \"total_cards\": 2571,\n  \"has_more\": true,\n  \"next_page\": \"https://HgQZoGQwPbDKvuRmPWIjRSMqNrSeeaM.jkG.7b12RW4ugE98TMK8XU43ASqdCWgrQ33RSW4\",\n  \"data\": [\n    {\n      \"object\": \"ruling\",\n      \"oracle_id\": \"0d99fcff-e8eb-a4bb-f528-6b01dd3d3285\",\n      \"source\": \"wotc\",\n      \"published_at\": \"1969-03-23\",\n      \"comment\": \"string\"\n    },\n    {\n      \"object\": \"ruling\",\n      \"oracle_id\": \"7eb8aa8d-a524-0a68-4362-305f4e0b3625\",\n      \"source\": \"scryfall\",\n      \"published_at\": \"1998-01-22\",\n      \"comment\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.scryfall.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "044656bd-8d10-4121-bc36-379783e553f4",
+    "name": "Scryfall Rulings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Scryfall API is a REST-like interface to the most comprehensive Magic: The Gathering\ncard database. It exposes Card, Set, Ruling, Symbology, Catalog, and Bulk Data resources\nused by community tools, deck builders, price trackers, and research projects.\n\nThe API is provided free of charge as part of the Wizards of the Coast Fan Content Policy\nfor the primary purpose of creating additional Magic software, performing research, or\ncreating community content. It is served only over HTTPS (TLS 1.2+) and requires both a\ndescriptive User-Agent and an Accept header on every request. Clients are expected to\nkeep request rates under 10 per second (50–100 ms delay between calls), and to use the\nbulk-data downloads for any large-scale ingestion task instead of crawling Card endpoints.\n\n\nContact Support:\n Name: Scryfall API Support",
+      "type": "text/plain"
+    }
+  }
+}

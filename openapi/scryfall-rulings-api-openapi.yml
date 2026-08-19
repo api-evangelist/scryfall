@@ -1,0 +1,195 @@
+openapi: 3.2.0
+info:
+  title: Scryfall Rulings API
+  description: 'The Scryfall API is a REST-like interface to the most comprehensive Magic: The Gathering
+
+    card database. It exposes Card, Set, Ruling, Symbology, Catalog, and Bulk Data resources
+
+    used by community tools, deck builders, price trackers, and research projects.
+
+
+    The API is provided free of charge as part of the Wizards of the Coast Fan Content Policy
+
+    for the primary purpose of creating additional Magic software, performing research, or
+
+    creating community content. It is served only over HTTPS (TLS 1.2+) and requires both a
+
+    descriptive User-Agent and an Accept header on every request. Clients are expected to
+
+    keep request rates under 10 per second (50–100 ms delay between calls), and to use the
+
+    bulk-data downloads for any large-scale ingestion task instead of crawling Card endpoints.
+
+    '
+  version: '2026-05-29'
+  contact:
+    name: Scryfall API Support
+    url: https://scryfall.com/contact
+  license:
+    name: Scryfall API License (Free with attribution)
+    url: https://scryfall.com/docs/api
+  termsOfService: https://scryfall.com/docs/api
+servers:
+- url: https://api.scryfall.com
+  description: Production API
+tags:
+- name: Rulings
+  description: Oracle rulings, WotC release notes, and Scryfall notes for a card.
+paths:
+  /cards/{id}/rulings:
+    get:
+      tags:
+      - Rulings
+      summary: Get Rulings by Card ID
+      description: Returns a List of all rulings for the Card with the given Scryfall ID.
+      operationId: getRulingsByCardId
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: A list of rulings.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RulingList'
+  /cards/multiverse/{id}/rulings:
+    get:
+      tags:
+      - Rulings
+      summary: Get Rulings by Multiverse ID
+      description: Returns rulings for the card identified by its Gatherer multiverse ID.
+      operationId: getRulingsByMultiverseId
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A list of rulings.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RulingList'
+  /cards/mtgo/{id}/rulings:
+    get:
+      tags:
+      - Rulings
+      summary: Get Rulings by MTGO ID
+      description: Returns rulings for the card identified by its Magic Online catalog ID.
+      operationId: getRulingsByMtgoId
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A list of rulings.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RulingList'
+  /cards/arena/{id}/rulings:
+    get:
+      tags:
+      - Rulings
+      summary: Get Rulings by Arena ID
+      description: Returns rulings for the card identified by its Magic Arena ID.
+      operationId: getRulingsByArenaId
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A list of rulings.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RulingList'
+  /cards/{code}/{number}/rulings:
+    get:
+      tags:
+      - Rulings
+      summary: Get Rulings by Set Code and Number
+      description: Returns rulings for the card with the given set code and collector number.
+      operationId: getRulingsBySetAndNumber
+      parameters:
+      - name: code
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: number
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of rulings.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RulingList'
+components:
+  schemas:
+    Ruling:
+      type: object
+      description: 'A Scryfall Ruling object: Oracle ruling, WotC release note, or Scryfall note for a card.'
+      properties:
+        object:
+          type: string
+          enum:
+          - ruling
+        oracle_id:
+          type: string
+          format: uuid
+        source:
+          type: string
+          enum:
+          - wotc
+          - scryfall
+        published_at:
+          type: string
+          format: date
+        comment:
+          type: string
+    RulingList:
+      allOf:
+      - $ref: '#/components/schemas/List'
+      - type: object
+        properties:
+          data:
+            type: array
+            items:
+              $ref: '#/components/schemas/Ruling'
+    List:
+      type: object
+      description: A generic Scryfall List object wrapping a paginated collection of any type.
+      properties:
+        object:
+          type: string
+          enum:
+          - list
+        total_cards:
+          type: integer
+        has_more:
+          type: boolean
+        next_page:
+          type: string
+          format: uri
+        data:
+          type: array
+          items:
+            type: object
