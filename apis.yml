@@ -224,6 +224,8 @@ apis:
   humanURL: https://scryfall.com/docs/api
   baseURL: https://api.scryfall.com
   tags:
+  - Catalog
+  tags_raw:
   - Catalogs
   properties:
   - type: OpenAPI
