@@ -1,13 +1,7 @@
 {
   "provider": "scryfall",
   "sources": [
-    "scryfall-bulk-data-api-openapi.yml",
-    "scryfall-cards-api-openapi.yml",
-    "scryfall-catalogs-api-openapi.yml",
-    "scryfall-migrations-api-openapi.yml",
-    "scryfall-rulings-api-openapi.yml",
-    "scryfall-sets-api-openapi.yml",
-    "scryfall-symbology-api-openapi.yml"
+    "_original/scryfall-openapi.yml"
   ],
   "outputs": [
     "scryfall-bulk-data-api-openapi.yml",
@@ -22,14 +16,17 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "scryfall-bulk-data-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "scryfall-cards-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "scryfall-catalogs-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "scryfall-migrations-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "scryfall-rulings-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "scryfall-sets-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "scryfall-symbology-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "scryfall-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "scryfall-bulk-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "scryfall-cards-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "scryfall-catalogs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "scryfall-migrations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "scryfall-rulings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "scryfall-sets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "scryfall-symbology-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

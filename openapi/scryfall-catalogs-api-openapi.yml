@@ -3,24 +3,7 @@ info:
   title: Scryfall Catalogs API
   description: 'The Scryfall API is a REST-like interface to the most comprehensive Magic: The Gathering
 
-    card database. It exposes Card, Set, Ruling, Symbology, Catalog, and Bulk Data resources
-
-    used by community tools, deck builders, price trackers, and research projects.
-
-
-    The API is provided free of charge as part of the Wizards of the Coast Fan Content Policy
-
-    for the primary purpose of creating additional Magic software, performing research, or
-
-    creating community content. It is served only over HTTPS (TLS 1.2+) and requires both a
-
-    descriptive User-Agent and an Accept header on every request. Clients are expected to
-
-    keep request rates under 10 per second (50–100 ms delay between calls), and to use the
-
-    bulk-data downloads for any large-scale ingestion task instead of crawling Card endpoints.
-
-    '
+    card database.'
   version: '2026-05-29'
   contact:
     name: Scryfall API Support

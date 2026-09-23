@@ -3,24 +3,7 @@ info:
   title: Scryfall Cards API
   description: 'The Scryfall API is a REST-like interface to the most comprehensive Magic: The Gathering
 
-    card database. It exposes Card, Set, Ruling, Symbology, Catalog, and Bulk Data resources
-
-    used by community tools, deck builders, price trackers, and research projects.
-
-
-    The API is provided free of charge as part of the Wizards of the Coast Fan Content Policy
-
-    for the primary purpose of creating additional Magic software, performing research, or
-
-    creating community content. It is served only over HTTPS (TLS 1.2+) and requires both a
-
-    descriptive User-Agent and an Accept header on every request. Clients are expected to
-
-    keep request rates under 10 per second (50–100 ms delay between calls), and to use the
-
-    bulk-data downloads for any large-scale ingestion task instead of crawling Card endpoints.
-
-    '
+    card database.'
   version: '2026-05-29'
   contact:
     name: Scryfall API Support
@@ -523,193 +506,6 @@ paths:
                 $ref: '#/components/schemas/Card'
 components:
   schemas:
-    ImageUris:
-      type: object
-      description: URIs for card image renderings at multiple sizes.
-      properties:
-        small:
-          type: string
-          format: uri
-        normal:
-          type: string
-          format: uri
-        large:
-          type: string
-          format: uri
-        png:
-          type: string
-          format: uri
-        art_crop:
-          type: string
-          format: uri
-        border_crop:
-          type: string
-          format: uri
-    Prices:
-      type: object
-      description: Up-to-date market prices for this printing in several currencies and finishes.
-      properties:
-        usd:
-          type: string
-        usd_foil:
-          type: string
-        usd_etched:
-          type: string
-        eur:
-          type: string
-        eur_foil:
-          type: string
-        tix:
-          type: string
-    RelatedCard:
-      type: object
-      description: A reference to a card related to this one (e.g., meld, token, combo).
-      properties:
-        object:
-          type: string
-          enum:
-          - related_card
-        id:
-          type: string
-          format: uuid
-        component:
-          type: string
-          enum:
-          - token
-          - meld_part
-          - meld_result
-          - combo_piece
-        name:
-          type: string
-        type_line:
-          type: string
-        uri:
-          type: string
-          format: uri
-    Legalities:
-      type: object
-      description: Format-by-format legality of a card; values are legal, not_legal, restricted, or banned.
-      additionalProperties:
-        type: string
-        enum:
-        - legal
-        - not_legal
-        - restricted
-        - banned
-      properties:
-        standard:
-          type: string
-        future:
-          type: string
-        historic:
-          type: string
-        timeless:
-          type: string
-        gladiator:
-          type: string
-        pioneer:
-          type: string
-        explorer:
-          type: string
-        modern:
-          type: string
-        legacy:
-          type: string
-        pauper:
-          type: string
-        vintage:
-          type: string
-        penny:
-          type: string
-        commander:
-          type: string
-        oathbreaker:
-          type: string
-        standardbrawl:
-          type: string
-        brawl:
-          type: string
-        alchemy:
-          type: string
-        paupercommander:
-          type: string
-        duel:
-          type: string
-        oldschool:
-          type: string
-        premodern:
-          type: string
-        predh:
-          type: string
-    Error:
-      type: object
-      description: A Scryfall Error response object returned for any non-2xx status.
-      properties:
-        object:
-          type: string
-          enum:
-          - error
-        status:
-          type: integer
-        code:
-          type: string
-        details:
-          type: string
-        type:
-          type: string
-        warnings:
-          type: array
-          items:
-            type: string
-    CardList:
-      allOf:
-      - $ref: '#/components/schemas/List'
-      - type: object
-        properties:
-          data:
-            type: array
-            items:
-              $ref: '#/components/schemas/Card'
-          not_found:
-            type: array
-            items:
-              type: object
-    List:
-      type: object
-      description: A generic Scryfall List object wrapping a paginated collection of any type.
-      properties:
-        object:
-          type: string
-          enum:
-          - list
-        total_cards:
-          type: integer
-        has_more:
-          type: boolean
-        next_page:
-          type: string
-          format: uri
-        data:
-          type: array
-          items:
-            type: object
-    Catalog:
-      type: object
-      description: A Scryfall Catalog object containing an array of Magic datapoints (names, types, etc.).
-      properties:
-        object:
-          type: string
-          enum:
-          - catalog
-        uri:
-          type: string
-          format: uri
-        total_values:
-          type: integer
-        data:
-          type: array
-          items:
-            type: string
     Card:
       type: object
       description: 'A Scryfall Card object representing a Magic: The Gathering card printing.'
@@ -940,6 +736,48 @@ components:
             type: string
         watermark:
           type: string
+    Catalog:
+      type: object
+      description: A Scryfall Catalog object containing an array of Magic datapoints (names, types, etc.).
+      properties:
+        object:
+          type: string
+          enum:
+          - catalog
+        uri:
+          type: string
+          format: uri
+        total_values:
+          type: integer
+        data:
+          type: array
+          items:
+            type: string
+    RelatedCard:
+      type: object
+      description: A reference to a card related to this one (e.g., meld, token, combo).
+      properties:
+        object:
+          type: string
+          enum:
+          - related_card
+        id:
+          type: string
+          format: uuid
+        component:
+          type: string
+          enum:
+          - token
+          - meld_part
+          - meld_result
+          - combo_piece
+        name:
+          type: string
+        type_line:
+          type: string
+        uri:
+          type: string
+          format: uri
     CardFace:
       type: object
       description: One face of a multi-faced Magic card.
@@ -982,3 +820,148 @@ components:
           $ref: '#/components/schemas/ImageUris'
         watermark:
           type: string
+    Error:
+      type: object
+      description: A Scryfall Error response object returned for any non-2xx status.
+      properties:
+        object:
+          type: string
+          enum:
+          - error
+        status:
+          type: integer
+        code:
+          type: string
+        details:
+          type: string
+        type:
+          type: string
+        warnings:
+          type: array
+          items:
+            type: string
+    Legalities:
+      type: object
+      description: Format-by-format legality of a card; values are legal, not_legal, restricted, or banned.
+      additionalProperties:
+        type: string
+        enum:
+        - legal
+        - not_legal
+        - restricted
+        - banned
+      properties:
+        standard:
+          type: string
+        future:
+          type: string
+        historic:
+          type: string
+        timeless:
+          type: string
+        gladiator:
+          type: string
+        pioneer:
+          type: string
+        explorer:
+          type: string
+        modern:
+          type: string
+        legacy:
+          type: string
+        pauper:
+          type: string
+        vintage:
+          type: string
+        penny:
+          type: string
+        commander:
+          type: string
+        oathbreaker:
+          type: string
+        standardbrawl:
+          type: string
+        brawl:
+          type: string
+        alchemy:
+          type: string
+        paupercommander:
+          type: string
+        duel:
+          type: string
+        oldschool:
+          type: string
+        premodern:
+          type: string
+        predh:
+          type: string
+    Prices:
+      type: object
+      description: Up-to-date market prices for this printing in several currencies and finishes.
+      properties:
+        usd:
+          type: string
+        usd_foil:
+          type: string
+        usd_etched:
+          type: string
+        eur:
+          type: string
+        eur_foil:
+          type: string
+        tix:
+          type: string
+    List:
+      type: object
+      description: A generic Scryfall List object wrapping a paginated collection of any type.
+      properties:
+        object:
+          type: string
+          enum:
+          - list
+        total_cards:
+          type: integer
+        has_more:
+          type: boolean
+        next_page:
+          type: string
+          format: uri
+        data:
+          type: array
+          items:
+            type: object
+    CardList:
+      allOf:
+      - $ref: '#/components/schemas/List'
+      - type: object
+        properties:
+          data:
+            type: array
+            items:
+              $ref: '#/components/schemas/Card'
+          not_found:
+            type: array
+            items:
+              type: object
+    ImageUris:
+      type: object
+      description: URIs for card image renderings at multiple sizes.
+      properties:
+        small:
+          type: string
+          format: uri
+        normal:
+          type: string
+          format: uri
+        large:
+          type: string
+          format: uri
+        png:
+          type: string
+          format: uri
+        art_crop:
+          type: string
+          format: uri
+        border_crop:
+          type: string
+          format: uri
