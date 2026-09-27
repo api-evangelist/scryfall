@@ -127,6 +127,15 @@ paths:
                 $ref: '#/components/schemas/RulingList'
 components:
   schemas:
+    RulingList:
+      allOf:
+      - $ref: '#/components/schemas/List'
+      - type: object
+        properties:
+          data:
+            type: array
+            items:
+              $ref: '#/components/schemas/Ruling'
     List:
       type: object
       description: A generic Scryfall List object wrapping a paginated collection of any type.
@@ -167,12 +176,3 @@ components:
           format: date
         comment:
           type: string
-    RulingList:
-      allOf:
-      - $ref: '#/components/schemas/List'
-      - type: object
-        properties:
-          data:
-            type: array
-            items:
-              $ref: '#/components/schemas/Ruling'
