@@ -56,25 +56,6 @@ paths:
                 $ref: '#/components/schemas/Migration'
 components:
   schemas:
-    List:
-      type: object
-      description: A generic Scryfall List object wrapping a paginated collection of any type.
-      properties:
-        object:
-          type: string
-          enum:
-          - list
-        total_cards:
-          type: integer
-        has_more:
-          type: boolean
-        next_page:
-          type: string
-          format: uri
-        data:
-          type: array
-          items:
-            type: object
     Migration:
       type: object
       description: A Scryfall Migration record indicating a card object was renamed, merged, or removed.
@@ -114,3 +95,22 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/Migration'
+    List:
+      type: object
+      description: A generic Scryfall List object wrapping a paginated collection of any type.
+      properties:
+        object:
+          type: string
+          enum:
+          - list
+        total_cards:
+          type: integer
+        has_more:
+          type: boolean
+        next_page:
+          type: string
+          format: uri
+        data:
+          type: array
+          items:
+            type: object

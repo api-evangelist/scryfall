@@ -82,6 +82,25 @@ paths:
                 $ref: '#/components/schemas/BulkData'
 components:
   schemas:
+    List:
+      type: object
+      description: A generic Scryfall List object wrapping a paginated collection of any type.
+      properties:
+        object:
+          type: string
+          enum:
+          - list
+        total_cards:
+          type: integer
+        has_more:
+          type: boolean
+        next_page:
+          type: string
+          format: uri
+        data:
+          type: array
+          items:
+            type: object
     BulkData:
       type: object
       description: A Scryfall Bulk Data object describing one downloadable export of card data.
@@ -122,25 +141,6 @@ components:
           type: string
         size:
           type: integer
-    List:
-      type: object
-      description: A generic Scryfall List object wrapping a paginated collection of any type.
-      properties:
-        object:
-          type: string
-          enum:
-          - list
-        total_cards:
-          type: integer
-        has_more:
-          type: boolean
-        next_page:
-          type: string
-          format: uri
-        data:
-          type: array
-          items:
-            type: object
     BulkDataList:
       allOf:
       - $ref: '#/components/schemas/List'
