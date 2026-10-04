@@ -46,13 +46,14 @@ x-tier-reason: enriched-via-full-pipeline
 x-source: public-apis/public-apis
 x-category: Games & Comics
 tags:
-  - Games And Comics
   - Magic The Gathering
   - Card Data
   - Open Data
   - Free
   - Community Funded
   - Public APIs
+  - Gaming
+  - Card Games
 apis:
 - aid: scryfall:scryfall-bulk-data-api
   name: Scryfall Bulk Data API
@@ -827,3 +828,5 @@ common:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-tags-removed:
+- Games And Comics

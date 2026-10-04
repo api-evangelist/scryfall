@@ -1,34 +1,32 @@
-# Kin Score artifact — scryfall — 2026-08-25T133943
+# Kin Score artifact — scryfall — 2026-10-03T024842
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: scryfall
-  schema_version: 0.14.0
-  scored_at: '2026-08-25'
-  run_ts: 2026-08-25T133943
-  composite: 57.2
-  band: strong
+  schema_version: 0.23.0
+  scored_at: '2026-10-03'
+  run_ts: 2026-10-03T024842
+  composite: 52.0
+  band: developing
   facets:
-    discoverability: 74.1
-    contract_quality: 58.8
-    governance: 25.0
-    operational_transparency: 50.0
-    developer_ergonomics: 57.1
-    commercial_clarity: 52.6
-    contract_governance: 25.0
-    access_clarity: 52.6
+    discoverability: 66.1
+    contract_quality: 56.6
+    contract_governance: 23.5
+    operational_transparency: 46.8
+    developer_ergonomics: 65.5
+    access_clarity: 50.5
   agent_readiness:
-    score: 21.2
+    score: 25.0
     band: agent-aware
     dimensions:
       spec_presence: true
       agentic_access: false
       reversibility_documented: false
       mcp_server: false
-      auth_clarity: false
+      auth_clarity: bearer
       idempotency: false
       error_semantics: verified
-      openapi_examples: false
+      openapi_examples: documented
       rate_limit_signal: documented
       event_surface_described: false
       agent_skills: false
@@ -44,8 +42,11 @@ kin_score:
     applies: true
     regime: Government & Public Sector
     regime_id: government
-    score: 46.3
+    score: 30.4
     matched_via: tags
+  open_source:
+    applies: true
+    score: 25.0
   provenance:
     contracts:
       total: 7

@@ -1,21 +1,19 @@
-# Kin Score artifact — scryfall — 2026-08-29T213958
+# Kin Score artifact — scryfall — 2026-09-23T000603
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: scryfall
-  schema_version: 0.16.0
-  scored_at: '2026-08-29'
-  run_ts: 2026-08-29T213958
-  composite: 59.0
+  schema_version: 0.22.0
+  scored_at: '2026-09-23'
+  run_ts: 2026-09-23T000603
+  composite: 57.1
   band: strong
   facets:
-    discoverability: 74.1
+    discoverability: 68.5
     contract_quality: 62.2
-    governance: 25.0
-    operational_transparency: 50.0
-    developer_ergonomics: 69.0
-    commercial_clarity: 52.6
     contract_governance: 25.0
+    operational_transparency: 50.0
+    developer_ergonomics: 65.5
     access_clarity: 52.6
   agent_readiness:
     score: 25.0
