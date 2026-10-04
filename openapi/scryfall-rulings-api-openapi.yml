@@ -146,6 +146,15 @@ components:
           type: array
           items:
             type: object
+    RulingList:
+      allOf:
+      - $ref: '#/components/schemas/List'
+      - type: object
+        properties:
+          data:
+            type: array
+            items:
+              $ref: '#/components/schemas/Ruling'
     Ruling:
       type: object
       description: 'A Scryfall Ruling object: Oracle ruling, WotC release note, or Scryfall note for a card.'
@@ -167,12 +176,3 @@ components:
           format: date
         comment:
           type: string
-    RulingList:
-      allOf:
-      - $ref: '#/components/schemas/List'
-      - type: object
-        properties:
-          data:
-            type: array
-            items:
-              $ref: '#/components/schemas/Ruling'

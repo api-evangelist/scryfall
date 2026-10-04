@@ -55,37 +55,6 @@ paths:
                 $ref: '#/components/schemas/ManaCost'
 components:
   schemas:
-    ManaCost:
-      type: object
-      description: A parsed Magic mana cost.
-      properties:
-        object:
-          type: string
-          enum:
-          - mana_cost
-        cost:
-          type: string
-        cmc:
-          type: number
-        colors:
-          type: array
-          items:
-            type: string
-        colorless:
-          type: boolean
-        monocolored:
-          type: boolean
-        multicolored:
-          type: boolean
-    CardSymbolList:
-      allOf:
-      - $ref: '#/components/schemas/List'
-      - type: object
-        properties:
-          data:
-            type: array
-            items:
-              $ref: '#/components/schemas/CardSymbol'
     CardSymbol:
       type: object
       description: A Scryfall Card Symbol object representing a single Magic mana or text symbol.
@@ -127,6 +96,37 @@ components:
         svg_uri:
           type: string
           format: uri
+    ManaCost:
+      type: object
+      description: A parsed Magic mana cost.
+      properties:
+        object:
+          type: string
+          enum:
+          - mana_cost
+        cost:
+          type: string
+        cmc:
+          type: number
+        colors:
+          type: array
+          items:
+            type: string
+        colorless:
+          type: boolean
+        monocolored:
+          type: boolean
+        multicolored:
+          type: boolean
+    CardSymbolList:
+      allOf:
+      - $ref: '#/components/schemas/List'
+      - type: object
+        properties:
+          data:
+            type: array
+            items:
+              $ref: '#/components/schemas/CardSymbol'
     List:
       type: object
       description: A generic Scryfall List object wrapping a paginated collection of any type.

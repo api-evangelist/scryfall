@@ -96,6 +96,25 @@ paths:
                 $ref: '#/components/schemas/Set'
 components:
   schemas:
+    List:
+      type: object
+      description: A generic Scryfall List object wrapping a paginated collection of any type.
+      properties:
+        object:
+          type: string
+          enum:
+          - list
+        total_cards:
+          type: integer
+        has_more:
+          type: boolean
+        next_page:
+          type: string
+          format: uri
+        data:
+          type: array
+          items:
+            type: object
     SetList:
       allOf:
       - $ref: '#/components/schemas/List'
@@ -159,22 +178,3 @@ components:
         search_uri:
           type: string
           format: uri
-    List:
-      type: object
-      description: A generic Scryfall List object wrapping a paginated collection of any type.
-      properties:
-        object:
-          type: string
-          enum:
-          - list
-        total_cards:
-          type: integer
-        has_more:
-          type: boolean
-        next_page:
-          type: string
-          format: uri
-        data:
-          type: array
-          items:
-            type: object
