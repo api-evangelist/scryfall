@@ -548,45 +548,28 @@ components:
           $ref: '#/components/schemas/ImageUris'
         watermark:
           type: string
-    List:
+    ImageUris:
       type: object
-      description: A generic Scryfall List object wrapping a paginated collection of any type.
+      description: URIs for card image renderings at multiple sizes.
       properties:
-        object:
-          type: string
-          enum:
-          - list
-        total_cards:
-          type: integer
-        has_more:
-          type: boolean
-        next_page:
+        small:
           type: string
           format: uri
-        data:
-          type: array
-          items:
-            type: object
-    Error:
-      type: object
-      description: A Scryfall Error response object returned for any non-2xx status.
-      properties:
-        object:
+        normal:
           type: string
-          enum:
-          - error
-        status:
-          type: integer
-        code:
+          format: uri
+        large:
           type: string
-        details:
+          format: uri
+        png:
           type: string
-        type:
+          format: uri
+        art_crop:
           type: string
-        warnings:
-          type: array
-          items:
-            type: string
+          format: uri
+        border_crop:
+          type: string
+          format: uri
     Legalities:
       type: object
       description: Format-by-format legality of a card; values are legal, not_legal, restricted, or banned.
@@ -642,19 +625,25 @@ components:
           type: string
         predh:
           type: string
-    CardList:
-      allOf:
-      - $ref: '#/components/schemas/List'
-      - type: object
-        properties:
-          data:
-            type: array
-            items:
-              $ref: '#/components/schemas/Card'
-          not_found:
-            type: array
-            items:
-              type: object
+    List:
+      type: object
+      description: A generic Scryfall List object wrapping a paginated collection of any type.
+      properties:
+        object:
+          type: string
+          enum:
+          - list
+        total_cards:
+          type: integer
+        has_more:
+          type: boolean
+        next_page:
+          type: string
+          format: uri
+        data:
+          type: array
+          items:
+            type: object
     Catalog:
       type: object
       description: A Scryfall Catalog object containing an array of Magic datapoints (names, types, etc.).
@@ -672,31 +661,6 @@ components:
           type: array
           items:
             type: string
-    RelatedCard:
-      type: object
-      description: A reference to a card related to this one (e.g., meld, token, combo).
-      properties:
-        object:
-          type: string
-          enum:
-          - related_card
-        id:
-          type: string
-          format: uuid
-        component:
-          type: string
-          enum:
-          - token
-          - meld_part
-          - meld_result
-          - combo_piece
-        name:
-          type: string
-        type_line:
-          type: string
-        uri:
-          type: string
-          format: uri
     Card:
       type: object
       description: 'A Scryfall Card object representing a Magic: The Gathering card printing.'
@@ -927,6 +891,19 @@ components:
             type: string
         watermark:
           type: string
+    CardList:
+      allOf:
+      - $ref: '#/components/schemas/List'
+      - type: object
+        properties:
+          data:
+            type: array
+            items:
+              $ref: '#/components/schemas/Card'
+          not_found:
+            type: array
+            items:
+              type: object
     Prices:
       type: object
       description: Up-to-date market prices for this printing in several currencies and finishes.
@@ -943,25 +920,48 @@ components:
           type: string
         tix:
           type: string
-    ImageUris:
+    Error:
       type: object
-      description: URIs for card image renderings at multiple sizes.
+      description: A Scryfall Error response object returned for any non-2xx status.
       properties:
-        small:
+        object:
           type: string
-          format: uri
-        normal:
+          enum:
+          - error
+        status:
+          type: integer
+        code:
           type: string
-          format: uri
-        large:
+        details:
           type: string
-          format: uri
-        png:
+        type:
           type: string
-          format: uri
-        art_crop:
+        warnings:
+          type: array
+          items:
+            type: string
+    RelatedCard:
+      type: object
+      description: A reference to a card related to this one (e.g., meld, token, combo).
+      properties:
+        object:
           type: string
-          format: uri
-        border_crop:
+          enum:
+          - related_card
+        id:
+          type: string
+          format: uuid
+        component:
+          type: string
+          enum:
+          - token
+          - meld_part
+          - meld_result
+          - combo_piece
+        name:
+          type: string
+        type_line:
+          type: string
+        uri:
           type: string
           format: uri

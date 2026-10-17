@@ -101,6 +101,15 @@ components:
           type: array
           items:
             type: object
+    BulkDataList:
+      allOf:
+      - $ref: '#/components/schemas/List'
+      - type: object
+        properties:
+          data:
+            type: array
+            items:
+              $ref: '#/components/schemas/BulkData'
     BulkData:
       type: object
       description: A Scryfall Bulk Data object describing one downloadable export of card data.
@@ -141,12 +150,3 @@ components:
           type: string
         size:
           type: integer
-    BulkDataList:
-      allOf:
-      - $ref: '#/components/schemas/List'
-      - type: object
-        properties:
-          data:
-            type: array
-            items:
-              $ref: '#/components/schemas/BulkData'
