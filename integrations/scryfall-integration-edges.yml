@@ -30,10 +30,49 @@ edges:
     builder: unknown (community connector; contributor not in the record)
   detected_by: sweep-data-integration.py
   first_seen: '2026-10-18'
+- partner_name: Obsidian
+  partner: obsidian
+  partner_match: aggregator
+  type: marketplace
+  marketplace: obsidian-community-plugins
+  channel: community-plugin
+  relationship: connector-listing
+  direction: third-party
+  evidence: https://github.com/louis1190/obsidian-mtg-collection-tracker
+  app: MTG Collection Tracker
+  listing_count: 1
+  category: Obsidian community plugin
+  partner_url: https://obsidian.md/plugins
+  contract_reference:
+    register: Obsidian community-plugins.json (obsidianmd/obsidian-releases@793b5211) + plugin repo README / manifest
+      / source
+    spec_file: null
+    role: obsidian-community-plugin:community
+    registered_name: louis1190
+    register_id: https://github.com/louis1190/obsidian-mtg-collection-tracker
+    matched_domain: scryfall.com
+    matched_by: domain+name-in-listing
+    matched_where: README
+    matched_host: api.scryfall.com
+    builder: community
+    plugins:
+    - mtg-collection-tracker
+    downloads_context: 206
+    signal_note: 'ONE edge per provider: a community plugin names the provider in its name/description AND carries
+      the provider''s domain or API host in its README or source. Builder is a named community author (not the provider).
+      Plugin and download counts are context, never counted.'
+    detected_by: sweep-obsidian-community-plugins.py
+    detected: '2026-10-22'
+  detected_by: sweep-obsidian-community-plugins.py
+  first_seen: '2026-10-22'
 method: searched
 checked:
 - https://connectors.airbyte.com/files/registries/v0/cloud_registry.json
 - https://connectors.airbyte.com/files/registries/v0/oss_registry.json
+- https://raw.githubusercontent.com/<repo>/HEAD/README.md
+- https://raw.githubusercontent.com/<repo>/HEAD/manifest.json
+- https://raw.githubusercontent.com/obsidianmd/obsidian-releases/793b52114f54b055b760ef47761ec5c93d689804/community-plugin-stats.json
+- https://raw.githubusercontent.com/obsidianmd/obsidian-releases/793b52114f54b055b760ef47761ec5c93d689804/community-plugins.json
 source:
 - https://connectors.airbyte.com/files/registries/v0/cloud_registry.json
 - https://connectors.airbyte.com/files/registries/v0/oss_registry.json
